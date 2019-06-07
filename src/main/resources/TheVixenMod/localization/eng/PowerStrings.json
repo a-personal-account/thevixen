@@ -1,0 +1,165 @@
+{
+  "TheVixenMod:BurnPower": {
+    "NAME": "Burn",
+    "DESCRIPTIONS": [
+      "This creature takes #b",
+      " more damage from Vixen-specific attacks. Every #b",
+      " burn applied, the enemy gains 1 weak. At the end of its turn, remove all Burn."
+    ]
+  },
+  "TheVixenMod:SunnyDayPower": {
+    "NAME": "Sunny Day",
+    "DESCRIPTIONS": [
+      "The next card with a Sunny effect you play is enhanced.",
+      "The next #b",
+      " cards with a Sunny effect you play are enhanced.",
+      "Some attacks will consume a stack of this and have additional effects. NL (Intent damage is accurate)"
+    ]
+  },
+  "TheVixenMod:SynergyBurstPower": {
+    "NAME": "Synergy Burst",
+    "DESCRIPTIONS": [
+      "Able to use Psycracker."
+    ]
+  },
+  "TheVixenMod:BlazePower": {
+    "NAME": "Blaze",
+    "DESCRIPTIONS": [
+      "If you are at or below 50% Health, whenever you apply Burn, apply #b",
+      " more Burn."
+    ]
+  },
+  "TheVixenMod:MoodyPower": {
+    "NAME": "Moody",
+    "DESCRIPTIONS": [
+      "?????"
+    ]
+  },
+  "TheVixenMod:MagicianPower": {
+    "NAME": "Magician",
+    "DESCRIPTIONS": [
+      "Whenever you deal damage this turn, draw a card, gain [E] and temporarily lose 2 Strength.",
+      "Whenever you deal damage the next #b",
+      " turns, draw a card, gain [E] and temporarily lose 2 Strength and Dexterity."
+    ]
+  },
+  "TheVixenMod:SubstitutePower": {
+    "NAME": "Substitute",
+    "DESCRIPTIONS": [
+      "Prevent the next #b",
+      " damage you would take. Any damage you would take when this effect wears off is negated."
+    ]
+  },
+  "TheVixenMod:TelepathyPower": {
+    "NAME": "Telepathy",
+    "DESCRIPTIONS": [
+      "Enemies deal #b",
+      " more damage to themselves."
+    ]
+  },
+  "TheVixenMod:ProtectSpamPower": {
+    "NAME": "Protectspam",
+    "DESCRIPTIONS": [
+      "Protect is less effective this turn",
+      "Protect is less effective for #b",
+      " turns."
+    ]
+  },
+  "TheVixenMod:GutsPower": {
+    "NAME": "Guts",
+    "DESCRIPTIONS": [
+      "Effects act as if you had one more common debuff with duration #b",
+      ". At the end of your turn, gain Block equal to the cumulative duration of your common debuffs."
+    ]
+  },
+  "TheVixenMod:FlameBodyPower": {
+    "NAME": "Flame Body",
+    "DESCRIPTIONS": [
+      "Whenever you are attacked, increase the next burn the attacker suffers by #b",
+      "."
+    ]
+  },
+  "TheVixenMod:BurnNextTurn": {
+    "NAME": "Suppuration",
+    "DESCRIPTIONS": [
+      "The next Effect that causes Burn to this target is increased by #b",
+      ". NL Wears off at the start of the enemy turn."
+    ]
+  },
+  "TheVixenMod:EndurePower": {
+    "NAME": "Endure",
+    "DESCRIPTIONS": [
+      "You cannot be reduced below 1 HP this turn.",
+      "Exhaust the Endure card that triggered this if you would."
+    ]
+  },
+  "TheVixenMod:RetainRightPower": {
+    "NAME": "Righthanded",
+    "DESCRIPTIONS": [
+      "Retain the rightmost card in your hand.",
+      "Retain the #b",
+      " rightmost attack, skill or power cards in your hand."
+    ]
+  },
+  "TheVixenMod:ClearSkyPower": {
+    "NAME": "Clear Sky",
+    "DESCRIPTIONS": [
+      "Sunny Day is not consumed this turn.",
+      "Japanese translators suck it for #b",
+      " turns.",
+      "Sunny day is not consumed for... basically ever."
+    ]
+  },
+  "TheVixenMod:ConfusionPower": {
+    "NAME": "Confuzzled",
+    "DESCRIPTIONS": [
+      "Whenever this enemy deals damage, it takes damage equal to half the inflicted damage. NL Wears off at the end of its turn."
+    ]
+  },
+  "TheVixenMod:DazzlingPower": {
+    "NAME": "Dazzling",
+    "DESCRIPTIONS": [
+      "Whenever the #rSunny effect of a card is triggered, gain #b",
+      " Block."
+    ]
+  },
+  "TheVixenMod:DroughtPower": {
+    "NAME": "Drought",
+    "DESCRIPTIONS": [
+      "Whenever you gain #rSunny #rDay, deal #r",
+      " damage to a random enemy."
+    ]
+  },
+  "TheVixenMod:AnalyticPower": {
+    "NAME": "Analytic",
+    "DESCRIPTIONS": [
+      "Whenever you play #b2 or less cards during your turn, gain #r",
+      " #rSunny #Day."
+    ]
+  },
+
+  "TheVixenMod:AnalyticPlusPower": {
+    "NAME": "Analytic+",
+    "DESCRIPTIONS": [
+      "Whenever you play #b3 or less cards during your turn, gain #r",
+      " #rSunny #rDay."
+    ]
+  },
+
+
+
+  "TheVixenMod:BossFacadePower": {
+    "NAME": "",
+    "DESCRIPTIONS": [
+      "Amount of attacks next round increases with the number of common debuffs on the boss."
+    ]
+  },
+
+  "TheVixenMod:GainDexterityPower": {
+    "NAME": "Hamstrung",
+    "DESCRIPTIONS": [
+      "At the end of its turn, gains #b",
+      " #yDexterity."
+    ]
+  }
+}

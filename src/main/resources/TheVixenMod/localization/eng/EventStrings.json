@@ -1,0 +1,18 @@
+{
+  "TheVixenMod:UmbreonEvent": {
+    "NAME": "Creature of the Night",
+    "DESCRIPTIONS": [
+      "While traversing the spire, you hear a loud cry and sounds of a fight. You peek around a corner and see a peculiar beast clashing a group of the spire's inhabitants. Treasure has been scattered around in the chaos of the fight.",
+      "You enter the room and attract the attention of the fighters. The beast seems to recognize you, as it immediatly darts to your side. Prepare for battle!",
+      "You gather what you can without attracting any attention, and continue on your way.",
+    ],
+    "OPTIONS": [
+      "[Fight the Beast's assailants] #gObtain #ga #gspecial #grelic.",
+      "[Grab what you can] #gObtain #g",
+      " Gold.",
+
+      "[Fight!]",
+      "[Leave]"
+    ]
+  }
+}

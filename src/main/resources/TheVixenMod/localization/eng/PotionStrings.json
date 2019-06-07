@@ -1,0 +1,8 @@
+{
+  "TheVixenMod:FullHeal": {
+    "NAME": "Full Heal",
+    "DESCRIPTIONS": [
+      "Removes Vulnerable, Weak, Frail and any negative Strength or Dexterity values."
+    ]
+  }
+}

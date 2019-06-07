@@ -1,0 +1,167 @@
+package thevixen.helpers;
+
+import basemod.animations.SpriterAnimation;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.brashmonkey.spriter.PlayerTweener;
+import com.brashmonkey.spriter.SCMLReader;
+import com.brashmonkey.spriter.Timeline;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
+import thevixen.powers.SunnyDayPower;
+import thevixen.relics.EternalFlame;
+import thevixen.vfx.GhostlyFireEffect;
+
+public class BraixenAnimation extends SpriterAnimation {
+
+
+    private PlayerTweener braixen;
+    private PlayerTweener substitute;
+    private AbstractCreature owner;
+    boolean isPlayer;
+    private int damaged = 0;
+
+
+    public BraixenAnimation(String path) {
+        this(null, path);
+
+    }
+    public BraixenAnimation(AbstractCreature owner, String path) {
+        super(path);
+        this.braixen = this.myPlayer;
+
+        this.substitute = new PlayerTweener((new SCMLReader(Gdx.files.internal(path).read())).getData().getEntity(1));
+        this.substitute.setScale(Settings.scale);
+
+        if(owner != null) {
+            this.setOwner(owner);
+        }
+    }
+
+    public void setOwner(AbstractCreature owner) {
+        this.owner = owner;
+        this.isPlayer = this.owner instanceof AbstractPlayer;
+
+        this.setFlip(!isPlayer, false);
+        this.substitute.flip(!isPlayer, false);
+    }
+
+    public void damage() {
+        this.myPlayer.getFirstPlayer().setAnimation("hurt");
+        this.myPlayer.getFirstPlayer().setTime(0);
+
+        damaged = 400;
+    }
+
+    public void substitute() {
+        if(this.myPlayer.getEntity().name != "substitute") {
+            this.myPlayer = substitute;
+            this.myPlayer.getFirstPlayer().setAnimation("enter");
+            this.myPlayer.getFirstPlayer().setTime(0);
+            damaged = 800; //to reset to idle
+
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new SmokeBombEffect(this.owner.hb.cX, this.owner.hb.cY)));
+        }
+    }
+    public void resetAnimation() {
+        this.myPlayer = braixen;
+        this.myPlayer.getFirstPlayer().setAnimation("idle");
+        this.myPlayer.getFirstPlayer().setTime(0);
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new SmokeBombEffect(this.owner.hb.cX, this.owner.hb.cY)));
+    }
+
+    @Override
+    public void renderSprite(SpriteBatch sb, float x, float y) {
+        if(damaged > 0) {
+            if(this.myPlayer.getFirstPlayer().getTime() > damaged) {
+                damaged = 0;
+                this.myPlayer.getFirstPlayer().setAnimation("idle");
+                this.myPlayer.getFirstPlayer().setTime(0);
+            }
+        }
+        super.renderSprite(sb, x, y);
+
+        if(isPlayer) {
+            fire(AbstractDungeon.player.hasRelic(EternalFlame.ID));
+        } else {
+            fire(false);
+        }
+    }
+
+
+    private float particleTimer = 0.0F;
+    private Color rainbow = new Color(1F, 0F, 0F, 1.0F);
+    private void fire(boolean useRainbow) {
+        try {
+            if(owner.hasPower(SunnyDayPower.POWER_ID)) {
+                int amnt = owner.getPower(SunnyDayPower.POWER_ID).amount - 1;
+                Color color;
+
+                if(amnt >= 10) {
+                    color = Color.WHITE.cpy();
+                } else if(useRainbow) {
+                    color = getRainbow();
+                } else {
+                    color = Color.ORANGE.cpy();
+                }
+
+                if (this.particleTimer < 0.0F) {
+                    color.add(amnt * 0.1F, amnt * 0.1F, amnt * 0.1F, 1F);
+
+                    Timeline.Key.Bone bone = this.myPlayer.getFirstPlayer().getBone("bone_010");
+                    double angle = Math.toRadians(180 - (bone.angle % 360) + 50);
+                    float x = (float) (60 * Math.cos(angle) + bone.position.x + 100) * Settings.scale;
+                    float y = (float) (60 * Math.sin(angle) + bone.position.y + 35) * Settings.scale;
+                    AbstractDungeon.effectList.add(
+                            new GhostlyFireEffect(owner.drawX + owner.animX - (x * (this.isPlayer ? 1 : -1)), owner.drawY + owner.animY + AbstractDungeon.sceneOffsetY + y, color, amnt * 0));
+
+                    this.particleTimer = 0.06F;
+                }
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+            }
+        } catch(NullPointerException ex) {}
+    }
+
+    private Color getRainbow() {
+        final float velocity = 0.1F;
+
+        if(rainbow.g < 1 && rainbow.r >= 1 && rainbow.b <= 0) {
+            rainbow.g += velocity;
+            if(rainbow.g > 1.0F) {
+                rainbow.g = 1.0F;
+            }
+        } else if(rainbow.g >= 1 && rainbow.r > 0 && rainbow.b <= 0) {
+            rainbow.r -= velocity;
+            if(rainbow.r < 0.0F) {
+                rainbow.r = 0.0F;
+            }
+        } else if(rainbow.g >= 1 && rainbow.r <= 0 && rainbow.b < 1) {
+            rainbow.b += velocity;
+            if(rainbow.b > 1.0F) {
+                rainbow.b = 1.0F;
+            }
+        } else if(rainbow.g > 0 && rainbow.r <= 0 && rainbow.b >= 1) {
+            rainbow.g -= velocity;
+            if(rainbow.g < 0.0F) {
+                rainbow.g = 0.0F;
+            }
+        } else if(rainbow.g <= 0 && rainbow.r < 1 && rainbow.b >= 1) {
+            rainbow.r += velocity;
+            if(rainbow.r > 1.0F) {
+                rainbow.r = 1.0F;
+            }
+        } else if(rainbow.g <= 0 && rainbow.r >= 1 && rainbow.b > 0) {
+            rainbow.b -= velocity;
+            if(rainbow.b < 0.0F) {
+                rainbow.b = 0.0F;
+            }
+        }
+
+        return rainbow.cpy();
+    }
+}

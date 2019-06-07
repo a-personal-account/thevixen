@@ -1,0 +1,80 @@
+{
+  "TheVixenMod:BurningStick": {
+    "NAME": "Burning Stick",
+    "FLAVOR": "It's brown, but not sticky.",
+    "DESCRIPTIONS": [
+      "In the hands of the Vixen, at the start of your turn, gain #b",
+      " #rSunny #rDay. NL Displays the amount of #rSunnyπ #rDay you have.",
+      "In your sloppy hands, at the start of your turn, gain #rStrength equal to the cumulative duration of your #rcommon #rdebuffs this turn."
+    ]
+  },
+  "TheVixenMod:EternalFlame": {
+    "NAME": "Eternal Flame",
+    "FLAVOR": "Just add water.",
+    "DESCRIPTIONS": [
+      "Replaces #gBurning #gStick. In the hands of the Vixen, at the start of your turn, gain #b",
+      " #rSunny #rDay and #rStrength equal to the leftover #rSunny #rDay from last turn until end of turn. NL Displays the amount of #rSunny #rDay you have.",
+      "In your sloppy hands, at the start of your turn, gain #rStrength and #rDexterity equal to the cumulative duration of your #rcommon #rdebuffs this turn."
+    ]
+  },
+  "TheVixenMod:SereneGrace": {
+    "NAME": "Serene Grace",
+    "FLAVOR": "Pray, Iron Head, Repeat.",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yBurn to an enemy, reduce that enemy's strength by half the amount of burn applied until end of turn."
+    ]
+  },
+  "TheVixenMod:FiriumZ": {
+    "NAME": "Firium Z",
+    "FLAVOR": "Obtained in a fierce... dance competition.",
+    "DESCRIPTIONS": [
+      "Right-click: Once per combat, deal #r",
+      " damage to target enemy. It cannot die this turn.",
+      "Inferno Overdrive"
+    ]
+  },
+  "TheVixenMod:Charcoal": {
+    "NAME": "Charcoal",
+    "FLAVOR": "My christmas gift.",
+    "DESCRIPTIONS": [
+      "Damage caused by Burn is doubled (the debuff you inflict, not the status card)."
+    ]
+  },
+  "TheVixenMod:FlameOrb": {
+    "NAME": "Flame Orb",
+    "FLAVOR": "You need real guts to carry something like this around.",
+    "DESCRIPTIONS": [
+      "Burn is now halved instead of removed at the end of turn. Double the Block gained from Guts."
+    ]
+  },
+  "TheVixenMod:ShellBell": {
+    "NAME": "Shell Bell",
+    "FLAVOR": "Reverberates when others scream in agony.",
+    "DESCRIPTIONS": [
+      "Whenever you deal damage to a burned creature, gain 3 Block."
+    ]
+  },
+  "TheVixenMod:TwistedSpoon": {
+    "NAME": "Twisted Spoon",
+    "FLAVOR": "Not to be confused with a strange spoon.",
+    "DESCRIPTIONS": [
+      "Whenever your cards cause enemies to deal damage to themselves, they lose 2 Strength this turn."
+    ]
+  },
+  "TheVixenMod:Synchronize": {
+    "NAME": "Synchronize",
+    "FLAVOR": "no, U",
+    "DESCRIPTIONS": [
+      "Whenever you are afflicted with Weak, Vulnerable or negative Strength, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
+    ]
+  },
+
+
+  "TheVixenMod:UmbreonRelic": {
+    "NAME": "Umbreon's Support",
+    "FLAVOR": "Unbreakable bonds of friendship... that will be forgotten when you start another climb.",
+    "DESCRIPTIONS": [
+      "After playing 20 cards, put Umbreon into your hand. It stays there until played or discarded manually."
+    ]
+  }
+}

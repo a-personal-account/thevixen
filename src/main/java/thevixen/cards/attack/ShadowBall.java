@@ -1,0 +1,94 @@
+package thevixen.cards.attack;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import thevixen.TheVixenMod;
+import thevixen.cards.AbstractVixenCard;
+import thevixen.enums.AbstractCardEnum;
+import thevixen.powers.SunnyDayPower;
+
+public class ShadowBall extends AbstractVixenCard {
+    public static final String ID = "TheVixenMod:ShadowBall";
+    public static final String NAME;
+    public static final String DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION;
+    public static final String IMG_PATH = "cards/shadowball.png";
+
+    private static final CardStrings cardStrings;
+
+    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+
+    private static final int COST = 2;
+    private static final int DAMAGE = 12;
+
+    private static final int CARDS = 1;
+
+    public ShadowBall() {
+        super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+
+        this.baseDamage = this.damage = DAMAGE;
+        this.baseMagicNumber = this.magicNumber = CARDS;
+    }
+
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        boolean found = false;
+
+        regular(p, m);
+
+        if(m.hasPower(WeakPower.POWER_ID)) {
+            found = true;
+            sunny(p, m);
+        }
+        if((!found || this.upgraded) && p.hasPower(SunnyDayPower.POWER_ID)) {
+            removeSunny(p);
+            sunny(p, m);
+        }
+    }
+
+    @Override
+    protected void regular(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+    }
+
+    @Override
+    protected void sunny(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new ShadowBall();
+    }
+
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
+
+    static {
+        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+        NAME = cardStrings.NAME;
+        DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    }
+}

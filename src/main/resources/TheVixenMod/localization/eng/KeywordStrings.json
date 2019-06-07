@@ -1,0 +1,52 @@
+{
+  "TheVixenMod:BurnKeyword": {
+    "PROPER_NAME": "Burn",
+    "NAMES": [
+      "burn",
+      "burned"
+    ],
+    "DESCRIPTION": "Burning creatures take more damage from all attacks equal to the amount of Burn on them. When the stack of burn passes a multiple of 4, apply 1 weak. Burn is removed at the end of turn."
+  },
+  "TheVixenMod:SunnyKeyword": {
+    "PROPER_NAME": "Sunny Day",
+    "NAMES": [
+      "sunny"
+    ],
+    "DESCRIPTION": "The Sunny effect of a card is triggered when the user is under the effect of \"Sunny Day\"."
+  },
+  "TheVixenMod:SubstituteKeyword": {
+    "PROPER_NAME": "Substitute",
+    "NAMES": [
+      "substitute"
+    ],
+    "DESCRIPTION": "Prevents damage similar to Block, but is not removed at the end of turn. The blow that removes this deals 0 damage."
+  },
+  "TheVixenMod:ProtectspamKeyword": {
+    "PROPER_NAME": "Protectspam",
+    "NAMES": [
+      "protectspam"
+    ],
+    "DESCRIPTION": "Protect is less effective."
+  },
+  "TheVixenMod:CommonDebuffKeyword": {
+    "PROPER_NAME": "Common Debuffs",
+    "NAMES": [
+      "common"
+    ],
+    "DESCRIPTION": "Common debuffs are defined as Weak, Vulnerable, Frail, Protectspam (from this mod), as well as curses and status cards in your hand."
+  },
+  "TheVixenMod:GutsKeyword": {
+    "PROPER_NAME": "Guts",
+    "NAMES": [
+      "guts"
+    ],
+    "DESCRIPTION": "Effects that interact with the common debuffs on you act as if you have more. Gain Block equal to the cumulative duration of your common debuffs at the end of your turn."
+  },
+  "TheVixenMod:CopycatKeyword": {
+    "PROPER_NAME": "Copycat",
+    "NAMES": [
+      "copycat"
+    ],
+    "DESCRIPTION": "This card exhausts. NL Sunny: Shuffle a copy of the repeated card into your discard pile."
+  }
+}

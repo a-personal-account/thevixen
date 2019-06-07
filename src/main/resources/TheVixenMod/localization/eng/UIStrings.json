@@ -1,0 +1,70 @@
+{
+  "TheVixenMod:eventEnabled": {
+    "TEXT": [
+      "Event \"Creature of the Night\" enabled on other characters"
+    ]
+  },
+  "TheVixenMod:bossEnabled": {
+    "TEXT": [
+      "Custom act 3 bossfight enabled"
+    ]
+  },
+
+  "TheVixenMod:psybeamintent": {
+    "TEXT": [
+      "Psychic",
+      "This enemy intends to NL make you #yAttack yourself NL for #b",
+      " damage. NL #rSunny: They will gain Block equal to the damage dealt."
+    ]
+  },
+  "TheVixenMod:swaggerintent": {
+    "TEXT": [
+      "Swagger",
+      "This enemy intends to NL make you #yAttack yourself NL for #b",
+      " damage and will inflict NL a negative ailment on you."
+    ]
+  },
+  "TheVixenMod:sunnyattack": {
+    "TEXT": [
+      "Burn",
+      "This enemy intends to NL #yAttack for #b",
+      " damage. NL #rSunny: NL Add Status cards to your deck that increase your damage taken."
+    ]
+  },
+  "TheVixenMod:sunnyattackbig": {
+    "TEXT": [
+      "Solar Beam",
+      "This enemy intends to NL #yAttack for #b",
+      " damage. NL #rSunny: NL Consume all Sunny day stacks. Repeat this once for each stack."
+    ]
+  },
+  "TheVixenMod:facadeintent": {
+    "TEXT": [
+      "Facade",
+      "This enemy intends to NL #yAttack for #b",
+      " damage. NL Repeat this for each unique common debuff on them."
+    ]
+  },
+  "TheVixenMod:selfdebuffintent": {
+    "TEXT": [
+      "Reckless",
+      "This enemy intends to NL #yAttack for #b",
+      " damage. NL #rSunny: NL They inflict a #yNegative #yEffect on #rthemselves."
+    ]
+  },
+  "TheVixenMod:firespin": {
+    "TEXT": [
+      "Aggressive",
+      "This enemy intends to NL #yAttack for #b",
+      " damage #b",
+      " times. NL #rSunny: NL They attack 2 more times (already displayed)."
+    ]
+  },
+  "TheVixenMod:flamewheel": {
+    "TEXT": [
+      "Exploitative",
+      "This enemy intends to NL #yAttack for #b",
+      " damage and Block for 2 for each point of increased damage you took through special Status cards. NL #rSunny: NL Repeat this once (already displayed)."
+    ]
+  }
+}

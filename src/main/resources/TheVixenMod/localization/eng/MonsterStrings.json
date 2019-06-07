@@ -1,0 +1,37 @@
+{
+  "TheVixenMod:TheVixenBoss": {
+    "MOVES": [
+      "Guts",
+      "Synergy Burst",
+      "Psycracker",
+      "Clear Sky",
+      "Endure",
+      "Psybeam",
+      "Facade",
+      "Swagger",
+      "Overheat",
+      "Solar Beam",
+      "Flame Wheel",
+      "Ember",
+      "Flamethrower",
+      "Fire Spin",
+      "Flare Blitz",
+      "Sunny Day",
+      "Blaze",
+      "Substitute",
+      "Inferno Overdrive"
+    ],
+    "NAME": "The Vixen",
+    "DIALOG": [
+      "Catch!",
+      "@RUUUUUURGH@",
+      "My drawpile is empty...",
+      "Back to the Exordium...",
+      "@Argh@",
+      "Here we go again...",
+      "Should've picked Lizard Tail...",
+      "@Streak ruined!@",
+      "Hello Neow, my old friend..."
+    ]
+  }
+}
