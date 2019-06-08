@@ -31,14 +31,9 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
 import thevixen.RazIntent.CustomIntent;
-import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.*;
 import thevixen.cards.skill.*;
-import thevixen.cards.umbreon.UmbreonFoulPlay;
-import thevixen.cards.umbreon.UmbreonHelpingHand;
-import thevixen.cards.umbreon.UmbreonRefresh;
-import thevixen.cards.umbreon.UmbreonSnarl;
 import thevixen.characters.TheVixenCharacter;
 import thevixen.dynamicvariables.*;
 import thevixen.enums.AbstractCardEnum;
@@ -303,6 +298,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Barrier());
 
         // Special (6)
+        /*
         BaseMod.addCard(new Psycracker());
         BaseMod.addCard(new InfernoOverdrive());
         BaseMod.addCard(new UmbreonSnarl());
@@ -313,6 +309,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
 
         BaseMod.addCard(new DebugCard());
+         */
     }
 
     @Override

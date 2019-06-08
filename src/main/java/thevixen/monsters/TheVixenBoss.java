@@ -50,6 +50,7 @@ import thevixen.powers.*;
 import thevixen.powers.ConfusionPower;
 import thevixen.relics.BurningStick;
 import thevixen.relics.FiriumZ;
+import thevixen.vfx.ShinyEffect;
 import thevixen.vfx.SwaggerEffect;
 
 import java.lang.reflect.Field;
@@ -218,7 +219,7 @@ public class TheVixenBoss extends CustomMonster {
     public TheVixenBoss() {
         super(NAME, ID, 400, 0.0F, -15.0F, 300.0F, 230.0F, (String)null, 0.0F, 0.0F);
 
-        this.animation = new BraixenAnimation(this, getResourcePath("spriter/thevixen.scml"));
+        this.animation = new BraixenAnimation(this, getResourcePath("spriter/thevixen.scml"), AbstractDungeon.aiRng.random(4095) == 0);
 
         this.dialogX = (this.drawX - 30.0F * Settings.scale);
         this.dialogY = (this.drawY + 140.0F * Settings.scale);
@@ -361,6 +362,10 @@ public class TheVixenBoss extends CustomMonster {
         AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_BEYOND");
         UnlockTracker.markBossAsSeen(NAME);
 
+        if(((BraixenAnimation)this.animation).shiny) {
+            AbstractDungeon.effectList.add(new ShinyEffect(this.hb.cX, this.hb.cY, false));
+        }
+
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
@@ -394,7 +399,6 @@ public class TheVixenBoss extends CustomMonster {
                 default:
                     tmp.applyPowers(this, AbstractDungeon.player);
             }
-            tmp.output = 0;
         }
 
         switch(this.nextMove) {

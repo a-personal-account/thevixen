@@ -23,23 +23,37 @@ public class BraixenAnimation extends SpriterAnimation {
     private PlayerTweener braixen;
     private PlayerTweener substitute;
     private AbstractCreature owner;
-    boolean isPlayer;
+    private boolean isPlayer;
     private int damaged = 0;
+    public boolean shiny;
+    private String origpath;
 
 
-    public BraixenAnimation(String path) {
-        this(null, path);
-
+    public BraixenAnimation(String path, boolean shiny) {
+        this(null, path, shiny);
     }
-    public BraixenAnimation(AbstractCreature owner, String path) {
+    public BraixenAnimation(AbstractCreature owner, String path, boolean shiny) {
         super(path);
-        this.braixen = this.myPlayer;
+        this.substitute = this.myPlayer;
+        this.origpath = path;
 
-        this.substitute = new PlayerTweener((new SCMLReader(Gdx.files.internal(path).read())).getData().getEntity(1));
-        this.substitute.setScale(Settings.scale);
+        this.shiny = shiny;
+
+        this.braixen = new PlayerTweener((new SCMLReader(Gdx.files.internal(path).read())).getData().getEntity(shiny ? 2 : 1));
+        this.braixen.setScale(Settings.scale);
+        resetAnimation(false);
 
         if(owner != null) {
             this.setOwner(owner);
+        }
+    }
+
+    public void setShiny(boolean shiny) {
+        if(this.shiny != shiny) {
+            this.braixen = new PlayerTweener((new SCMLReader(Gdx.files.internal(origpath).read())).getData().getEntity(shiny ? 2 : 1));
+            this.braixen.setScale(Settings.scale);
+            resetAnimation(false);
+            this.shiny = shiny;
         }
     }
 
@@ -69,10 +83,15 @@ public class BraixenAnimation extends SpriterAnimation {
         }
     }
     public void resetAnimation() {
+        resetAnimation(true);
+    }
+    public void resetAnimation(boolean smokebomb) {
         this.myPlayer = braixen;
         this.myPlayer.getFirstPlayer().setAnimation("idle");
         this.myPlayer.getFirstPlayer().setTime(0);
-        AbstractDungeon.actionManager.addToTop(new VFXAction(new SmokeBombEffect(this.owner.hb.cX, this.owner.hb.cY)));
+        if(smokebomb) {
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new SmokeBombEffect(this.owner.hb.cX, this.owner.hb.cY)));
+        }
     }
 
     @Override
