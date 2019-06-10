@@ -22,7 +22,7 @@ public class SwaggerIntent extends CustomIntent {
 
 
     public SwaggerIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_PSYCHIC_DEBUFF, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/psychointent_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/psychointent.png"));
     }

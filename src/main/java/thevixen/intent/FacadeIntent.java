@@ -21,7 +21,7 @@ public class FacadeIntent extends CustomIntent {
 
 
     public FacadeIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_FACADE, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/facadeintent_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/facadeintent.png"));
     }

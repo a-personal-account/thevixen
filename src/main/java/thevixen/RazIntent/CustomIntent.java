@@ -20,15 +20,33 @@ public class CustomIntent {
     public String header;
     public String simpledescription;
 
-    public CustomIntent(AbstractMonster.Intent intent, String header, String display, String tip, String simpledescription) {
-        this.header = header;
-        this.display = ImageMaster.loadImage(display);
-        this.tip = ImageMaster.loadImage(tip);
-        this.simpledescription = simpledescription;
-        this.intent = intent;
-    }
     public CustomIntent(AbstractMonster.Intent intent, String header, String display, String tip) {
         this(intent, header, display, tip, null);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, Texture display, String tip) {
+        this(intent, header, display, ImageMaster.loadImage(tip), null);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, String display, Texture tip) {
+        this(intent, header, ImageMaster.loadImage(display), tip, null);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, Texture display, Texture tip) {
+        this(intent, header, display, tip, null);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, String display, String tip, String simpledescription) {
+        this(intent, header, ImageMaster.loadImage(display), ImageMaster.loadImage(tip), simpledescription);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, Texture display, String tip, String simpledescription) {
+        this(intent, header, display, ImageMaster.loadImage(tip), simpledescription);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, String display, Texture tip, String simpledescription) {
+        this(intent, header, ImageMaster.loadImage(display), tip, simpledescription);
+    }
+    public CustomIntent(AbstractMonster.Intent intent, String header, Texture display, Texture tip, String simpledescription) {
+        this.header = header;
+        this.display = display;
+        this.tip = tip;
+        this.simpledescription = simpledescription;
+        this.intent = intent;
     }
 
     public String description (AbstractMonster am) {
@@ -51,5 +69,9 @@ public class CustomIntent {
     }
     public float updateVFXInInterval(AbstractMonster am, ArrayList<AbstractGameEffect> intentVfx) {
         return 1.0F;
+    }
+
+    public static void add(CustomIntent ci) {
+        CustomIntent.intents.put(ci.intent, ci);
     }
 }

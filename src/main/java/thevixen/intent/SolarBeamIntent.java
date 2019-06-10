@@ -22,7 +22,7 @@ public class SolarBeamIntent extends CustomIntent {
 
 
     public SolarBeamIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_SOLARBEAM, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/sunnyattackbig_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/sunnyattackbig.png"));
     }

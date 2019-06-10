@@ -9,6 +9,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -30,6 +31,7 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinFat;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
+import myAct.dungeons.Factory;
 import thevixen.RazIntent.CustomIntent;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.*;
@@ -160,30 +162,39 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         }));
         adjustBoss();
 
-        CustomIntent.intents.put(IntentEnum.ATTACK_PSYCHIC_DEBUFF, new SwaggerIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_PSYCHIC_DEFEND, new PsybeamIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_SUNNY, new EmberIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_SOLARBEAM, new SolarBeamIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_SELFDEBUFF, new SelfDebuffIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_FACADE, new FacadeIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_FLAMEWHEEL, new FlameWheelIntent());
-        CustomIntent.intents.put(IntentEnum.ATTACK_FIRESPIN, new FireSpinIntent());
+        CustomIntent.add(new SwaggerIntent());
+        CustomIntent.add(new PsybeamIntent());
+        CustomIntent.add(new EmberIntent());
+        CustomIntent.add(new SolarBeamIntent());
+        CustomIntent.add(new SelfDebuffIntent());
+        CustomIntent.add(new FacadeIntent());
+        CustomIntent.add(new FlameWheelIntent());
+        CustomIntent.add(new FireSpinIntent());
     }
 
     private static String bossRealm = TheBeyond.ID;
     private void adjustBoss() {
+        ArrayList<String> realms = new ArrayList<>();
+        realms.add(bossRealm);
+        if(Loader.isModLoaded("theFactory")) {
+            realms.add(Factory.ID);
+        }
         if (bossEnabled) {
             if (findBossInfo() == null) {
-                BaseMod.addBoss(bossRealm, TheVixenBoss.ID, getResourcePath("ui/map/boss_vixen.png"), getResourcePath("ui/map/bossOutline_vixen.png"));
+                for(final String realm : realms) {
+                    BaseMod.addBoss(realm, TheVixenBoss.ID, getResourcePath("ui/map/boss_vixen.png"), getResourcePath("ui/map/bossOutline_vixen.png"));
+                }
             }
         } else {
             HashMap<String, List<BaseMod.BossInfo>> bosses = (HashMap)ReflectionHacks.getPrivateStatic(BaseMod.class, "customBosses");
-            if(bosses.containsKey(bossRealm)) {
-                List list = bosses.get(bossRealm);
-                BaseMod.BossInfo bi;
+            for(final String realm : realms) {
+                if(bosses.containsKey(realm)) {
+                    List list = bosses.get(realm);
+                    BaseMod.BossInfo bi;
 
-                if((bi = findBossInfo(bosses)) != null) {
-                    list.remove(bi);
+                    if((bi = findBossInfo(bosses)) != null) {
+                        list.remove(bi);
+                    }
                 }
             }
         }

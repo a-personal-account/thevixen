@@ -22,7 +22,7 @@ public class FlameWheelIntent extends CustomIntent {
 
 
     public FlameWheelIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_FLAMEWHEEL, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/flamewheel_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/flamewheel.png"));
     }

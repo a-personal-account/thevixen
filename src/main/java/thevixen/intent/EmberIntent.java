@@ -23,7 +23,7 @@ public class EmberIntent extends CustomIntent {
 
 
     public EmberIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_SUNNY, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/sunnyattack_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/sunnyattack.png"));
     }

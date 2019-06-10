@@ -22,7 +22,7 @@ public class SelfDebuffIntent extends CustomIntent {
 
 
     public SelfDebuffIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_SELFDEBUFF, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/selfdebuff_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/selfdebuff.png"));
     }

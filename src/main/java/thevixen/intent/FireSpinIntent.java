@@ -22,7 +22,7 @@ public class FireSpinIntent extends CustomIntent {
 
 
     public FireSpinIntent() {
-        super(IntentEnum.ATTACK_PSYCHIC_DEFEND, TEXT[0],
+        super(IntentEnum.ATTACK_FIRESPIN, TEXT[0],
                 TheVixenMod.getResourcePath("ui/intent/firespin_L.png"),
                 TheVixenMod.getResourcePath("ui/intent/firespin.png"));
     }
