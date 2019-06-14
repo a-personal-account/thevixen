@@ -70,7 +70,8 @@
   },
   "TheVixenMod:Facade": {
     "NAME": "Facade",
-    "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! )."
+    "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ).",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ). NL Unaffected by Weak."
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
@@ -103,6 +104,11 @@
   "TheVixenMod:FirePunch": {
     "NAME": "Fire Punch",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Burn. NL Can be upgraded any number of times. NL Sunny: Upgrade this card this combat."
+  },
+  "TheVixenMod:TrumpCard": {
+    "NAME": "Trump Card",
+    "DESCRIPTION": "Deal !D! damage. NL Unaffected by Weak. NL If you have a common debuff the dealt damage is applied to all other enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Weak is inverted for this card. NL If you have a common debuff the damage you dealt is applied to all other enemies as well."
   },
 
 
@@ -217,6 +223,10 @@
     "NAME": "Psycho Shift",
     "DESCRIPTION": "Absorb all common debuffs from one enemy. NL Heal for !M! for each common debuffstack on you.",
     "UPGRADE_DESCRIPTION": "Copy all common debuffs from one enemy. NL Heal for !M! for each common debuffstack on you."
+  },
+  "TheVixenMod:PerishSong": {
+    "NAME": "Perish Song",
+    "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply burn equal to the cumulative duration of your common debuffs."
   },
 
 

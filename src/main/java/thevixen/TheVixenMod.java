@@ -31,15 +31,18 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinFat;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
-import myAct.dungeons.Factory;
 import thevixen.RazIntent.CustomIntent;
+import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.*;
 import thevixen.cards.skill.*;
+import thevixen.cards.umbreon.UmbreonFoulPlay;
+import thevixen.cards.umbreon.UmbreonHelpingHand;
+import thevixen.cards.umbreon.UmbreonRefresh;
+import thevixen.cards.umbreon.UmbreonSnarl;
 import thevixen.characters.TheVixenCharacter;
 import thevixen.dynamicvariables.*;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.enums.IntentEnum;
 import thevixen.enums.TheVixenCharEnum;
 import thevixen.events.UmbreonEvent;
 import thevixen.helpers.ProperNameKeyword;
@@ -176,9 +179,6 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     private void adjustBoss() {
         ArrayList<String> realms = new ArrayList<>();
         realms.add(bossRealm);
-        if(Loader.isModLoaded("theFactory")) {
-            realms.add(Factory.ID);
-        }
         if (bossEnabled) {
             if (findBossInfo() == null) {
                 for(final String realm : realms) {
@@ -240,7 +240,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new SunnyDay());
         BaseMod.addCard(new Ember());
 
-        // Attack (19)
+        // Attack (20)
         BaseMod.addCard(new FlameWheel());
         BaseMod.addCard(new HeatWave());
         BaseMod.addCard(new Overheat());
@@ -263,6 +263,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new SolarBeam());
         BaseMod.addCard(new FirePunch());
         BaseMod.addCard(new Psyshock());
+        BaseMod.addCard(new TrumpCard());
 
         // Power (10)
         BaseMod.addCard(new SynergyBurst());
@@ -277,7 +278,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Drought());
         BaseMod.addCard(new Analytic());
 
-        // Skill (25)
+        // Skill (26)
         BaseMod.addCard(new Magician());
         BaseMod.addCard(new MindReader());
         BaseMod.addCard(new PsychUp());
@@ -308,10 +309,11 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new PsychoShift());
         BaseMod.addCard(new Barrier());
 
-        // Special (6)
-        /*
+        BaseMod.addCard(new PerishSong());
+
+        // Special (5)
+
         BaseMod.addCard(new Psycracker());
-        BaseMod.addCard(new InfernoOverdrive());
         BaseMod.addCard(new UmbreonSnarl());
         BaseMod.addCard(new UmbreonFoulPlay());
         BaseMod.addCard(new UmbreonRefresh());
@@ -320,7 +322,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
 
         BaseMod.addCard(new DebugCard());
-         */
+
     }
 
     @Override

@@ -1,9 +1,7 @@
 package thevixen.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,17 +9,16 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
 import thevixen.TheVixenMod;
 import thevixen.actions.ReduceCommonDebuffDurationAction;
-import thevixen.cards.AbstractVixenCard;
+import thevixen.cards.AbstractWeakReverseCard;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.powers.BurnPower;
 
-public class Facade extends AbstractVixenCard {
+public class Facade extends AbstractWeakReverseCard {
     public static final String ID = "TheVixenMod:Facade";
     public static final String NAME;
     public static final String DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "cards/facade.png";
 
     private static final CardStrings cardStrings;
@@ -58,6 +55,9 @@ public class Facade extends AbstractVixenCard {
         if (!this.upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
+            upgradeMisc();
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -65,5 +65,6 @@ public class Facade extends AbstractVixenCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     }
 }
