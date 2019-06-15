@@ -14,10 +14,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import thevixen.TheVixenMod;
 import thevixen.actions.ReduceCommonDebuffDurationAction;
-import thevixen.actions.WaitForVfxAction;
 import thevixen.cards.AbstractWeakReverseCard;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.vfx.CardReboundEffect;
 import thevixen.vfx.CardTossEffect;
 
 public class TrumpCard extends AbstractWeakReverseCard {

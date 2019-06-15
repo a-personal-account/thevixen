@@ -13,10 +13,7 @@ import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.Telepathy;
-import thevixen.cards.skill.Barrier;
-import thevixen.cards.skill.PerishSong;
-import thevixen.cards.skill.Protect;
-import thevixen.cards.skill.PsychoShift;
+import thevixen.cards.skill.*;
 import thevixen.enums.AbstractCardEnum;
 
 import java.util.ArrayList;
@@ -41,6 +38,7 @@ public class DebugCard extends AbstractConfusionCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractCard ac;
 
         AbstractDungeon.player.hand.clear();
         AbstractDungeon.player.drawPile.clear();
@@ -49,15 +47,15 @@ public class DebugCard extends AbstractConfusionCard {
 
 
 
-        AbstractCard ac = new Facade();ac.upgrade();
+        ac = new BurnUp();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
-
-        AbstractDungeon.player.hand.addToHand(new TrumpCard());
-        ac = new TrumpCard();ac.upgrade();
-        AbstractDungeon.player.hand.addToHand(ac);
-
-        AbstractDungeon.player.hand.addToHand(new PerishSong());
+        AbstractDungeon.player.hand.addToHand(new BurnUp());
+        AbstractDungeon.player.hand.addToHand(new SunnyDay());
         AbstractDungeon.player.hand.addToHand(new Overheat());
+        AbstractDungeon.player.hand.addToHand(new Psybeam());
+        ac = new Psybeam();ac.upgrade();
+        AbstractDungeon.player.hand.addToHand(ac);
+
 
 
         AbstractDungeon.player.hand.refreshHandLayout();
@@ -78,7 +76,7 @@ public class DebugCard extends AbstractConfusionCard {
 
     public static void add(ArrayList<String> retVal) {
         //Remove this in the release version.
-        retVal.add(ID);
+        //retVal.add(ID);
     }
 
     @Override

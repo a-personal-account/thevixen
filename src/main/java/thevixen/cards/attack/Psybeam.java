@@ -38,22 +38,13 @@ public class Psybeam extends AbstractConfusionCard {
 
     private static final int COST = 1;
 
-    private static final int CONFUSION = 5;
-    private static final int UPGRADE_CONFUSION = 3;
+    private static final int CONFUSION = 7;
+    private static final int UPGRADE_CONFUSION = 4;
 
     public Psybeam() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
         this.baseDamage = this.damage = CONFUSION;
-    }
-
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.upgraded) {
-            sunny(p, m);
-        } else {
-            super.use(p, m);
-        }
     }
 
     @Override
@@ -82,7 +73,11 @@ public class Psybeam extends AbstractConfusionCard {
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
         regular(p, m);
 
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.damage));
+        int block = this.damage;
+        if(!this.upgraded) {
+            block = (block + 1) / 2;
+        }
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
     @Override

@@ -24,6 +24,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.BurnPower;
 import thevixen.powers.GainDexterityPower;
+import thevixen.vfx.WonderRoomEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -53,6 +54,7 @@ public class WonderRoom extends AbstractVixenCard {
         ArrayList<AbstractCreature> list = new ArrayList<>(AbstractDungeon.getCurrRoom().monsters.monsters);
         list.add(p);
 
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new WonderRoomEffect(), WonderRoomEffect.RAISETIME / 3));
 
         Iterator var3 = list.iterator();
 

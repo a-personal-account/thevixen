@@ -1,7 +1,8 @@
-package thevixen.cards.attack;
+package thevixen.cards.skill;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,39 +10,40 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import thevixen.TheVixenMod;
 import thevixen.actions.ReduceCommonDebuffDurationAction;
-import thevixen.cards.AbstractWeakReverseCard;
+import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.powers.SunnyDayPower;
 
-public class Facade extends AbstractWeakReverseCard {
-    public static final String ID = "TheVixenMod:Facade";
+public class DoubleTeam extends AbstractVixenCard {
+    public static final String ID = "TheVixenMod:DoubleTeam";
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "cards/facade.png";
+    public static final String IMG_PATH = "cards/doubleteam.png";
 
     private static final CardStrings cardStrings;
 
-    private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.SKILL;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 8;
-    private static final int UPGRADE_DAMAGE = 3;
+    private static final int COST = 0;
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_BLOCK = 3;
 
-    public Facade() {
+    public DoubleTeam() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
-        this.baseDamage = this.damage = DAMAGE;
-        this.sunnyeffect = true;
+        this.baseBlock = this.block = BLOCK;
+        this.misc = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.upgraded && p.hasPower(WeakPower.POWER_ID)) {
+        if(ReduceCommonDebuffDurationAction.getCommonDebuffCount(p, true) > 0) {
             super.use(p, m);
         } else {
             this.regular(p, m);
@@ -50,27 +52,46 @@ public class Facade extends AbstractWeakReverseCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        int debuffcount = ReduceCommonDebuffDurationAction.getCommonDebuffCount(p);
-        for(int i = 0; i <= debuffcount; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        }
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        this.regular(p, m);
+        regular(p, m);
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        reverseFrail(AbstractDungeon.player);
+    }
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        reverseFrail(AbstractDungeon.player);
+    }
+
+    public void reverseFrail(AbstractPlayer p) {
+        if(p.hasPower(FrailPower.POWER_ID)) {
+            for(int i = 0; i < misc; i++) {
+                this.block = (int) Math.ceil(this.block / 0.75F);
+            }
+        }
+        if(p.hasPower(SunnyDayPower.POWER_ID)) {
+            this.block += ReduceCommonDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player, true);
+        }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new Facade();
+        return new DoubleTeam();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMisc();
+            upgradeBlock(UPGRADE_BLOCK);
+            this.misc++;
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

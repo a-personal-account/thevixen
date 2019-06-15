@@ -25,8 +25,8 @@
   },
   "TheVixenMod:Psybeam": {
     "NAME": "Psybeam",
-    "DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Sunny: Gain Block equal to the damage dealt.",
-    "UPGRADE_DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Gain Block equal to the damage dealt."
+    "DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Sunny: Gain Block equal to half the damage dealt.",
+    "UPGRADE_DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Sunny: Gain Block equal to the damage dealt."
   },
   "TheVixenMod:FireSpin": {
     "NAME": "Fire Spin",
@@ -71,7 +71,7 @@
   "TheVixenMod:Facade": {
     "NAME": "Facade",
     "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ).",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ). NL Unaffected by Weak."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ). NL Sunny: Unaffected by Weak."
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
@@ -227,6 +227,21 @@
   "TheVixenMod:PerishSong": {
     "NAME": "Perish Song",
     "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply burn equal to the cumulative duration of your common debuffs."
+  },
+  "TheVixenMod:TrickRoom": {
+    "NAME": "Trick Room",
+    "DESCRIPTION": "For !M! turns, when Vulnerable, you take 33% less damage instead of 50% more. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "For !M! turns (increased by your Weak), when Vulnerable, you take 25% less damage instead of 25% more. NL Exhaust"
+  },
+  "TheVixenMod:DoubleTeam": {
+    "NAME": "Double Team",
+    "DESCRIPTION": "Gain !B! Block. NL Unaffected by Frail. NL Sunny: Gain 1 extra Block for each unique common debuff on you.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Frail's effect is reverted for this card. NL Sunny: Gain 1 extra Block for each unique common debuff on you."
+  },
+  "TheVixenMod:BurnUp": {
+    "NAME": "Burn Up",
+    "DESCRIPTION": "Consume all your Sunny Day. NL Draw a many cards and gain [E] for each stack. Exhaust",
+    "UPGRADE_DESCRIPTION": "Consume all your Sunny Day. NL Draw a many cards and gain [E] for each stack, then gain !M! Sunny Day. Exhaust"
   },
 
 

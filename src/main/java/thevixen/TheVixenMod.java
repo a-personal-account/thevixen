@@ -9,7 +9,6 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -278,7 +277,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Drought());
         BaseMod.addCard(new Analytic());
 
-        // Skill (26)
+        // Skill (29)
         BaseMod.addCard(new Magician());
         BaseMod.addCard(new MindReader());
         BaseMod.addCard(new PsychUp());
@@ -310,6 +309,9 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Barrier());
 
         BaseMod.addCard(new PerishSong());
+        BaseMod.addCard(new TrickRoom());
+        BaseMod.addCard(new DoubleTeam());
+        BaseMod.addCard(new BurnUp());
 
         // Special (5)
 

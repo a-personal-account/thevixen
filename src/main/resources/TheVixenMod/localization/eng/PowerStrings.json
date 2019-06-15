@@ -137,12 +137,20 @@
       " #rSunny #Day."
     ]
   },
-
   "TheVixenMod:AnalyticPlusPower": {
     "NAME": "Analytic+",
     "DESCRIPTIONS": [
       "Whenever you play #b3 or less cards during your turn, gain #r",
       " #rSunny #rDay."
+    ]
+  },
+  "TheVixenMod:ReverseVulnerablePower": {
+    "NAME": "Distorted Space",
+    "DESCRIPTIONS": [
+      "You take significantly less damage while #rVulnerable ",
+      " this turn.",
+      " for #b",
+      " turns."
     ]
   },
 
