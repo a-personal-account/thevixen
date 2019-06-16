@@ -1,14 +1,9 @@
 package thevixen.vfx;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.FireBurstParticleEffect;
 
@@ -26,7 +21,7 @@ public class FireSpinEffect extends AbstractGameEffect {
 
     public void update() {
         final float x = (float)Math.sin(phase + Math.PI / 2) * ac.hb.width * 3 / 4;
-        final float y = (float)Math.cos(phase + Math.PI / 2) * ac.hb.width / 2;
+        final float y = (float)Math.cos(phase + Math.PI / 2) * ac.hb.width / 3;
         this.phase = (this.phase + PHASEINCREASE) % (float)Math.PI;
         for(int j = 0; j < SPINS; j++) {
 

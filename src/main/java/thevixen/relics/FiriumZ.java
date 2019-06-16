@@ -33,25 +33,24 @@ public class FiriumZ extends CustomRelic implements SingleTargetRelic, Clickable
     private static final RelicTier TIER = RelicTier.BOSS;
     private static final LandingSound SOUND = LandingSound.CLINK;
 
-    private static final int damage = 50;
-
     public FiriumZ() {
         super(ID, new Texture(TheVixenMod.getResourcePath(IMG_PATH)), TIER, SOUND);
     }
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + damage + this.DESCRIPTIONS[1];
+        return this.DESCRIPTIONS[0];
     }
 
     @Override
     public void atBattleStart() {
         this.beginLongPulse();
+        this.counter = 0;
     }
 
     @Override
     public void onRightClick() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.actionManager.turnHasEnded && this.pulse) {
+        if (this.counter > 0 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.actionManager.turnHasEnded && this.pulse) {
             new VexTargetAction(this);
         }
     }
@@ -59,32 +58,47 @@ public class FiriumZ extends CustomRelic implements SingleTargetRelic, Clickable
     @Override
     public void onTargetChosen(AbstractCreature mo) {
         this.stopPulse();
-        VFX(AbstractDungeon.player, mo);
+        VFX(AbstractDungeon.player, mo, (this.counter + 1) / 2);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new EndurePower(mo)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(AbstractDungeon.player,
-                Math.min(50, mo.currentBlock + mo.currentHealth - 1), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+                Math.min(this.counter, mo.currentBlock + mo.currentHealth - 1), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+        this.counter = -1;
     }
 
-    public static void VFX(AbstractCreature source, AbstractCreature target) {
+    public static void VFX(AbstractCreature source, AbstractCreature target, int timesUpgraded) {
         AbstractRelic r = new FiriumZ();
         AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(source.drawX, source.drawY), 0.1F));
         AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new GhostIgniteEffect(source.hb.cX, source.hb.cY), 0.4F));
 
         AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(source, r));
-        AbstractDungeon.actionManager.addToBottom(new TextAboveCreatureAction(source, r.DESCRIPTIONS[2]));
+        AbstractDungeon.actionManager.addToBottom(new TextAboveCreatureAction(source, r.DESCRIPTIONS[1]));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(1.5F));
         AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(source));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new RedFireballEffect(
                 source.hb.cX + source.hb.width / 2 * (source.drawX < target.drawX ? 1 : -1),
-                source.hb.cY, target.hb.cX, target.hb.cY, 20)));
+                source.hb.cY, target.hb.cX, target.hb.cY, timesUpgraded)));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5F));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(target.hb.cX, target.hb.cY)));
     }
 
     @Override
+    public int onAttackedMonster(DamageInfo info, int damageAmount) {
+        if(this.counter > -1) {
+            this.counter += info.output;
+        }
+        return damageAmount;
+    }
+
+    @Override
     public void onVictory() {
         this.stopPulse();
+        this.counter = -1;
+    }
+    public void atTurnStart() {
+        if(this.counter > -1) {
+            this.counter = 0;
+        }
     }
 
     @Override

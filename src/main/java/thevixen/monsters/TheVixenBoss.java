@@ -1,11 +1,7 @@
 package thevixen.monsters;
 
-import basemod.BaseMod;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
@@ -21,10 +17,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -32,7 +25,6 @@ import com.megacrit.cardcrawl.vfx.combat.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import thevixen.TheVixenMod;
-import thevixen.actions.ApplyConfusionDamage;
 import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.actions.AttackAnimationAction;
 import thevixen.actions.ReduceCommonDebuffDurationAction;
@@ -43,15 +35,14 @@ import thevixen.cards.power.SynergyBurst;
 import thevixen.cards.status.BossBurn;
 import thevixen.enums.IntentEnum;
 import thevixen.helpers.BraixenAnimation;
-import thevixen.powers.*;
 import thevixen.powers.ConfusionPower;
+import thevixen.powers.*;
 import thevixen.relics.BurningStick;
 import thevixen.relics.FiriumZ;
 import thevixen.vfx.FireSpinEffect;
 import thevixen.vfx.ShinyEffect;
 import thevixen.vfx.SwaggerEffect;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -479,7 +470,7 @@ public class TheVixenBoss extends CustomMonster {
 
             case INFERNOOVERDRIVE_CONST:
                 usedOverdrive = true;
-                FiriumZ.VFX(this, AbstractDungeon.player);
+                FiriumZ.VFX(this, AbstractDungeon.player, tmp.output / 2);
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.NONE));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, this, EndurePower.POWER_ID));
                 break;

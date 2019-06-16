@@ -28,8 +28,7 @@
     "NAME": "Firium Z",
     "FLAVOR": "Obtained in a fierce... dance competition.",
     "DESCRIPTIONS": [
-      "Right-click: Once per combat, deal #r",
-      " damage to target enemy. It cannot die this turn.",
+      "Right-click: Once per combat, deal damage equal to all damage dealt to all enemies this turn to target enemy. It cannot die this turn.",
       "Inferno Overdrive"
     ]
   },
