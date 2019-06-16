@@ -53,7 +53,7 @@ public class DebugCard extends AbstractConfusionCard {
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
         AbstractDungeon.player.hand.addToHand(new Overheat());
         AbstractDungeon.player.hand.addToHand(new Psybeam());
-        ac = new Psybeam();ac.upgrade();
+        ac = new FireSpin();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
 

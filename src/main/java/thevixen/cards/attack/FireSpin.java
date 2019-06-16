@@ -2,6 +2,7 @@ package thevixen.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,8 +16,13 @@ import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
+import thevixen.vfx.FireSpinEffect;
 
 public class FireSpin extends AbstractVixenCard {
+    private static final int SPINS = 2;
+    private static final float PHASEINCREASE = (float)Math.toRadians(30);
+    private static final float SPINTIME = 0.03F;
+
     public static final String ID = "TheVixenMod:FireSpin";
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -56,9 +62,20 @@ public class FireSpin extends AbstractVixenCard {
             count++;
         }
 
+        final FireSpinEffect fse = new FireSpinEffect(m);
         for(int i = 0; i < count * ITERATION; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F));
         }
+        AbstractDungeon.effectList.add(fse);
+
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                fse.end();
+                this.isDone = true;
+            }
+        });
 
         p.energy.use(EnergyPanel.totalCount);
     }
