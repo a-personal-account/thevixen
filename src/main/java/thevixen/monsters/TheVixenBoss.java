@@ -28,10 +28,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
-import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
-import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import com.megacrit.cardcrawl.vfx.combat.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import thevixen.TheVixenMod;
@@ -50,6 +47,7 @@ import thevixen.powers.*;
 import thevixen.powers.ConfusionPower;
 import thevixen.relics.BurningStick;
 import thevixen.relics.FiriumZ;
+import thevixen.vfx.FireSpinEffect;
 import thevixen.vfx.ShinyEffect;
 import thevixen.vfx.SwaggerEffect;
 
@@ -399,6 +397,10 @@ public class TheVixenBoss extends CustomMonster {
                 default:
                     tmp.applyPowers(this, AbstractDungeon.player);
             }
+
+            if(Settings.isDebug) {
+                tmp.output = 0;
+            }
         }
 
         switch(this.nextMove) {
@@ -485,18 +487,19 @@ public class TheVixenBoss extends CustomMonster {
 
             case FLAMETHROWER_CONST:
                 this.useFastAttackAnimation();
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.flamethrower_burn, false), this.flamethrower_burn));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.FIRE));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(this.hb.cX, this.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.NONE));
                 if(removeSunny()) {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new BossBurn(), this.flamethrower_burn));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.flamethrower_burn, false), this.flamethrower_burn));
                 }
                 break;
             case EMBER_CONST:
                 this.useFastAttackAnimation();
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.ember_burn, false), this.ember_burn));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.FIRE));
                 if(removeSunny()) {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new BossBurn(), this.ember_burn));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.ember_burn, false), this.ember_burn));
                 }
                 break;
             case FLAMEWHEEL_CONST:
@@ -519,9 +522,18 @@ public class TheVixenBoss extends CustomMonster {
                 if(removeSunny()) {
                     count += 2;
                 }
+                final FireSpinEffect fse = new FireSpinEffect(AbstractDungeon.player);
+                AbstractDungeon.effectList.add(fse);
                 for(int i = 0; i < count; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.FIRE));
                 }
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        fse.end();
+                        this.isDone = true;
+                    }
+                });
                 break;
 
             case PSYBEAM_CONST:
