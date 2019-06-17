@@ -40,16 +40,6 @@ public class ConfuseRay extends AbstractConfusionCard {
         this.baseMagicNumber = this.magicNumber = COUNT;
     }
 
-    /* //Since the discovery that swagger increases psychic damage dealt, this is deprecated.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        if(ConfusionPower.useful(m)) {
-            super.use(p, m);
-        } else {
-            regular(p, m);
-        }
-    }*/
-
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0; i < this.magicNumber; i++) {
@@ -60,10 +50,10 @@ public class ConfuseRay extends AbstractConfusionCard {
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
+        regular(p, m);
+
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 m, p, new ConfusionPower(m)));
-
-        regular(p, m);
     }
 
     @Override

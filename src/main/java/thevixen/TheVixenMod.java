@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
-import basemod.helpers.dynamicvariables.MNPlusOneVariable;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -230,7 +229,6 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addDynamicVariable(new SubstituteVariable());
         BaseMod.addDynamicVariable(new DebuffAmountVariable());
         BaseMod.addDynamicVariable(new DebuffCumulativeDurationVariable());
-        BaseMod.addDynamicVariable(new MNPlusOneVariable());
         BaseMod.addDynamicVariable(new SunnyDayCountVariable());
 
         // Basic (4)

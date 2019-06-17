@@ -11,11 +11,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
 import thevixen.TheVixenMod;
-import thevixen.cards.AbstractVixenCard;
+import thevixen.cards.AbstractSunnyBonusCard;
 import thevixen.enums.AbstractCardEnum;
 
-public class Overheat extends AbstractVixenCard {
+public class Overheat extends AbstractSunnyBonusCard {
     public static final String ID = "TheVixenMod:Overheat";
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -38,23 +39,22 @@ public class Overheat extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = WEAK;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.sunnyDamage = SUNNYBONUS;
+        this.sunnyMagicNumber = 1;
     }
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        execute(p, m, 0, 0);
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        execute(p, m, 1, SUNNYBONUS);
-    }
-
-    private void execute(AbstractPlayer p, AbstractMonster m, int weaksauce, int damagebonus) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage + damagebonus, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber + weaksauce, true), this.magicNumber + weaksauce, true, AbstractGameAction.AttackEffect.NONE));
+        regular(p, m);
     }
 
     @Override

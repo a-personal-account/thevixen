@@ -1,6 +1,7 @@
 package thevixen.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,12 +12,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
 import thevixen.TheVixenMod;
-import thevixen.cards.AbstractVixenCard;
+import thevixen.cards.AbstractSunnyBonusCard;
 import thevixen.enums.AbstractCardEnum;
 
-public class FlareBlitz extends AbstractVixenCard {
+public class FlareBlitz extends AbstractSunnyBonusCard {
     public static final String ID = "TheVixenMod:FlareBlitz";
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -39,23 +40,21 @@ public class FlareBlitz extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = VULNERABLE;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.sunnyDamage = SUNNYBONUS;
     }
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        execute(p, m, 0);
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        execute(p, m, SUNNYBONUS);
-    }
-
-    private void execute(AbstractPlayer p, AbstractMonster m, int damagebonus) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage + damagebonus, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, true), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        regular(p, m);
     }
 
     @Override
