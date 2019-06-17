@@ -93,8 +93,8 @@
   },
   "TheVixenMod:SolarBeam": {
     "NAME": "Solar Beam",
-    "DESCRIPTION": "Consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed. NL ( !SUN! stacks)",
-    "UPGRADE_DESCRIPTION": "Gain 1 Sunny Day, then consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed. NL ( !SUN! stacks)"
+    "DESCRIPTION": "Consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! ).",
+    "UPGRADE_DESCRIPTION": "Gain 1 Sunny Day, then consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! )."
   },
   "TheVixenMod:Psyshock": {
     "NAME": "Psyshock",
@@ -240,8 +240,8 @@
   },
   "TheVixenMod:BurnUp": {
     "NAME": "Burn Up",
-    "DESCRIPTION": "Consume all your Sunny Day. NL Draw a many cards and gain [E] for each stack. Exhaust",
-    "UPGRADE_DESCRIPTION": "Consume all your Sunny Day. NL Draw a many cards and gain [E] for each stack, then gain !M! Sunny Day. Exhaust"
+    "DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust",
+    "UPGRADE_DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! Sunny Day. Exhaust"
   },
 
 

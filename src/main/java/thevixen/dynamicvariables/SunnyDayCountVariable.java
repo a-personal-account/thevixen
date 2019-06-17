@@ -32,14 +32,14 @@ public class SunnyDayCountVariable extends DynamicVariable {
     @Override
     public int value(AbstractCard card)
     {
-        return AbstractDungeon.player != null && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID) ? AbstractDungeon.player.getPower(SunnyDayPower.POWER_ID).amount * card.damage : 0;
+        return AbstractDungeon.player != null && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID) ? AbstractDungeon.player.getPower(SunnyDayPower.POWER_ID).amount : 0;
         // What the dynamic variable will be set to on your card. Usually uses some kind of int you store on your card.
     }
 
     @Override
     public int baseValue(AbstractCard card)
     {
-        return AbstractDungeon.player != null && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID) ? AbstractDungeon.player.getPower(SunnyDayPower.POWER_ID).amount * card.damage : 0;
+        return AbstractDungeon.player != null && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID) ? AbstractDungeon.player.getPower(SunnyDayPower.POWER_ID).amount : 0;
         // Should generally just be the above.
     }
 
