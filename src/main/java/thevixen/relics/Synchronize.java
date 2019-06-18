@@ -1,6 +1,5 @@
 package thevixen.relics;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnReceivePowerRelic;
@@ -39,13 +38,11 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
     @Override
     public boolean onReceivePower(AbstractPower ap, AbstractCreature ac) {
         ArrayList<AbstractCreature> targets = new ArrayList<>();
-        AbstractPower toApply = null;
+        ArrayList<AbstractPower> toApply = new ArrayList<>();
 
         int amount = ap.amount;
 
 
-        BaseMod.logger.error("POWER ID: " + ap.ID);
-        BaseMod.logger.error("AMOUNT BEFORE: " + amount);
         if(ac instanceof AbstractPlayer) {
             for(final AbstractCreature c : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if(!c.halfDead && !c.isDead && !c.isEscaping) {
@@ -57,31 +54,26 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
             targets.add(ac);
         }
 
-        BaseMod.logger.error("AMOUNT AFTER: " + amount);
-        BaseMod.logger.error("AMOUNT OF ENEMIES: " + targets.size());
-
         for(final AbstractCreature c : targets) {
+            toApply.clear();
             switch (ap.ID) {
                 case VulnerablePower.POWER_ID:
-                    toApply = new VulnerablePower(c, amount, false);
+                    toApply.add(new VulnerablePower(c, amount, false));
                     break;
                 case WeakPower.POWER_ID:
-                    toApply = new WeakPower(c, amount, false);
+                    toApply.add(new WeakPower(c, amount, false));
                     break;
 
                 case StrengthPower.POWER_ID:
                     if (ap.amount < 0) {
-                        toApply = new StrengthPower(c, amount);
+                        toApply.add(new StrengthPower(c, amount));
+                        toApply.add(new GainStrengthPower(c, Math.abs(amount)));
                     }
-                    break;
-
-                case GainStrengthPower.POWER_ID:
-                    toApply = new GainStrengthPower(c, amount);
                     break;
             }
 
-            if (toApply != null) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(c, AbstractDungeon.player, toApply, amount));
+            for (final AbstractPower p : toApply) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(c, AbstractDungeon.player, p, p.amount));
             }
         }
 
