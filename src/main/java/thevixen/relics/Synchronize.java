@@ -64,9 +64,10 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
                     toApply.add(new WeakPower(c, amount, false));
                     break;
 
-                case StrengthPower.POWER_ID:
+                case GainStrengthPower.POWER_ID:
+                case LoseStrengthPower.POWER_ID:
                     if (ap.amount < 0) {
-                        toApply.add(new StrengthPower(c, amount));
+                        toApply.add(new StrengthPower(c, -Math.abs(amount)));
                         toApply.add(new GainStrengthPower(c, Math.abs(amount)));
                     }
                     break;

@@ -145,12 +145,19 @@
     ]
   },
   "TheVixenMod:ReverseVulnerablePower": {
-    "NAME": "Distorted Space",
+    "NAME": "Filter",
     "DESCRIPTIONS": [
       "You take significantly less damage while #rVulnerable ",
       " this turn.",
       " for #b",
       " turns."
+    ]
+  },
+  "TheVixenMod:DefiantPower": {
+    "NAME": "Defiant",
+    "DESCRIPTIONS": [
+      "End of turn, gain up to #b",
+      " #rSunny #rDay, one for every #rdebuff you were inflicted with this turn."
     ]
   },
 

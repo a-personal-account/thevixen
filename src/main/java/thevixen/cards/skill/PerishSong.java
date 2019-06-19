@@ -44,8 +44,8 @@ public class PerishSong extends AbstractVixenCard {
         AbstractDungeon.effectList.add(new SongEffect(p));
         AbstractDungeon.effectList.add(new SongEffect(m));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(SongEffect.speed));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {

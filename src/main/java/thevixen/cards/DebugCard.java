@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
+import thevixen.cards.power.Defiant;
 import thevixen.cards.power.Telepathy;
 import thevixen.cards.skill.*;
 import thevixen.enums.AbstractCardEnum;
@@ -47,13 +48,12 @@ public class DebugCard extends AbstractConfusionCard {
 
 
 
-        ac = new BurnUp();ac.upgrade();
-        AbstractDungeon.player.hand.addToHand(ac);
-        AbstractDungeon.player.hand.addToHand(new BurnUp());
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Overheat());
-        AbstractDungeon.player.hand.addToHand(new ConfuseRay());
-        AbstractDungeon.player.hand.addToHand(new FlareBlitz());
+        AbstractDungeon.player.hand.addToHand(new PerishSong());
+        AbstractDungeon.player.hand.addToHand(new PerishSong());
+        AbstractDungeon.player.hand.addToHand(new PerishSong());
+        AbstractDungeon.player.hand.addToHand(new Defiant());
+        AbstractDungeon.player.hand.addToHand(new Defiant());
         ac = new FireSpin();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 

@@ -48,8 +48,8 @@
   },
   "TheVixenMod:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Draw a card next turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! Burn. NL Sunny: Draw a card next turn."
+    "DESCRIPTION": "Deal !D! damage. NL Sunny: Retain the rightmost attack, skill or power card in your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! Burn. NL Sunny: Retain the rightmost attack, skill or power card in your hand."
   },
   "TheVixenMod:Swagger": {
     "NAME": "Swagger",
@@ -286,6 +286,10 @@
   "TheVixenMod:Analytic": {
     "NAME": "Analytic",
     "DESCRIPTION": "Whenever you play !M! or less cards in a turn, gain 1 Sunny Day."
+  },
+  "TheVixenMod:Defiant": {
+    "NAME": "Defiant",
+    "DESCRIPTION": "Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)"
   },
 
 

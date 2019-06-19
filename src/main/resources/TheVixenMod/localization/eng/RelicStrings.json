@@ -64,7 +64,7 @@
     "NAME": "Synchronize",
     "FLAVOR": "no, U",
     "DESCRIPTIONS": [
-      "Whenever you are afflicted with Weak, Vulnerable or negative Strength, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
+      "Whenever you are afflicted with Weak, Vulnerable or temporary Strengthloss, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
     ]
   },
 
