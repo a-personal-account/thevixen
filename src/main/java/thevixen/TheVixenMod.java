@@ -262,7 +262,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Psyshock());
         BaseMod.addCard(new TrumpCard());
 
-        // Power (10)
+        // Power (11)
         BaseMod.addCard(new SynergyBurst());
         BaseMod.addCard(new Blaze());
         BaseMod.addCard(new Moody());
@@ -274,6 +274,8 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Dazzling());
         BaseMod.addCard(new Drought());
         BaseMod.addCard(new Analytic());
+
+        BaseMod.addCard(new Defiant());
 
         // Skill (29)
         BaseMod.addCard(new Magician());

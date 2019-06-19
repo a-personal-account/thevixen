@@ -26,7 +26,7 @@ public class Guts extends CustomCard {
 
     private static final int COST = 2;
     private static final int GUTS = 2;
-    private static final int UPGRADE_GUTS = 1;
+    private static final int UPGRADE_GUTS = 3;
 
     public Guts() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);

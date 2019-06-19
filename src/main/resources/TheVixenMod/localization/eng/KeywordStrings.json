@@ -40,7 +40,7 @@
     "NAMES": [
       "guts"
     ],
-    "DESCRIPTION": "Effects that interact with the common debuffs on you act as if you have more. Gain Block equal to the cumulative duration of your common debuffs at the end of your turn."
+    "DESCRIPTION": "Counts as a common debuff without having any detrimental effects, and does not deteriorate."
   },
   "TheVixenMod:CopycatKeyword": {
     "PROPER_NAME": "Copycat",
@@ -48,5 +48,12 @@
       "copycat"
     ],
     "DESCRIPTION": "This card exhausts. NL Sunny: Shuffle a copy of the repeated card into your discard pile."
+  },
+  "TheVixenMod:Psycracker": {
+    "PROPER_NAME": "Psycracker",
+    "NAMES": [
+      "psycracker"
+    ],
+    "DESCRIPTION": "2 Cost Attack, Exhaust NL Deal 4 base-damage to a random enemy 8 (12) times. NL Sunny: Remove all debuffs from yourself."
   }
 }

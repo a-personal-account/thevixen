@@ -269,7 +269,7 @@
   },
   "TheVixenMod:Guts": {
     "NAME": "Guts",
-    "DESCRIPTION": "Gain !M! Guts. NL Counts as a common debuff. NL Gain Block equal to the cumulative duration of your common debuffs at the end of your turn."
+    "DESCRIPTION": "Gain !M! Guts. NL At the end of your turn, gain Block equal to the cumulative duration of your common debuffs."
   },
   "TheVixenMod:FlameBody": {
     "NAME": "Flame Body",
@@ -289,13 +289,14 @@
   },
   "TheVixenMod:Defiant": {
     "NAME": "Defiant",
-    "DESCRIPTION": "Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)"
+    "DESCRIPTION": "Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)"
   },
 
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
-    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs. NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs from yourself. NL Exhaust"
   },
   "TheVixenMod:InfernoOverdrive": {
     "NAME": "Inferno Overdrive",
