@@ -43,15 +43,15 @@ public class ApplyConfusionMultiDamage extends AbstractGameAction {
         int i;
         if (this.firstFrame) {
             boolean playedMusic = false;
-            i = AbstractDungeon.getCurrRoom().monsters.monsters.size();
 
-            for(i = 0; i < i; ++i) {
-                if (!((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).isDying && ((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).currentHealth > 0 && !((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).isEscaping) {
+            for(i = 0; i < AbstractDungeon.getCurrRoom().monsters.monsters.size(); ++i) {
+                AbstractMonster am = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
+                if (!am.isDying && am.currentHealth > 0 && !am.isEscaping) {
                     if (playedMusic) {
-                        AbstractDungeon.effectList.add(new FlashAtkImgEffect(((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).hb.cX, ((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).hb.cY, this.attackEffect, true));
+                        AbstractDungeon.effectList.add(new FlashAtkImgEffect(am.hb.cX, am.hb.cY, this.attackEffect, true));
                     } else {
                         playedMusic = true;
-                        AbstractDungeon.effectList.add(new FlashAtkImgEffect(((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).hb.cX, ((AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).hb.cY, this.attackEffect));
+                        AbstractDungeon.effectList.add(new FlashAtkImgEffect(am.hb.cX, am.hb.cY, this.attackEffect));
                     }
                 }
             }

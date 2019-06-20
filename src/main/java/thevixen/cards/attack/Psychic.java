@@ -1,5 +1,6 @@
 package thevixen.cards.attack;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -62,6 +63,7 @@ public class Psychic extends AbstractConfusionCard {
                     this.block += strength;
                 }
             }
+
         }
 
         if(this.upgraded) {
@@ -79,6 +81,20 @@ public class Psychic extends AbstractConfusionCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new IntimidateEffect(p.hb.cX, p.hb.cY), 0.3F));
 
 
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+                AbstractMonster mo;
+                while(var3.hasNext()) {
+                    mo = (AbstractMonster)var3.next();
+
+                    mo.tint.color = Color.PURPLE.cpy();
+                    mo.tint.changeColor(Color.WHITE.cpy());
+                }
+                this.isDone = true;
+            }
+        });
         AbstractDungeon.actionManager.addToBottom(new ApplyConfusionMultiDamage(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, Settings.FAST_MODE));
     }
 

@@ -1,6 +1,7 @@
 package thevixen.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,6 +16,7 @@ import thevixen.actions.ApplyConfusionDamage;
 import thevixen.cards.AbstractConfusionCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.ConfusionPower;
+import thevixen.vfx.EyeOpeningEffect;
 
 public class ConfuseRay extends AbstractConfusionCard {
     public static final String ID = TheVixenMod.MOD_NAME + ":ConfuseRay";
@@ -42,6 +44,7 @@ public class ConfuseRay extends AbstractConfusionCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EyeOpeningEffect(m),EyeOpeningEffect.SPEED_APPEAR + EyeOpeningEffect.SPEED_OPEN));
         for(int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new ApplyConfusionDamage(m, p, this.damage));
         }

@@ -3,18 +3,17 @@ package thevixen.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Blind;
-import com.megacrit.cardcrawl.cards.colorless.Trip;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
-import thevixen.cards.attack.*;
-import thevixen.cards.power.Defiant;
-import thevixen.cards.power.Telepathy;
-import thevixen.cards.skill.*;
+import thevixen.cards.attack.ConfuseRay;
+import thevixen.cards.attack.Confusion;
+import thevixen.cards.attack.FireSpin;
+import thevixen.cards.attack.Psychic;
+import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
 
 import java.util.ArrayList;
@@ -49,12 +48,10 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new PerishSong());
-        AbstractDungeon.player.hand.addToHand(new PerishSong());
-        AbstractDungeon.player.hand.addToHand(new PerishSong());
-        AbstractDungeon.player.hand.addToHand(new Defiant());
-        AbstractDungeon.player.hand.addToHand(new Defiant());
-        ac = new FireSpin();ac.upgrade();
+        AbstractDungeon.player.hand.addToHand(new Confusion());
+        AbstractDungeon.player.hand.addToHand(new ConfuseRay());
+        AbstractDungeon.player.hand.addToHand(new Psychic());
+        ac = new Confusion();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
 

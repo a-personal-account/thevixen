@@ -48,8 +48,8 @@
   },
   "TheVixenMod:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Retain the rightmost attack, skill or power card in your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! Burn. NL Sunny: Retain the rightmost attack, skill or power card in your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Sunny: Retain your rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! Burn. NL Sunny: Retain your rightmost attack, skill or power."
   },
   "TheVixenMod:Swagger": {
     "NAME": "Swagger",
@@ -109,6 +109,11 @@
     "NAME": "Trump Card",
     "DESCRIPTION": "Deal !D! damage. NL Unaffected by Weak. NL If you have a common debuff the dealt damage is applied to all other enemies.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Weak is inverted for this card. NL If you have a common debuff the damage you dealt is applied to all other enemies as well."
+  },
+  "TheVixenMod:Confusion": {
+    "NAME": "Confusion",
+    "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL Sunny: Repeat this effect."
   },
 
 
@@ -196,8 +201,8 @@
   },
   "TheVixenMod:Agility": {
     "NAME": "Agility",
-    "DESCRIPTION": "At the end of your turn, retain the !M! rightmost attack, skill or power cards in your hand. NL Sunny: Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, retain the !M! rightmost attack, skill or power cards in your hand. NL Gain !B! Block."
+    "DESCRIPTION": "At the end of your turn, retain your !M! rightmost attack, skill or power cards. NL Sunny: Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, retain your !M! rightmost attack, skill or power cards. NL Gain !B! Block."
   },
   "TheVixenMod:ClearSky": {
     "NAME": "Clear Sky",
