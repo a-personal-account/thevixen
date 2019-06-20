@@ -237,7 +237,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new SunnyDay());
         BaseMod.addCard(new Ember());
 
-        // Attack (20)
+        // Attack (21)
         BaseMod.addCard(new FlameWheel());
         BaseMod.addCard(new HeatWave());
         BaseMod.addCard(new Overheat());
@@ -261,6 +261,8 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new FirePunch());
         BaseMod.addCard(new Psyshock());
         BaseMod.addCard(new TrumpCard());
+
+        BaseMod.addCard(new Confusion());
 
         // Power (11)
         BaseMod.addCard(new SynergyBurst());
