@@ -27,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.actions.AttackAnimationAction;
+import thevixen.actions.PsycrackerAction;
 import thevixen.actions.ReduceCommonDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.attack.Psybeam;
@@ -396,20 +397,7 @@ public class TheVixenBoss extends CustomMonster {
 
         switch(this.nextMove) {
             case PSYCRACKER_CONST:
-                SynergyBurst.VFX(this);
-                AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(this));
-                AbstractGameAction.AttackEffect[] effects = new AbstractGameAction.AttackEffect[]{
-                        AbstractGameAction.AttackEffect.BLUNT_LIGHT,
-                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
-                        AbstractGameAction.AttackEffect.SLASH_VERTICAL,
-                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-                        AbstractGameAction.AttackEffect.FIRE,
-                        AbstractGameAction.AttackEffect.FIRE,
-                        AbstractGameAction.AttackEffect.FIRE
-                };
-                for(int i = 0; i < this.psycracker_count; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, effects[MathUtils.random(effects.length - 1)]));
-                }
+                AbstractDungeon.actionManager.addToBottom(new PsycrackerAction(tmp, this.psycracker_count));
                 if(this.hasPower(EndurePower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, EndurePower.POWER_ID));
                 }

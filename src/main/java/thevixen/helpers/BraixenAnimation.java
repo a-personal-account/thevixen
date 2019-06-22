@@ -114,7 +114,7 @@ public class BraixenAnimation extends SpriterAnimation {
 
 
     private float particleTimer = 0.0F;
-    private Color rainbow = new Color(1F, 0F, 0F, 1.0F);
+    private RainbowColor rainbow = new RainbowColor(1F, 0F, 0F, 1.0F);
     private void fire(boolean useRainbow) {
         try {
             if(owner.hasPower(SunnyDayPower.POWER_ID)) {
@@ -124,7 +124,8 @@ public class BraixenAnimation extends SpriterAnimation {
                 if(amnt >= 10) {
                     color = Color.WHITE.cpy();
                 } else if(useRainbow) {
-                    color = getRainbow();
+                    rainbow.update();
+                    color = rainbow.cpy();
                 } else {
                     color = Color.ORANGE.cpy();
                 }
@@ -144,43 +145,5 @@ public class BraixenAnimation extends SpriterAnimation {
                 this.particleTimer -= Gdx.graphics.getDeltaTime();
             }
         } catch(NullPointerException ex) {}
-    }
-
-    private Color getRainbow() {
-        final float velocity = 0.1F;
-
-        if(rainbow.g < 1 && rainbow.r >= 1 && rainbow.b <= 0) {
-            rainbow.g += velocity;
-            if(rainbow.g > 1.0F) {
-                rainbow.g = 1.0F;
-            }
-        } else if(rainbow.g >= 1 && rainbow.r > 0 && rainbow.b <= 0) {
-            rainbow.r -= velocity;
-            if(rainbow.r < 0.0F) {
-                rainbow.r = 0.0F;
-            }
-        } else if(rainbow.g >= 1 && rainbow.r <= 0 && rainbow.b < 1) {
-            rainbow.b += velocity;
-            if(rainbow.b > 1.0F) {
-                rainbow.b = 1.0F;
-            }
-        } else if(rainbow.g > 0 && rainbow.r <= 0 && rainbow.b >= 1) {
-            rainbow.g -= velocity;
-            if(rainbow.g < 0.0F) {
-                rainbow.g = 0.0F;
-            }
-        } else if(rainbow.g <= 0 && rainbow.r < 1 && rainbow.b >= 1) {
-            rainbow.r += velocity;
-            if(rainbow.r > 1.0F) {
-                rainbow.r = 1.0F;
-            }
-        } else if(rainbow.g <= 0 && rainbow.r >= 1 && rainbow.b > 0) {
-            rainbow.b -= velocity;
-            if(rainbow.b < 0.0F) {
-                rainbow.b = 0.0F;
-            }
-        }
-
-        return rainbow.cpy();
     }
 }

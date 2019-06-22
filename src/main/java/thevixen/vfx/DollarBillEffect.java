@@ -126,13 +126,6 @@ public class DollarBillEffect extends AbstractGameEffect {
     }
 
     public void dispose() {
-        Texture[] var1 = imgs;
-        int var2 = var1.length;
-
-        for(int var3 = 0; var3 < var2; ++var3) {
-            Texture t = var1[var3];
-            t.dispose();
-        }
 
     }
 

@@ -1,8 +1,5 @@
 package thevixen.cards.attack;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -10,28 +7,20 @@ import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.GhostlyFireEffect;
-import com.megacrit.cardcrawl.vfx.GhostlyWeakFireEffect;
 import thevixen.TheVixenMod;
-import thevixen.actions.AttackAnimationAction;
-import thevixen.actions.MultiBurnAction;
+import thevixen.actions.PsycrackerAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.power.SynergyBurst;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SynergyBurstPower;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Psycracker extends AbstractVixenCard {
     public static final String ID = "TheVixenMod:Psycracker";
@@ -60,23 +49,8 @@ public class Psycracker extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        SynergyBurst.VFX(p);
-        AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(p));
-
-        AbstractGameAction.AttackEffect[] effects = new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
-                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
-                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
-                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-                AbstractGameAction.AttackEffect.FIRE,
-                AbstractGameAction.AttackEffect.FIRE,
-                AbstractGameAction.AttackEffect.FIRE
-        };
-
         AbstractDungeon.actionManager.addToBottom(
-                new MultiBurnAction(AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng)
-                        , new DamageInfo(p, this.baseDamage, this.damageTypeForTurn), this.magicNumber, 0
-                        , effects));
+                new PsycrackerAction(new DamageInfo(p, this.baseDamage, this.damageTypeForTurn), this.magicNumber));
 
 
         if(p.hasPower(SynergyBurstPower.POWER_ID)) {

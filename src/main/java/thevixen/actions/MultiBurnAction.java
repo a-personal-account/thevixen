@@ -36,40 +36,6 @@ public class MultiBurnAction extends AbstractGameAction {
         this.startDuration = Settings.ACTION_DUR_FAST;
     }
 
-    /*
-    @Override
-    public void update() {
-        if (this.target == null) {
-            this.isDone = true;
-        } else if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-            AbstractDungeon.actionManager.clearPostCombatActions();
-            this.isDone = true;
-        } else {
-            if (this.target.currentHealth > 0) {
-
-                this.info.applyPowers(this.info.owner, this.target);
-                //this.target.damage(this.info);
-                AbstractDungeon.actionManager.addToTop(
-                        new DamageAction(this.target, new DamageInfo(this.info.owner, this.info.output), effects[(int)(Math.random() * effects.length)]));
-
-                if(burn > 0) {
-                    AbstractDungeon.actionManager.addToTop(
-                            new ApplyBurnAction(this.target, this.info.owner, burn));
-                }
-
-                if (this.amount > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                    --this.amount;
-                    AbstractDungeon.actionManager.addToTop(new MultiBurnAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), this.info, this.amount, this.burn, effects));
-                }
-
-                AbstractDungeon.actionManager.addToBottom(new WaitAction(0.2F));
-            }
-
-            this.isDone = true;
-        }
-    }*/
-
-
     @Override
     public void update() {
         if(this.duration == this.startDuration) {
@@ -97,7 +63,7 @@ public class MultiBurnAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToTop(
                         new DamageAction(mo, new DamageInfo(this.info.owner, dmg.get(mo)), effects[(int)(Math.random() * effects.length)]));
 
-                if(curhp.get(mo) < dmg.get(mo)) {
+                if(curhp.get(mo) <= dmg.get(mo)) {
                     mg.monsters.remove(mo);
                 } else {
                     curhp.put(mo, curhp.get(mo) - dmg.get(mo));
