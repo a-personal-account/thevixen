@@ -118,9 +118,10 @@ public class PsycrackerOrb extends AbstractGameEffect {
                     this.scale += Gdx.graphics.getDeltaTime();
                 }
                 Vector2 f = new Vector2(this.targetX - this.x, this.targetY - this.y);
+                final float velocityFactor = Gdx.graphics.getDeltaTime() * 700F * Settings.scale;
                 f = f.nor();
-                this.x += f.x * Gdx.graphics.getDeltaTime() * 350F;
-                this.y += f.y * Gdx.graphics.getDeltaTime() * 350F;
+                this.x += f.x * velocityFactor;
+                this.y += f.y * velocityFactor;
                 if (this.y > this.targetY) {
                     this.step++;
                 }
@@ -155,13 +156,14 @@ public class PsycrackerOrb extends AbstractGameEffect {
                     this.secondaryScale += Gdx.graphics.getDeltaTime();
                 }
                 float factor = (this.secondaryScale - 1.0F) / 0.3F;
+                final float velocityFactor = Gdx.graphics.getDeltaTime() * 2000F * Settings.scale;
 
                 this.afterimages.add(new AfterImage(this.color, this.x, this.y));
 
                 Vector2 f = new Vector2(this.targetX - this.x, this.targetY - this.y);
                 f = f.nor();
-                this.x += f.x * Gdx.graphics.getDeltaTime() * 1000F * factor;
-                this.y += f.y * Gdx.graphics.getDeltaTime() * 1000F * factor;
+                this.x += f.x * velocityFactor * factor;
+                this.y += f.y * velocityFactor * factor;
                 if ((f.x > 0 && this.x > this.targetX) || (f.x < 0 && this.x < this.targetX)) {
                     this.step++;
                     this.rce = new RingClosingEffect(imgs[0], this.color, this.x, this.y);

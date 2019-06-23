@@ -1,5 +1,7 @@
 package thevixen.cards.attack;
 
+import basemod.ReflectionHacks;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -7,7 +9,9 @@ import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,6 +53,18 @@ public class Psycracker extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.player.animX = 0.0F;
+        ReflectionHacks.setPrivate(AbstractDungeon.player, AbstractCreature.class, "animationTimer", 0.0F);
+
+        final AbstractCard dis = this;
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                dis.current_y = -201.0F * Settings.scale;
+                dis.target_y = dis.current_y;
+                this.isDone = true;
+            }
+        });
         AbstractDungeon.actionManager.addToBottom(
                 new PsycrackerAction(new DamageInfo(p, this.baseDamage, this.damageTypeForTurn), this.magicNumber));
 
