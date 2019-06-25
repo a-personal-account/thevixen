@@ -45,7 +45,7 @@ public class Psycracker extends AbstractVixenCard {
     public Psycracker() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
-        this.exhaust = true;
+        this.purgeOnUse = true;
 
         this.baseMagicNumber = this.magicNumber = ITERATION;
         this.baseDamage = this.damage = DAMAGE;

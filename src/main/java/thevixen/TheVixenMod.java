@@ -230,6 +230,8 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addDynamicVariable(new DebuffAmountVariable());
         BaseMod.addDynamicVariable(new DebuffCumulativeDurationVariable());
         BaseMod.addDynamicVariable(new SunnyDayCountVariable());
+        BaseMod.addDynamicVariable(new MiscVariable());
+        BaseMod.addDynamicVariable(new HalfBlockVariable());
 
         // Basic (4)
         BaseMod.addCard(new Strike_TheVixen());
@@ -237,7 +239,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new SunnyDay());
         BaseMod.addCard(new Ember());
 
-        // Attack (21)
+        // Attack (22)
         BaseMod.addCard(new FlameWheel());
         BaseMod.addCard(new HeatWave());
         BaseMod.addCard(new Overheat());
@@ -263,6 +265,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new TrumpCard());
 
         BaseMod.addCard(new Confusion());
+        BaseMod.addCard(new Extrasensory());
 
         // Power (11)
         BaseMod.addCard(new SynergyBurst());
@@ -279,7 +282,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addCard(new Defiant());
 
-        // Skill (29)
+        // Skill (34)
         BaseMod.addCard(new Magician());
         BaseMod.addCard(new MindReader());
         BaseMod.addCard(new PsychUp());
@@ -314,6 +317,12 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new TrickRoom());
         BaseMod.addCard(new DoubleTeam());
         BaseMod.addCard(new BurnUp());
+        BaseMod.addCard(new Amnesia());
+
+        BaseMod.addCard(new Curse());
+        BaseMod.addCard(new FutureSight());
+        BaseMod.addCard(new Spite());
+        BaseMod.addCard(new TailWhip());
 
         // Special (5)
 

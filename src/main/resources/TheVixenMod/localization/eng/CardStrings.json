@@ -115,6 +115,10 @@
     "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power.",
     "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL Sunny: Repeat this effect."
   },
+  "TheVixenMod:Extrasensory": {
+    "NAME": "Extrasensory",
+    "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL Sunny: Exhaust NL !M! + !MISC! times"
+  },
 
 
   "TheVixenMod:Defend_TheVixen": {
@@ -248,6 +252,29 @@
     "DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust",
     "UPGRADE_DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! Sunny Day. Exhaust"
   },
+  "TheVixenMod:Curse": {
+    "NAME": "Curse",
+    "DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw a card. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw !M! cards. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies."
+  },
+  "TheVixenMod:Spite": {
+    "NAME": "Spite",
+    "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL Sunny: Purge NL Choose a card from your Exhaustpile and add it to your Hand.",
+    "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL Sunny: Exhaust NL Choose !M! cards from your Exhaustpile and add it to your Hand."
+  },
+  "TheVixenMod:TailWhip": {
+    "NAME": "Tail Whip",
+    "DESCRIPTION": "Apply !MISC! Vulnerable. NL Sunny: Exhaust NL Apply !M! Burn. NL Gain [E]"
+  },
+  "TheVixenMod:Amnesia": {
+    "NAME": "Amnesia",
+    "DESCRIPTION": "Gain !B! Block. NL Sunny: Exhaust NL Increase Block gained by !M! % and NL gain !B2! Block next turn."
+  },
+  "TheVixenMod:FutureSight": {
+    "NAME": "Future Sight",
+    "DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Play up to X cards from your Drawpile.",
+    "UPGRADE_DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
+  },
 
 
   "TheVixenMod:SynergyBurst": {
@@ -301,7 +328,7 @@
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
-    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs from yourself. NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs from yourself. NL Purge"
   },
   "TheVixenMod:InfernoOverdrive": {
     "NAME": "Inferno Overdrive",

@@ -10,6 +10,13 @@
     ]
   },
 
+  "TheVixenMod:FutureSightAction": {
+    "TEXT": [
+      "Choose a card to play",
+      "Choose !M! cards to play"
+    ]
+  },
+
   "TheVixenMod:psybeamintent": {
     "TEXT": [
       "Psychic",
