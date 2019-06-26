@@ -203,9 +203,11 @@ public class PsycrackerOrb extends AbstractGameEffect {
         float width;
         float height;
 
+        sb.setBlendFunction(770, 1);
         for(int i = 0; i < afterimages.size(); i++) {
             afterimages.get(i).render(sb, (float)i / (float)afterimages.size());
         }
+        sb.setBlendFunction(770, 771);
 
 
         sb.setColor(Color.WHITE.cpy());

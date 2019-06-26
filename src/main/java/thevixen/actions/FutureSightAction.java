@@ -65,9 +65,7 @@ public class FutureSightAction extends AbstractGameAction {
                 for(int i = 0; i < tmp.size(); ++i) {
                     card = tmp.getNCardFromTop(i);
 
-                    AbstractMonster mo = AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
-                    card.calculateCardDamage(mo);
-                    card.use(AbstractDungeon.player, mo);
+                    this.useCard(card);
                 }
 
                 this.isDone = true;
@@ -90,9 +88,7 @@ public class FutureSightAction extends AbstractGameAction {
                 while(var1.hasNext()) {
                     card = (AbstractCard)var1.next();
 
-                    AbstractMonster mo = AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
-                    card.calculateCardDamage(mo);
-                    card.use(AbstractDungeon.player, mo);
+                    this.useCard(card);
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -105,5 +101,15 @@ public class FutureSightAction extends AbstractGameAction {
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString("TheVixenMod:FutureSightAction");
         TEXT = uiStrings.TEXT;
+    }
+
+    private void useCard(AbstractCard card) {
+        AbstractMonster mo = AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
+        card.calculateCardDamage(mo);
+        boolean purge = card.purgeOnUse;
+        boolean exhaust = card.exhaust;
+        card.use(AbstractDungeon.player, mo);
+        card.exhaust = exhaust;
+        card.purgeOnUse = purge;
     }
 }

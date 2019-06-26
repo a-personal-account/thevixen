@@ -239,7 +239,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new SunnyDay());
         BaseMod.addCard(new Ember());
 
-        // Attack (22)
+        // Attack (24)
         BaseMod.addCard(new FlameWheel());
         BaseMod.addCard(new HeatWave());
         BaseMod.addCard(new Overheat());
@@ -266,6 +266,8 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addCard(new Confusion());
         BaseMod.addCard(new Extrasensory());
+        BaseMod.addCard(new FireFang());
+        BaseMod.addCard(new Spite());
 
         // Power (11)
         BaseMod.addCard(new SynergyBurst());
@@ -282,7 +284,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addCard(new Defiant());
 
-        // Skill (34)
+        // Skill (36)
         BaseMod.addCard(new Magician());
         BaseMod.addCard(new MindReader());
         BaseMod.addCard(new PsychUp());
@@ -321,8 +323,11 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addCard(new Curse());
         BaseMod.addCard(new FutureSight());
-        BaseMod.addCard(new Spite());
+        BaseMod.addCard(new Disable());
         BaseMod.addCard(new TailWhip());
+        BaseMod.addCard(new CalmMind());
+
+        BaseMod.addCard(new Wish());
 
         // Special (5)
 

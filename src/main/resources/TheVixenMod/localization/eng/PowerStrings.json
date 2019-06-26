@@ -160,6 +160,12 @@
       " #rSunny #rDay, one for every #rdebuff you were inflicted with this turn."
     ]
   },
+  "TheVixenMod:WishPower": {
+    "NAME": "Wish",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, heal for half the HP you lost this turn."
+    ]
+  },
 
 
 

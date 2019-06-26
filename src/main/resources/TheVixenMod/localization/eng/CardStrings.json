@@ -119,6 +119,20 @@
     "NAME": "Extrasensory",
     "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL Sunny: Exhaust NL !M! + !MISC! times"
   },
+  "TheVixenMod:FireFang": {
+    "NAME": "Fire Fang",
+    "DESCRIPTION": "Deal !D! damage !MISC! times. NL Sunny: Exhaust NL Apply !M! Burn."
+  },
+  "TheVixenMod:Spite": {
+    "NAME": "Spite",
+    "DESCRIPTION": "Enemy takes damage and loses Strength this turn equal to the cumulative duration of your common debuffs. NL ( !DBCD! )",
+    "UPGRADE_DESCRIPTION": "Enemy takes damage twice and loses Strength this turn equal to the cumulative duration of your common debuffs. NL ( !DBCD! )"
+  },
+  "TheVixenMod:CalmMind": {
+    "NAME": "Calm Mind",
+    "DESCRIPTION": "Draw !MISC! cards. NL Sunny: Exhaust NL Gain !M! Strength and Dexterity this turn.",
+    "UPGRADE_DESCRIPTION": "Draw !MISC! cards. NL Retain your rightmost attack, skill or power. NL Sunny: Exhaust NL Gain !M! Strength and Dexterity this turn."
+  },
 
 
   "TheVixenMod:Defend_TheVixen": {
@@ -257,8 +271,8 @@
     "DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw a card. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies.",
     "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw !M! cards. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies."
   },
-  "TheVixenMod:Spite": {
-    "NAME": "Spite",
+  "TheVixenMod:Disable": {
+    "NAME": "Disable",
     "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL Sunny: Purge NL Choose a card from your Exhaustpile and add it to your Hand.",
     "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL Sunny: Exhaust NL Choose !M! cards from your Exhaustpile and add it to your Hand."
   },
@@ -274,6 +288,11 @@
     "NAME": "Future Sight",
     "DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Play up to X cards from your Drawpile.",
     "UPGRADE_DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
+  },
+  "TheVixenMod:Wish": {
+    "NAME": "Wish",
+    "DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn. NL Gain !M! Buffer. NL Exhaust"
   },
 
 

@@ -1,28 +1,27 @@
 package thevixen.cards.skill;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.vfx.CollectorStakeEffect;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import thevixen.TheVixenMod;
-import thevixen.actions.SpreadDebuffsAction;
+import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.powers.RetainRightPower;
 
-public class Curse extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Curse";
+public class CalmMind extends AbstractVixenCard {
+    public static final String ID = "TheVixenMod:CalmMind";
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "cards/curse.png";
+    public static final String IMG_PATH = "cards/calmmind.png";
 
     private static final CardStrings cardStrings;
 
@@ -31,43 +30,49 @@ public class Curse extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
-    private static final int VULN = 1;
+    private static final int CARDS = 3;
+    private static final int RETAIN = 1;
 
-    public Curse() {
+    private static final int STRENGTH = 3;
+    private static final int UPGRADE_STRENGTH = 2;
+
+    public CalmMind() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = VULN;
+        this.baseMagicNumber = this.magicNumber = STRENGTH;
+        this.misc = CARDS;
     }
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.effectsQueue.add(new CollectorStakeEffect(p.hb.cX + MathUtils.random(-50.0F, 50.0F) * Settings.scale, p.hb.cY + MathUtils.random(-60.0F, 60.0F) * Settings.scale));
-
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.misc));
+        if(this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainRightPower(p, RETAIN), RETAIN));
+        }
     }
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        regular(p, m);
-
-        AbstractDungeon.actionManager.addToBottom(new SpreadDebuffsAction(AbstractDungeon.getCurrRoom().monsters.monsters, p));
+        AbstractDungeon.actionManager.addToBottom(new ApplyTempGainStrengthPowerAction(p, p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, this.magicNumber), this.magicNumber));
 
         this.exhaust = true;
+
+        regular(p, m);
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new Curse();
+        return new CalmMind();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
-            //this.rawDescription = UPGRADE_DESCRIPTION;
-            //this.initializeDescription();
+            this.upgradeMagicNumber(UPGRADE_STRENGTH);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

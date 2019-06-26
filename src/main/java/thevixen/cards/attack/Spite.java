@@ -1,6 +1,9 @@
-package thevixen.cards.skill;
+package thevixen.cards.attack;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,11 +11,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempLoseStrengthPowerAction;
-import thevixen.actions.NumberedExhumeAction;
+import thevixen.actions.ReduceCommonDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
-
-import java.util.ArrayList;
 
 public class Spite extends AbstractVixenCard {
     public static final String ID = "TheVixenMod:Spite";
@@ -23,53 +24,35 @@ public class Spite extends AbstractVixenCard {
 
     private static final CardStrings cardStrings;
 
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 2;
-    private static final int BLOCK = 10;
-
-    private static final int CARDS = 1;
-    private static final int UPGRADE_CARDS = 1;
+    private static final int COST = 1;
+    private static final int COUNT = 1;
+    private static final int UPGRADE_COUNT = 1;
 
     public Spite() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
-        this.misc = BLOCK;
-        this.baseMagicNumber = this.magicNumber = CARDS;
+        this.baseMagicNumber = this.magicNumber = COUNT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(AbstractDungeon.player.exhaustPile.isEmpty()) {
-            this.regular(p, m);
-        } else {
-            super.use(p, m);
-        }
+        super.use(p, m);
     }
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractMonster> list;
-        if(this.upgraded) {
-            list = AbstractDungeon.getCurrRoom().monsters.monsters;
-        } else {
-            list = new ArrayList<>();
-            list.add(m);
+        this.damage = ReduceCommonDebuffDurationAction.getCumulativeDuration(p);
+        for(int i = 0; i < this.magicNumber; i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
-        for(final AbstractMonster mo : list) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(mo, p, this.misc));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(m, p, this.damage));
     }
-
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        regular(p, m);
-
-        AbstractDungeon.actionManager.addToBottom(new NumberedExhumeAction(this.magicNumber));
-
-        this.purgeOnUse = !this.upgraded;
-        this.exhaust = this.upgraded;
+        this.regular(p, m);
     }
 
     @Override
@@ -80,9 +63,8 @@ public class Spite extends AbstractVixenCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_CARDS);
-            this.target = CardTarget.ALL_ENEMY;
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_COUNT);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

@@ -10,8 +10,12 @@ import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.Extrasensory;
-import thevixen.cards.skill.FutureSight;
+import thevixen.cards.attack.FireFang;
+import thevixen.cards.attack.Spite;
+import thevixen.cards.skill.CalmMind;
+import thevixen.cards.skill.Defend_TheVixen;
 import thevixen.cards.skill.SunnyDay;
+import thevixen.cards.skill.Wish;
 import thevixen.enums.AbstractCardEnum;
 
 import java.util.ArrayList;
@@ -45,11 +49,11 @@ public class DebugCard extends AbstractConfusionCard {
 
 
 
+        AbstractDungeon.player.hand.addToHand(new DebugCard());
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Extrasensory());
-        ac = new Extrasensory();ac.upgrade();
+        AbstractDungeon.player.hand.addToHand(new Wish());
+        ac = new Wish();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
-
 
         AbstractDungeon.player.hand.refreshHandLayout();
 
