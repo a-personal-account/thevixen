@@ -36,7 +36,8 @@ public class FutureSight extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(1, false));
+        int diff = this.freeToPlayOnce ? 0 : this.costForTurn;
+        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(1, this.energyOnUse - diff, false));
     }
 
     @Override
@@ -45,7 +46,7 @@ public class FutureSight extends AbstractVixenCard {
             AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());
             AbstractDungeon.actionManager.addToBottom(new ShuffleAction(AbstractDungeon.player.drawPile, false));
         }
-        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(Math.max(1, this.energyOnUse), true));
+        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(Math.max(1, this.energyOnUse), this.energyOnUse, true));
         this.exhaust = true;
     }
 
