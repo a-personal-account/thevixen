@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.FlareBlitz;
+import thevixen.cards.attack.Swagger;
 import thevixen.cards.skill.Barrier;
 import thevixen.cards.skill.FutureSight;
+import thevixen.cards.skill.Hypnosis;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
 
@@ -47,16 +49,16 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new FlareBlitz());
+        AbstractDungeon.player.hand.addToHand(new Hypnosis());
+        AbstractDungeon.player.hand.addToHand(new Swagger());
         ac = new FutureSight();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
         AbstractDungeon.player.hand.refreshHandLayout();
 
-        AbstractDungeon.player.drawPile.addToTop(new Barrier());
 
         if(!p.hasPower(DrawPower.POWER_ID)) {
-            //AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(47));
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(47));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BerserkPower(NAME, p, 47), 47));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawPower(p, 5), 5));
         }
