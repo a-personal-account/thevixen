@@ -42,7 +42,7 @@ public class Substitute extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        int val = calc(p);
+        int val = calc(p, this.magicNumber);
         int tmp;
         int percentage = p.maxHealth * PERCENTAGE / 100;
 
@@ -87,10 +87,10 @@ public class Substitute extends AbstractVixenCard {
                 new ApplyPowerAction(p, p, new ArtifactPower(p, 1), 1));
     }
 
-    public int calc(AbstractPlayer p) {
+    public static int calc(AbstractPlayer p, int percentage) {
         int val = -1;
         if(p != null) {
-            val = p.maxHealth * this.magicNumber / 100;
+            val = p.maxHealth * percentage / 100;
             int threshold = p.currentBlock + p.currentHealth - 1;
 
             if (p.hasPower(SubstitutePower.POWER_ID)) {

@@ -23,7 +23,8 @@ public class ApplyTempLoseStrengthPowerAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if(this.duration == this.startDuration) {
+
+        if(this.amount > 0) {
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(this.target, this.source, new StrengthPower(this.target, -this.amount), -this.amount, true, AttackEffect.NONE));
 
@@ -48,10 +49,7 @@ public class ApplyTempLoseStrengthPowerAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                         this.target, this.source, new GainStrengthPower(this.target, toGain), toGain, true, AttackEffect.NONE));
             }
-
-            this.isDone = true;
         }
-
-        this.tickDuration();
+        this.isDone = true;
     }
 }

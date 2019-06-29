@@ -17,7 +17,7 @@ public class SubstituteVariable extends DynamicVariable {
     @Override
     public boolean isModified(AbstractCard card)
     {
-        return AbstractDungeon.player != null ? ((Substitute)card).calc(AbstractDungeon.player) < AbstractDungeon.player.maxHealth * 25 / 100 : false;
+        return AbstractDungeon.player != null ? Substitute.calc(AbstractDungeon.player, card.magicNumber) < AbstractDungeon.player.maxHealth * Substitute.PERCENTAGE / 100 : false;
         // Set to true if the value is modified from the base value.
     }
 
@@ -31,14 +31,14 @@ public class SubstituteVariable extends DynamicVariable {
     @Override
     public int value(AbstractCard card)
     {
-        return ((Substitute)card).calc(AbstractDungeon.player);
+        return Substitute.calc(AbstractDungeon.player, card.magicNumber);
         // What the dynamic variable will be set to on your card. Usually uses some kind of int you store on your card.
     }
 
     @Override
     public int baseValue(AbstractCard card)
     {
-        return ((Substitute)card).calc(AbstractDungeon.player);
+        return Substitute.calc(AbstractDungeon.player, card.magicNumber);
         // Should generally just be the above.
     }
 
