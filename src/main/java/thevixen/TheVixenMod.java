@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
+import basemod.abstracts.CustomUnlockBundle;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -29,6 +30,8 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinFat;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
+import com.megacrit.cardcrawl.unlock.AbstractUnlock;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thevixen.RazIntent.CustomIntent;
 import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
@@ -57,7 +60,7 @@ import java.util.*;
 @SpireInitializer
 public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, PostCreateStartingDeckSubscriber,
-        PostCreateStartingRelicsSubscriber, AddAudioSubscriber {
+        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber {
     private static final Color CUSTOM_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
 
     private static final String ATTACK_CARD = "512/attack_thevixen.png";
@@ -331,6 +334,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         // Special (5)
 
+        /*
         BaseMod.addCard(new Psycracker());
         BaseMod.addCard(new UmbreonSnarl());
         BaseMod.addCard(new UmbreonFoulPlay());
@@ -340,7 +344,25 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
 
         BaseMod.addCard(new DebugCard());
+        */
+    }
 
+    @Override
+    public void receiveSetUnlocks() {
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+                Psybeam.ID, Facade.ID, FireSpin.ID), TheVixenCharEnum.THE_VIXEN, 0);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+                Extrasensory.ID, TrickRoom.ID, Copycat.ID), TheVixenCharEnum.THE_VIXEN, 1);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+                Guts.ID, SynergyBurst.ID, WonderRoom.ID), TheVixenCharEnum.THE_VIXEN, 2);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+                FlameOrb.ID, Synchronize.ID, FiriumZ.ID), TheVixenCharEnum.THE_VIXEN, 3);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+                ClearSky.ID, SolarBeam.ID, FutureSight.ID), TheVixenCharEnum.THE_VIXEN, 4);
     }
 
     @Override
