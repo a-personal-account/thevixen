@@ -5,55 +5,88 @@
       "burn",
       "burned"
     ],
-    "DESCRIPTION": "Burning creatures take more damage from all attacks equal to the amount of Burn on them. When the stack of burn passes a multiple of 4, apply 1 weak. Burn is removed at the end of turn."
+    "DESCRIPTION": "Burned creatures take more damage from all attacks equal to the amount of #rBurn on them. NL When the stack of #rBurn passes a multiple of 4, apply 1 #bWeak. NL #rBurn is removed at the end of turn."
+  },
+  "TheVixenMod:SunnyDayKeyword": {
+    "PROPER_NAME": "Sunny Day",
+    "NAMES": [
+      "sunny day",
+      "sunny_day"
+    ],
+    "DESCRIPTION": "1 stack of this buff is used up to trigger a card's #rSunny effect."
   },
   "TheVixenMod:SunnyKeyword": {
-    "PROPER_NAME": "Sunny Day",
+    "PROPER_NAME": "Sunny",
     "NAMES": [
       "sunny"
     ],
-    "DESCRIPTION": "The Sunny effect of a card is triggered when the user is under the effect of \"Sunny Day\"."
+    "DESCRIPTION": "Requires the buff #rSunny #rDay to trigger. NL Consumes 1 stack of it upon doing so."
+  },
+  "TheVixenMod:SunnyExhaustKeyword": {
+    "PROPER_NAME": "Sunny Exhaust",
+    "NAMES": [
+      "sunny exhaust",
+      "sunny_exhaust"
+    ],
+    "DESCRIPTION": "Requires the buff #rSunny #rDay to trigger. NL Consumes 1 stack of it and #rExhausts upon doing so."
   },
   "TheVixenMod:SubstituteKeyword": {
     "PROPER_NAME": "Substitute",
     "NAMES": [
       "substitute"
     ],
-    "DESCRIPTION": "Prevents damage similar to Block, but is not removed at the end of turn. The blow that removes this deals 0 damage."
+    "DESCRIPTION": "Prevents damage similar to #bBlock, but is not removed at the end of turn. NL The blow that removes this deals 0 damage."
   },
   "TheVixenMod:ProtectspamKeyword": {
     "PROPER_NAME": "Protectspam",
     "NAMES": [
       "protectspam"
     ],
-    "DESCRIPTION": "Protect is less effective."
+    "DESCRIPTION": "#bProtect is less effective. NL Reduced by 1 each turn except the turn it was applied."
   },
-  "TheVixenMod:CommonDebuffKeyword": {
-    "PROPER_NAME": "Common Debuffs",
+  "TheVixenMod:DebuffKeyword": {
+    "PROPER_NAME": "Debuffs Addendum",
     "NAMES": [
-      "common"
+      "debuffs",
+      "debuff",
+      "debuffstack"
     ],
-    "DESCRIPTION": "Common debuffs are defined as Weak, Vulnerable, Frail, Protectspam (from this mod), as well as curses and status cards in your hand."
+    "DESCRIPTION": "This means all your powers that are debuffs, as well as #rCurse- and #bStatus cards in your hand."
+  },
+  "TheVixenMod:CumulativeDurationKeyword": {
+    "PROPER_NAME": "Cumulative Stacks",
+    "NAMES": [
+      "cumulative stacks",
+      "cumulative_stacks"
+    ],
+    "DESCRIPTION": "The stacks of all your #rdebuffs combined, added to the amount of #rCurse- and #bStatus cards in your hand."
   },
   "TheVixenMod:GutsKeyword": {
     "PROPER_NAME": "Guts",
     "NAMES": [
       "guts"
     ],
-    "DESCRIPTION": "Counts as a common debuff without having any detrimental effects, and does not deteriorate."
+    "DESCRIPTION": "Counts as a #rdebuff without having any detrimental effects. NL Does not deteriorate."
   },
   "TheVixenMod:CopycatKeyword": {
     "PROPER_NAME": "Copycat",
     "NAMES": [
       "copycat"
     ],
-    "DESCRIPTION": "This card exhausts. NL Sunny: Shuffle a copy of the repeated card into your discard pile."
+    "DESCRIPTION": "This card exhausts. NL #rSunny: Shuffle a copy of the repeated card into your discard pile."
   },
-  "TheVixenMod:Psycracker": {
+  "TheVixenMod:PsycrackerKeyword": {
     "PROPER_NAME": "Psycracker",
     "NAMES": [
       "psycracker"
     ],
     "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 base-damage to a random enemy 8 (12) times. NL Sunny: Remove all debuffs from yourself."
+  },
+  "TheVixenMod:DefiantKeyword": {
+    "PROPER_NAME": "Defiant",
+    "NAMES": [
+      "defiant"
+    ],
+    "DESCRIPTION": "Whenever you are inflicted with a #ydebuff, a flame starts orbitting you (you can have as many flames as you have stacks of #bdefiant). NL At the start of your turn, all flames are converted into #rSunny #rDay."
   }
 }

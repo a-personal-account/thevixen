@@ -3,9 +3,7 @@ package thevixen.dynamicvariables;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.relics.PaperCrane;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 
 public class DebuffAmountVariable extends DynamicVariable {
     @Override
@@ -18,7 +16,7 @@ public class DebuffAmountVariable extends DynamicVariable {
     @Override
     public boolean isModified(AbstractCard card)
     {
-        return (AbstractDungeon.player != null && ReduceCommonDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0);
+        return (AbstractDungeon.player != null && ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0);
         // Set to true if the value is modified from the base value.
     }
 
@@ -37,7 +35,7 @@ public class DebuffAmountVariable extends DynamicVariable {
     {
         int val = -1;
         if(AbstractDungeon.player != null) {
-            val = ReduceCommonDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player);
+            val = ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player);
         }
         return val;
         // Should generally just be the above.

@@ -1,55 +1,55 @@
 {
   "TheVixenMod:Strike_TheVixen": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Apply !M! Burn."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: Apply !M! thevixenmod:Burn."
   },
   "TheVixenMod:HeatWave": {
     "NAME": "Heat Wave",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Sunny: Apply !M! Burn."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL thevixenmod:Sunny: Apply !M! thevixenmod:Burn."
   },
   "TheVixenMod:Ember": {
     "NAME": "Ember",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Apply !M! Burn."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: Apply !M! thevixenmod:Burn."
   },
   "TheVixenMod:FlameWheel": {
     "NAME": "Flame Wheel",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Block for each Burn on the target. NL Sunny: Repeat this effect once."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Block for each thevixenmod:Burn on the target. NL thevixenmod:Sunny: Repeat this effect once."
   },
   "TheVixenMod:Overheat": {
     "NAME": "Overheat",
-    "DESCRIPTION": "Deal !D! damage and apply !M! Weak to yourself. NL Sunny: Increase Weak applied by 1 and damage done by 8."
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak to yourself. NL thevixenmod:Sunny: Increase Weak applied by 1 and damage done by 8."
   },
   "TheVixenMod:FlareBlitz": {
     "NAME": "Flare Blitz",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable to yourself. NL Sunny: Increase damage dealt by 5."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable to yourself. NL thevixenmod:Sunny: Increase damage dealt by 5."
   },
   "TheVixenMod:Psybeam": {
     "NAME": "Psybeam",
-    "DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Sunny: Gain Block equal to half the damage dealt.",
-    "UPGRADE_DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL Sunny: Gain Block equal to the damage dealt."
+    "DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL thevixenmod:Sunny: Gain Block equal to half the damage dealt.",
+    "UPGRADE_DESCRIPTION": "Target enemy deals NL !D! damage to itself. NL thevixenmod:Sunny: Gain Block equal to the damage dealt."
   },
   "TheVixenMod:FireSpin": {
     "NAME": "Fire Spin",
-    "DESCRIPTION": "Deal !D! damage X*2 times. NL Sunny: Increase X by 1."
+    "DESCRIPTION": "Deal !D! damage X*2 times. NL thevixenmod:Sunny: Increase X by 1."
   },
   "TheVixenMod:FlameCharge": {
     "NAME": "Flame Charge",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Gain !M! Dexterity this turn."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: Gain !M! Dexterity this turn."
   },
   "TheVixenMod:MysticalFire": {
     "NAME": "Mystical Fire",
-    "DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL Sunny or not Weak: Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL Sunny or not Weak: Deal !D! damage twice."
+    "DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL thevixenmod:Sunny or not Weak: Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL thevixenmod:Sunny or not Weak: Deal !D! damage twice."
   },
   "TheVixenMod:FireBlast": {
     "NAME": "Fire Blast",
-    "DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other ones. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other ones. NL Sunny: Shuffle an unupgraded Fire Blast into your Discard Pile. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other enemies. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other enemies. NL thevixenmod:Sunny: Shuffle an unupgraded Fire Blast into your Discard Pile. NL Exhaust"
   },
   "TheVixenMod:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny: Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! Burn. NL Sunny: Retain your rightmost attack, skill or power."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: Retain your rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! thevixenmod:Burn. NL thevixenmod:Sunny: Retain your rightmost attack, skill or power."
   },
   "TheVixenMod:Swagger": {
     "NAME": "Swagger",
@@ -57,180 +57,175 @@
   },
   "TheVixenMod:ConfuseRay": {
     "NAME": "Confuse Ray",
-    "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL Sunny: Enemy takes damage equal to half its damage dealt next turn."
+    "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL thevixenmod:Sunny: Enemy takes damage equal to half its damage dealt next turn."
   },
   "TheVixenMod:Psychic": {
     "NAME": "Psychic",
-    "DESCRIPTION": "All enemies deal !D! damage to themselves. NL Sunny: Gain Block equal to their combined Burn and Strength.",
-    "UPGRADE_DESCRIPTION": "All enemies deal !D! damage to themselves. NL Gain Block equal to their combined Burn and Strength."
+    "DESCRIPTION": "All enemies deal !D! damage to themselves. NL thevixenmod:Sunny: Gain Block equal to their combined thevixenmod:Burn and Strength.",
+    "UPGRADE_DESCRIPTION": "All enemies deal !D! damage to themselves. NL Gain Block equal to their combined thevixenmod:Burn and Strength."
   },
   "TheVixenMod:FlameBurst": {
     "NAME": "Flame Burst",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy isn't burned, apply !M! Burn. NL Otherwise, gain 1 Sunny Day."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy isn't burned, apply !M! thevixenmod:Burn. NL Otherwise, gain 1 thevixenmod:Sunny_Day."
   },
   "TheVixenMod:Facade": {
     "NAME": "Facade",
-    "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ).",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique common debuff on you ( !DBNUM! ). NL Sunny: Unaffected by Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique thevixenmod:debuff on you. NL ( !DBNUM! )",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique thevixenmod:debuff on you. NL ( !DBNUM! ) NL thevixenmod:Sunny: Unaffected by Weak."
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Deal damage to all enemies equal to the target's Burn. NL Until the end of your next turn the first burn it receives is increased by its current burn. NL Not Sunny: Exhaust."
+    "DESCRIPTION": "Deal damage to all enemies equal to the target's thevixenmod:Burn. NL Next turn, the target receives a thevixenmod:Burn equal to the thevixenmod:Burn it has now. NL Not thevixenmod:Sunny: Exhaust"
   },
   "TheVixenMod:LavaPlume": {
     "NAME": "Lava Plume",
-    "DESCRIPTION": "Deal !D! damage !M! times to a random enemy. NL Sunny: Apply 2 Burn to each target hit."
+    "DESCRIPTION": "Deal !D! damage !M! times to a random enemy. NL thevixenmod:Sunny: Apply 2 thevixenmod:Burn to each target hit."
   },
   "TheVixenMod:Hex": {
     "NAME": "Hex",
-    "DESCRIPTION": "Deal damage to an enemy equal to the cumulative duration of its debuffs (burn only once), times the amount of unique debuffs on them.",
-    "UPGRADE_DESCRIPTION": "Deal damage to an enemy equal to the cumulative duration of its debuffs (burn only once), times the amount of unique debuffs + 1 on them."
+    "DESCRIPTION": "Deal damage to an enemy equal to the cumulative stacks of its debuffs (burn stacks only once), times the amount of unique debuffs on them.",
+    "UPGRADE_DESCRIPTION": "Deal damage to an enemy equal to the cumulative stacks of its debuffs (burn stacks only once), times the amount of unique debuffs + 1 on them."
   },
   "TheVixenMod:ShadowBall": {
     "NAME": "Shadow Ball",
-    "DESCRIPTION": "Deal !D! damage. NL Sunny or NL Weak target: NL Gain [E] and NL draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Sunny or NL Weak target (stacks): NL Gain [E] and NL draw !M! card."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny or Weak enemy: NL Gain [E] and NL draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny or NL Weak enemy (stacks): NL Gain [E] and NL draw !M! card."
   },
   "TheVixenMod:SolarBeam": {
     "NAME": "Solar Beam",
-    "DESCRIPTION": "Consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! ).",
-    "UPGRADE_DESCRIPTION": "Gain 1 Sunny Day, then consume all your Sunny Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! )."
+    "DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! ).",
+    "UPGRADE_DESCRIPTION": "Gain 1 thevixenmod:Sunny_Day, then consume all your thevixenmod:Sunny_Day. NL Deal !D! damage to all enemies for each stack consumed ( !SUN! )."
   },
   "TheVixenMod:Psyshock": {
     "NAME": "Psyshock",
-    "DESCRIPTION": "Target enemy deals !D! damage to itself X times. NL Gain X Sunny Day. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself X+1 times. NL Gain X+1 Sunny Day. NL Exhaust"
+    "DESCRIPTION": "Target enemy deals !D! damage to itself X times. NL Gain X thevixenmod:Sunny_Day. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself X+1 times. NL Gain X+1 thevixenmod:Sunny_Day. NL Exhaust"
   },
   "TheVixenMod:FirePunch": {
     "NAME": "Fire Punch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Burn. NL Can be upgraded any number of times. NL Sunny: Upgrade this card this combat."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL Can be upgraded any number of times. NL thevixenmod:Sunny: Upgrade this card this combat."
   },
   "TheVixenMod:TrumpCard": {
     "NAME": "Trump Card",
-    "DESCRIPTION": "Deal !D! damage. NL Unaffected by Weak. NL If you have a common debuff the dealt damage is applied to all other enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Weak is inverted for this card. NL If you have a common debuff the damage you dealt is applied to all other enemies as well."
+    "DESCRIPTION": "Deal !D! damage. NL Unaffected by Weak. NL If you have a thevixenmod:debuff on you, the damage dealt is applied to all other enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Weak is inverted for this card. NL If you have a thevixenmod:debuff on you, the damage dealt is applied to all other enemies."
   },
   "TheVixenMod:Confusion": {
     "NAME": "Confusion",
     "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL Sunny: Repeat this effect."
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny: Repeat this effect."
   },
   "TheVixenMod:Extrasensory": {
     "NAME": "Extrasensory",
-    "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL Sunny: Exhaust NL !M! + !MISC! times"
+    "DESCRIPTION": "Target enemy deals NL !D! damage to itself NL !M! times. NL thevixenmod:Sunny_Exhaust: NL !MISC! times instead."
   },
   "TheVixenMod:FireFang": {
     "NAME": "Fire Fang",
-    "DESCRIPTION": "Deal !D! damage !MISC! times. NL Sunny: Exhaust NL Apply !M! Burn."
+    "DESCRIPTION": "Deal !D! damage !MISC! times. NL thevixenmod:Sunny_Exhaust: NL Apply !M! thevixenmod:Burn."
   },
   "TheVixenMod:Spite": {
     "NAME": "Spite",
-    "DESCRIPTION": "Enemy takes damage and loses Strength this turn equal to the cumulative duration of your common debuffs. NL ( !DBCD! )",
-    "UPGRADE_DESCRIPTION": "Enemy takes damage twice and loses Strength this turn equal to the cumulative duration of your common debuffs. NL ( !DBCD! )"
-  },
-  "TheVixenMod:CalmMind": {
-    "NAME": "Calm Mind",
-    "DESCRIPTION": "Draw !MISC! cards. NL Sunny: Exhaust NL Gain !M! Strength and Dexterity this turn.",
-    "UPGRADE_DESCRIPTION": "Draw !MISC! cards. NL Retain your rightmost attack, skill or power. NL Sunny: Exhaust NL Gain !M! Strength and Dexterity this turn."
+    "DESCRIPTION": "Enemy takes damage and loses Strength this turn equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs. NL ( !DBCD! )",
+    "UPGRADE_DESCRIPTION": "Enemy takes damage twice and loses Strength this turn equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs. NL ( !DBCD! )"
   },
 
 
   "TheVixenMod:Defend_TheVixen": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny: Draw a card."
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny: Draw a card."
   },
   "TheVixenMod:SunnyDay": {
     "NAME": "Sunny Day",
-    "DESCRIPTION": "Gain !M! Sunny Day. NL Sunny and debuffed: Reduce the duration of common debuffs by 1 instead.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Sunny Day. NL Sunny and debuffed: Gain [E] and reduce the duration of common debuffs by 1 instead."
+    "DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Reduce the stacksize of debuffs on you by !MISC!.",
+    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Gain [E] and reduce the stacksize of debuffs on you by !MISC!."
   },
   "TheVixenMod:PsychUp": {
     "NAME": "Psych Up",
-    "DESCRIPTION": "Gain Strength and Block equal to the Strength and Block of target enemy this turn. NL Sunny: Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Steal target enemy's Strength and Block until end of turn. NL Sunny: Draw !M! cards.",
+    "DESCRIPTION": "Gain Strength and Block equal to the Strength and Block of target enemy this turn. NL thevixenmod:Sunny: Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Steal target enemy's Strength and Block until end of turn. NL thevixenmod:Sunny: Draw !M! cards.",
     "EXTENDED_DESCRIPTION": ["Snatch+"]
   },
   "TheVixenMod:MindReader": {
     "NAME": "Mind Reader",
-    "DESCRIPTION": "If the enemy intends to attack, gain !B! Block¹. If not, deal !D! damage². NL Sunny: Inflict !M! Weak¹ or Vulnerable² respectively."
+    "DESCRIPTION": "If the enemy intends to attack, gain !B! Block¹. If not, deal !D! damage². NL thevixenmod:Sunny: Inflict !M! Weak¹ or Vulnerable² respectively."
   },
   "TheVixenMod:Magician": {
     "NAME": "Magician",
-    "DESCRIPTION": "Until end of turn, whenever YOU deal damage, draw a card, gain [E] and temporarily lose !M! Strength and Dexterity. NL Exhaust."
+    "DESCRIPTION": "Until end of turn, whenever YOU deal damage, draw a card, gain [E] and temporarily lose !M! Strength and Dexterity. NL Exhaust"
   },
   "TheVixenMod:FirePledge": {
     "NAME": "Fire Pledge",
-    "DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it. NL Sunny: Triple it instead. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it.  NL Sunny: Triple it instead."
+    "DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it. NL thevixenmod:Sunny: Triple it instead. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it.  NL thevixenmod:Sunny: Triple it instead."
   },
   "TheVixenMod:LightScreen": {
     "NAME": "Light Screen",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny: Increase Block gained by this card by !M! this combat."
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny: Increase Block gained by this card by !M! this combat."
   },
   "TheVixenMod:Protect": {
     "NAME": "Protect",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Protectspam. NL Is !M! % less effective for each stack of Protectspam."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thevixenmod:Protectspam. NL Is !M! % less effective for each stack of thevixenmod:Protectspam."
   },
   "TheVixenMod:WillOWisp": {
     "NAME": "Will-O-Wisp",
-    "DESCRIPTION": "Apply !M! Burn. NL Sunny: NL (only when possible) NL Apply it to all enemies. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Burn. NL thevixenmod:Sunny (if possible): NL Apply it to all enemies. NL Exhaust"
   },
   "TheVixenMod:CADC": {
     "NAME": "Counter Attack Dash Cancel",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny: Gain !M! Strength this turn."
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny: Gain !M! Strength this turn."
   },
   "TheVixenMod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny and Vulnerable: Remove up to !M! Vulnerable from yourself and apply as much Weak to all enemies."
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny and Vulnerable: Remove up to !M! Vulnerable from yourself and apply as much Weak to all enemies."
   },
   "TheVixenMod:Incinerate": {
     "NAME": "Incinerate",
-    "DESCRIPTION": "Exhaust a card in your hand. Gain 2 Sunny Day and !M! Strength this turn."
+    "DESCRIPTION": "Exhaust a card in your hand. Gain 2 thevixenmod:Sunny_Day and !M! Strength this turn."
   },
   "TheVixenMod:Hypnosis": {
     "NAME": "Hypnosis",
-    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL Sunny: Gain [E]"
+    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL thevixenmod:Sunny: Gain [E]"
   },
   "TheVixenMod:NastyPlot": {
     "NAME": "Nasty Plot",
-    "DESCRIPTION": "Draw !M! cards. NL Sunny: Gain [E]",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 Sunny Day. NL Sunny: gain [E]."
+    "DESCRIPTION": "Draw !M! cards. NL thevixenmod:Sunny: Gain [E]",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 thevixenmod:Sunny_Day. NL thevixenmod:Sunny: gain [E]."
   },
   "TheVixenMod:Refresh": {
     "NAME": "Refresh",
-    "DESCRIPTION": "Reduce the duration of common debuffs by !M!. NL Draw a card for each common debuff on you ( !DBNUM! )."
+    "DESCRIPTION": "Draw a card for each unique thevixenmod:debuff on you NL ( !DBNUM! ), NL then reduce the stackamount of all debuffs on you by !M!."
   },
   "TheVixenMod:WonderRoom": {
     "NAME": "Wonder Room",
-    "DESCRIPTION": "All current temporary Strength and Dexterity changes become permanent. NL Exhaust."
+    "DESCRIPTION": "All current temporary Strength and Dexterity changes become permanent. NL Exhaust"
   },
   "TheVixenMod:Safeguard": {
     "NAME": "Safeguard",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Sunny Day and 1 Artifact. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! thevixenmod:Sunny_Day and 1 Artifact. NL Exhaust"
   },
   "TheVixenMod:Endure": {
     "NAME": "Endure",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny: You cannot die this turn, exhaust this card if you would.",
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny: You cannot die this turn, exhaust this card if you would.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL You cannot die this turn, exhaust this card if you would."
   },
   "TheVixenMod:MagicCoat": {
     "NAME": "Magic Coat",
-    "DESCRIPTION": "Gain !B! Block. NL Gain up to !M! [E] for each unique common debuff on you ( !DBNUM! ). NL (5 extra Block for each one above the limit)"
+    "DESCRIPTION": "Gain !B! Block. NL Gain up to !M! [E] for each unique thevixenmod:debuff on you ( !DBNUM! ). NL (5 extra Block for each thevixenmod:debuff above the limit)"
   },
   "TheVixenMod:Agility": {
     "NAME": "Agility",
-    "DESCRIPTION": "At the end of your turn, retain your !M! rightmost attack, skill or power cards. NL Sunny: Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, retain your !M! rightmost attack, skill or power cards. NL Gain !B! Block."
+    "DESCRIPTION": "Retain your !M! rightmost attack, skill or power cards. NL thevixenmod:Sunny: Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Retain your !M! rightmost attack, skill or power cards. NL Gain !B! Block."
   },
   "TheVixenMod:ClearSky": {
     "NAME": "Clear Sky",
-    "DESCRIPTION": "Sunny Day is not consumed this turn. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Gain !M! Sunny Day. NL Sunny Day is not consumed this turn. NL Exhaust"
+    "DESCRIPTION": "thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust"
   },
   "TheVixenMod:Copycat": {
     "NAME": "Copycat",
-    "DESCRIPTION": "Repeat the last card you played. NL Exhaust NL Sunny: NL Shuffle a copy of it into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Repeat the last card you played. It costs 1. NL Exhaust NL Sunny: NL Shuffle a copy of it into your discard pile.",
+    "DESCRIPTION": "Repeat the last card you played. NL Exhaust NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Repeat the last card you played. It costs 1. NL Exhaust NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
     "EXTENDED_DESCRIPTION": [
       "I haven't done anything yet!",
       "taints our whole profession.",
@@ -240,66 +235,71 @@
   },
   "TheVixenMod:Barrier": {
     "NAME": "Barrier",
-    "DESCRIPTION": "Gain !B! Block now and next turn X times. NL Apply !M! Frail to yourself."
+    "DESCRIPTION": "Gain !B! Block X times this turn and next turn. NL Apply !M! Frail to yourself."
   },
   "TheVixenMod:PsychoShift": {
     "NAME": "Psycho Shift",
-    "DESCRIPTION": "Absorb all common debuffs from one enemy. NL Heal for !M! for each common debuffstack on you.",
-    "UPGRADE_DESCRIPTION": "Copy all common debuffs from one enemy. NL Heal for !M! for each common debuffstack on you."
+    "DESCRIPTION": "Absorb all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Copy all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust"
   },
   "TheVixenMod:PerishSong": {
     "NAME": "Perish Song",
-    "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply burn equal to the cumulative duration of your common debuffs."
+    "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply thevixenmod:Burn equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs."
   },
   "TheVixenMod:TrickRoom": {
     "NAME": "Trick Room",
     "DESCRIPTION": "For !M! turns, when Vulnerable, you take 33% less damage instead of 50% more. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "For !M! turns (increased by your Weak), when Vulnerable, you take 25% less damage instead of 25% more. NL Exhaust"
+    "UPGRADE_DESCRIPTION": "For !M! turns (increased by your Weak), when Vulnerable, you take 33% less damage instead of 50% more. NL Exhaust"
   },
   "TheVixenMod:DoubleTeam": {
     "NAME": "Double Team",
-    "DESCRIPTION": "Gain !B! Block. NL Unaffected by Frail. NL Sunny: Gain 1 extra Block for each unique common debuff on you.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Frail's effect is reverted for this card. NL Sunny: Gain 1 extra Block for each unique common debuff on you."
+    "DESCRIPTION": "Gain !B! Block. NL Unaffected by Frail. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Frail's effect is reverted for this card. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you."
   },
   "TheVixenMod:BurnUp": {
     "NAME": "Burn Up",
-    "DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust",
-    "UPGRADE_DESCRIPTION": "Consume all your Sunny Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! Sunny Day. Exhaust"
+    "DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust",
+    "UPGRADE_DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! thevixenmod:Sunny_Day. Exhaust"
   },
   "TheVixenMod:Curse": {
     "NAME": "Curse",
-    "DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw a card. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw !M! cards. NL Sunny: Exhaust NL Copy your Weak and Vulnerable equally split to all enemies."
+    "DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw a card. NL thevixenmod:Sunny_Exhaust: NL Copy your Weak and Vulnerable equally split to all enemies.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw !M! cards. NL thevixenmod:Sunny_Exhaust: NL Copy your Weak and Vulnerable equally split to all enemies."
   },
   "TheVixenMod:Disable": {
     "NAME": "Disable",
-    "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL Sunny: Purge NL Choose a card from your Exhaustpile and add it to your Hand.",
-    "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL Sunny: Exhaust NL Choose !M! cards from your Exhaustpile and add it to your Hand."
+    "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose a card from your Exhaustpile and add it to your Hand.",
+    "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose !M! cards from your Exhaustpile and add it to your Hand."
   },
   "TheVixenMod:TailWhip": {
     "NAME": "Tail Whip",
-    "DESCRIPTION": "Apply !MISC! Vulnerable. NL Sunny: Exhaust NL Apply !M! Burn. NL Gain [E]"
+    "DESCRIPTION": "Apply !MISC! Vulnerable. NL thevixenmod:Sunny_Exhaust: NL Apply !M! thevixenmod:Burn. NL Gain [E]"
   },
   "TheVixenMod:Amnesia": {
     "NAME": "Amnesia",
-    "DESCRIPTION": "Gain !B! Block. NL Sunny: Exhaust NL Increase Block gained by !M! % and NL gain !B2! Block next turn."
+    "DESCRIPTION": "Gain !B! Block. NL thevixenmod:Sunny_Exhaust: NL Increase Block gained by !M! % and NL gain !B2! Block next turn."
   },
   "TheVixenMod:FutureSight": {
     "NAME": "Future Sight",
-    "DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Play up to X cards from your Drawpile.",
-    "UPGRADE_DESCRIPTION": "Play a card from your Drawpile. NL Sunny: Exhaust NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
+    "DESCRIPTION": "Play a card from your Drawpile. NL thevixenmod:Sunny_Exhaust: NL Play up to X cards from your Drawpile.",
+    "UPGRADE_DESCRIPTION": "Play a card from your Drawpile. NL thevixenmod:Sunny_Exhaust: NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
   },
   "TheVixenMod:Wish": {
     "NAME": "Wish",
-    "DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn. NL Gain !M! Buffer. NL Exhaust"
+    "DESCRIPTION": "At the start of your next turn, heal for half the HP you lose this turn. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "At the start of your next turn, heal for half the HP you lose this turn. NL Gain !M! Buffer. NL Exhaust"
+  },
+  "TheVixenMod:CalmMind": {
+    "NAME": "Calm Mind",
+    "DESCRIPTION": "Draw !MISC! cards. NL thevixenmod:Sunny_Exhaust: NL Gain !M! Strength and Dexterity this turn.",
+    "UPGRADE_DESCRIPTION": "Draw !MISC! cards. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny_Exhaust: NL Gain !M! Strength and Dexterity this turn."
   },
 
 
   "TheVixenMod:SynergyBurst": {
     "NAME": "Synergy Burst",
-    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle a Psycracker into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle an upgraded Psycracker into your discard pile."
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle a thevixenmod:Psycracker into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle an upgraded thevixenmod:Psycracker into your discard pile."
   },
   "TheVixenMod:Moody": {
     "NAME": "Moody",
@@ -308,7 +308,7 @@
   },
   "TheVixenMod:Blaze": {
     "NAME": "Blaze",
-    "DESCRIPTION": "Gain !M! Strength. NL If you are at or below 50% Health, whenever you apply Burn, apply !M! more Burn."
+    "DESCRIPTION": "Gain !M! Strength. NL If you are at or below 50% Health, whenever you apply thevixenmod:Burn, apply !M! more thevixenmod:Burn."
   },
   "TheVixenMod:Telepathy": {
     "NAME": "Telepathy",
@@ -316,42 +316,38 @@
   },
   "TheVixenMod:Substitute": {
     "NAME": "Substitute",
-    "DESCRIPTION": "Take !SUB! damage. NL Gain !25%! Substitute. NL Sunny: Gain 1 Artifact."
+    "DESCRIPTION": "Take !SUB! damage. NL Gain !25%! thevixenmod:Substitute. NL Sunny: Gain 1 Artifact."
   },
   "TheVixenMod:Guts": {
     "NAME": "Guts",
-    "DESCRIPTION": "Gain !M! Guts. NL At the end of your turn, gain Block equal to the cumulative duration of your common debuffs."
+    "DESCRIPTION": "Gain !M! thevixenmod:Guts. NL At the end of your turn, gain Block equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs."
   },
   "TheVixenMod:FlameBody": {
     "NAME": "Flame Body",
-    "DESCRIPTION": "Whenever you are attacked, increase the next Burn that enemy receives by !M! until their next turn."
+    "DESCRIPTION": "Whenever you are attacked, apply !M! thevixenmod:Burn to the attacker next turn."
   },
   "TheVixenMod:Dazzling": {
     "NAME": "Dazzling",
-    "DESCRIPTION": "Whenever a card's Sunny effect is triggered, gain !M! Block."
+    "DESCRIPTION": "Whenever a card's thevixenmod:Sunny effect is triggered, gain !M! Block."
   },
   "TheVixenMod:Drought": {
     "NAME": "Drought",
-    "DESCRIPTION": "Whenever you gain Sunny Day, deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever you gain thevixenmod:Sunny_Day, deal !M! damage to a random enemy."
   },
   "TheVixenMod:Analytic": {
     "NAME": "Analytic",
-    "DESCRIPTION": "Whenever you play !M! or less cards in a turn, gain 1 Sunny Day."
+    "DESCRIPTION": "Whenever you play !M! or less cards in a turn, gain 1 thevixenmod:Sunny_Day."
   },
   "TheVixenMod:Defiant": {
     "NAME": "Defiant",
-    "DESCRIPTION": "Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! Defiant. NL (End of turn, gain up to N Sunny Day, one for each debuff you were inflicted with this turn.)"
+    "DESCRIPTION": "Gain !M! thevixenmod:Defiant.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! thevixenmod:Defiant."
   },
 
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
     "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs from yourself. NL Purge"
-  },
-  "TheVixenMod:InfernoOverdrive": {
-    "NAME": "Inferno Overdrive",
-    "DESCRIPTION": "Deal !D! damage X times to all enemies. NL Exhaust"
   },
 
   "TheVixenMod:UmbreonSnarl": {

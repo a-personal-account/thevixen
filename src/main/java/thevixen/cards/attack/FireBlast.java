@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -34,7 +33,7 @@ public class FireBlast extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 16;
+    private static final int DAMAGE = 14;
     private static final int UPGRADE_DAMAGE = 5;
     private static final int PERCENTAGE = 50;
     private static final int UPGRADE_PERCENTAGE = -20;

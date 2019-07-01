@@ -2,11 +2,8 @@ package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
 
 public class FlameOrb extends CustomRelic {
     public static final String ID = TheVixenMod.MOD_NAME + ":FlameOrb";

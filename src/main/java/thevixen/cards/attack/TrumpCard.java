@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractWeakReverseCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.CardTossEffect;
@@ -44,7 +44,7 @@ public class TrumpCard extends AbstractWeakReverseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        boolean triggered = ReduceCommonDebuffDurationAction.getCommonDebuffCount(p) > 0;
+        boolean triggered = ReduceDebuffDurationAction.getCommonDebuffCount(p) > 0;
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new CardTossEffect(p, m, triggered), CardTossEffect.flighttime));
         if(triggered) {
             AbstractDungeon.actionManager.addToBottom(new WaitAction(CardTossEffect.timeToExplosion * 2));

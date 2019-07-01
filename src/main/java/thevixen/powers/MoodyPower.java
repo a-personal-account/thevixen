@@ -174,7 +174,7 @@ public class MoodyPower extends AbstractTheVixenPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + (this.amount * 2) + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
     }
 
     static {

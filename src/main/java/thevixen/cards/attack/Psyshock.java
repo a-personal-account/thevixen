@@ -15,9 +15,7 @@ import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.BloodShotEffect;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
 import thevixen.cards.AbstractConfusionCard;
-import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.GutsPower;
@@ -36,6 +36,7 @@ public class SunnyDay extends AbstractVixenCard {
     public SunnyDay() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = SUN;
+        this.misc = 1;
     }
 
 
@@ -45,7 +46,7 @@ public class SunnyDay extends AbstractVixenCard {
         if(p.hasPower(GutsPower.POWER_ID)) {
             count++;
         }
-        if(ReduceCommonDebuffDurationAction.getCommonDebuffCount(p, false) > count) {
+        if(ReduceDebuffDurationAction.getCommonDebuffCount(p, false) > count) {
             super.use(p, m);
         } else {
             regular(p, m);
@@ -66,7 +67,9 @@ public class SunnyDay extends AbstractVixenCard {
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         }
 
-        AbstractDungeon.actionManager.addToBottom(new ReduceCommonDebuffDurationAction(p, p, 1));
+        AbstractDungeon.actionManager.addToBottom(new ReduceDebuffDurationAction(p, p, this.misc));
+
+        this.regular(p, m);
     }
 
     @Override

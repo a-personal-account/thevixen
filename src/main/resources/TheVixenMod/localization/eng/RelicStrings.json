@@ -4,8 +4,8 @@
     "FLAVOR": "It's brown, but not sticky.",
     "DESCRIPTIONS": [
       "In the hands of the Vixen, at the start of your turn, gain #b",
-      " #rSunny #rDay. NL Displays the amount of #rSunnyπ #rDay you have.",
-      "In your sloppy hands, at the start of your turn, gain #rStrength equal to the cumulative duration of your #rcommon #rdebuffs this turn."
+      " #rthevixenmod:Sunny_Day. NL Displays the amount of #rthevixenmod:Sunny_Day you have.",
+      "In your sloppy hands, at the start of your turn, gain #rStrength equal to the #bthevixenmod:cumulative_stacksize of your #ythevixenmod:debuffs this turn."
     ]
   },
   "TheVixenMod:EternalFlame": {
@@ -13,22 +13,22 @@
     "FLAVOR": "Just add water.",
     "DESCRIPTIONS": [
       "Replaces #gBurning #gStick. In the hands of the Vixen, at the start of your turn, gain #b",
-      " #rSunny #rDay and #rStrength equal to the leftover #rSunny #rDay from last turn until end of turn. NL Displays the amount of #rSunny #rDay you have.",
-      "In your sloppy hands, at the start of your turn, gain #rStrength and #rDexterity equal to the cumulative duration of your #rcommon #rdebuffs this turn."
+      " #rthevixenmod:Sunny_Day and gain #rStrength this turn equal to the leftover #rthevixenmod:Sunny_Day from last turn. NL Displays the amount of #rthevixenmod:Sunny_Day you have.",
+      "In your sloppy hands, at the start of your turn, gain #rStrength and #rDexterity equal to the #bthevixenmod:cumulative_stacksize of your #ythevixenmod:debuffs this turn."
     ]
   },
   "TheVixenMod:SereneGrace": {
     "NAME": "Serene Grace",
     "FLAVOR": "Pray, Iron Head, Repeat.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yBurn to an enemy, reduce that enemy's strength by half the amount of burn applied until end of turn."
+      "Whenever you apply #rthevixenmod:Burn to an enemy, reduce that enemy's #rStrength by half the amount of #rthevixenmod:Burn applied until end of turn."
     ]
   },
   "TheVixenMod:FiriumZ": {
     "NAME": "Firium Z",
     "FLAVOR": "Obtained in a fierce... dance competition.",
     "DESCRIPTIONS": [
-      "Right-click: Once per combat, deal damage equal to all damage dealt to all enemies this turn to target enemy. It cannot die this turn.",
+      "#rRight-click: Once per combat, deal damage equal to all damage dealt to all enemies this turn to target enemy. It cannot die this turn.",
       "Inferno Overdrive"
     ]
   },
@@ -36,35 +36,35 @@
     "NAME": "Charcoal",
     "FLAVOR": "My christmas gift.",
     "DESCRIPTIONS": [
-      "Damage caused by Burn is doubled (the debuff you inflict, not the status card)."
+      "Damage caused by #rthevixenmod:Burn is doubled. NL (the debuff you inflict, not the status card)"
     ]
   },
   "TheVixenMod:FlameOrb": {
     "NAME": "Flame Orb",
     "FLAVOR": "You need real guts to carry something like this around.",
     "DESCRIPTIONS": [
-      "Burn is now halved instead of removed at the end of turn. Double the Block gained from Guts."
+      "#rthevixenmod:Burn is now halved instead of removed at the end of turn. NL Double the Block gained from the power #ythevixenmod:Guts."
     ]
   },
   "TheVixenMod:ShellBell": {
     "NAME": "Shell Bell",
     "FLAVOR": "Reverberates when others scream in agony.",
     "DESCRIPTIONS": [
-      "Whenever you deal damage to a burned creature, gain 3 Block."
+      "Whenever you deal damage to a #rthevixenmod:burned creature, gain 3 Block."
     ]
   },
   "TheVixenMod:TwistedSpoon": {
     "NAME": "Twisted Spoon",
     "FLAVOR": "Not to be confused with a strange spoon.",
     "DESCRIPTIONS": [
-      "Whenever your cards cause enemies to deal damage to themselves, they lose 2 Strength this turn."
+      "Whenever your cards cause enemies to deal damage to themselves, they lose 2 #rStrength this turn."
     ]
   },
   "TheVixenMod:Synchronize": {
     "NAME": "Synchronize",
     "FLAVOR": "no, U",
     "DESCRIPTIONS": [
-      "Whenever you are afflicted with Weak, Vulnerable or temporary Strengthloss, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
+      "Whenever you are afflicted with #bWeak, #rVulnerable or #ytemporary #yStrengthloss, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
     ]
   },
 

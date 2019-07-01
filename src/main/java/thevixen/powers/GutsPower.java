@@ -1,18 +1,13 @@
 package thevixen.powers;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
-import thevixen.relics.Charcoal;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.relics.FlameOrb;
-import thevixen.relics.ShellBell;
 
 
 public class GutsPower extends AbstractTheVixenPower {
@@ -42,7 +37,7 @@ public class GutsPower extends AbstractTheVixenPower {
         boolean isEnemy = this.owner instanceof AbstractMonster;
         this.flash();
 
-        int block = ReduceCommonDebuffDurationAction.getCumulativeDuration(this.owner);
+        int block = ReduceDebuffDurationAction.getCumulativeDuration(this.owner);
         if(AbstractDungeon.player.hasRelic(FlameOrb.ID) || isEnemy) {
             if(!isEnemy) {
                 AbstractDungeon.player.getRelic(FlameOrb.ID).flash();

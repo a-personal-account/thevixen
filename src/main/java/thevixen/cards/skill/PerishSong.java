@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyBurnAction;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.SongEffect;
@@ -49,7 +49,7 @@ public class PerishSong extends AbstractVixenCard {
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
-                int amnt = ReduceCommonDebuffDurationAction.getCumulativeDuration(p);
+                int amnt = ReduceDebuffDurationAction.getCumulativeDuration(p);
                 if(amnt > 0) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyBurnAction(m, p, amnt));
                 }

@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
-import thevixen.cards.attack.FlareBlitz;
-import thevixen.cards.attack.Swagger;
-import thevixen.cards.skill.Barrier;
-import thevixen.cards.skill.FutureSight;
-import thevixen.cards.skill.Hypnosis;
+import thevixen.cards.attack.Ember;
+import thevixen.cards.attack.Facade;
+import thevixen.cards.attack.FlameCharge;
+import thevixen.cards.power.Guts;
+import thevixen.cards.skill.CounterAttackDashCancel;
+import thevixen.cards.skill.PsychoShift;
+import thevixen.cards.skill.Refresh;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
 
@@ -49,9 +51,14 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Hypnosis());
-        AbstractDungeon.player.hand.addToHand(new Swagger());
-        ac = new FutureSight();ac.upgrade();
+        AbstractDungeon.player.hand.addToHand(new Facade());
+        AbstractDungeon.player.hand.addToHand(new PsychoShift());
+        AbstractDungeon.player.hand.addToHand(new Guts());
+        AbstractDungeon.player.hand.addToHand(new Refresh());
+        AbstractDungeon.player.hand.addToHand(new CounterAttackDashCancel());
+        AbstractDungeon.player.hand.addToHand(new FlameCharge());
+
+        ac = new Ember();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
         AbstractDungeon.player.hand.refreshHandLayout();

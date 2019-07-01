@@ -1,11 +1,8 @@
 package thevixen.cards.skill;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,14 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.relics.PaperFrog;
-import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.powers.BurnPower;
 import thevixen.powers.GainDexterityPower;
 import thevixen.vfx.WonderRoomEffect;
 

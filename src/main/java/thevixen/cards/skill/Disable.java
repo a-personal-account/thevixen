@@ -68,8 +68,7 @@ public class Disable extends AbstractVixenCard {
 
         AbstractDungeon.actionManager.addToBottom(new NumberedExhumeAction(this.magicNumber));
 
-        this.purgeOnUse = !this.upgraded;
-        this.exhaust = this.upgraded;
+        this.exhaust = true;
     }
 
     @Override

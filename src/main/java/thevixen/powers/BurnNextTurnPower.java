@@ -1,17 +1,12 @@
 package thevixen.powers;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import thevixen.actions.ApplyBurnAction;
-import thevixen.relics.Charcoal;
-import thevixen.relics.FlameOrb;
-import thevixen.relics.ShellBell;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 
 public class BurnNextTurnPower extends AbstractTheVixenPower {
@@ -22,8 +17,6 @@ public class BurnNextTurnPower extends AbstractTheVixenPower {
 
     public static PowerType POWER_TYPE = PowerType.DEBUFF;
     public static final String IMG = "burnnextturn.png";
-
-    private boolean enemyTurn;
 
 
     public BurnNextTurnPower(AbstractCreature owner, int amount) {
@@ -39,17 +32,16 @@ public class BurnNextTurnPower extends AbstractTheVixenPower {
         this.ID = POWER_ID;
         this.type = POWER_TYPE;
 
-        this.enemyTurn = enemyTurn;
-
         updateDescription();
+        this.priority = -98;
     }
 
     @Override
-    public void atStartOfTurn() {
-        if (this.enemyTurn) {
-            this.enemyTurn = false;
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+    public void atEndOfRound() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new BurnPower(this.owner, this.amount), this.amount));
+        if(this.amount >= BurnPower.burntoweak) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new WeakPower(this.owner, this.amount / BurnPower.burntoweak, false), this.amount / BurnPower.burntoweak));
         }
     }
 

@@ -35,7 +35,7 @@ public class Extrasensory extends AbstractConfusionCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = COUNT;
-        this.misc = this.baseMagicNumber - 1;
+        this.misc = this.baseMagicNumber + 1;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Extrasensory extends AbstractConfusionCard {
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        this.execute(p, m, this.magicNumber + this.misc);
+        this.execute(p, m, this.misc);
 
         this.exhaust = true;
     }
@@ -68,7 +68,7 @@ public class Extrasensory extends AbstractConfusionCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_COUNT);
-            this.misc = this.baseMagicNumber - 1;
+            this.misc = this.baseMagicNumber + 2;
         }
     }
 

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractWeakReverseCard;
 import thevixen.enums.AbstractCardEnum;
 
@@ -50,7 +50,7 @@ public class Facade extends AbstractWeakReverseCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        int debuffcount = ReduceCommonDebuffDurationAction.getCommonDebuffCount(p);
+        int debuffcount = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         for(int i = 0; i <= debuffcount; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }

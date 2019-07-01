@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempGainStrengthPowerAction;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.characters.TheVixenCharacter;
 import thevixen.powers.SunnyDayPower;
 
@@ -40,7 +40,7 @@ public class BurningStick extends CustomRelic {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                     AbstractDungeon.player, AbstractDungeon.player, new SunnyDayPower(AbstractDungeon.player, SUN), SUN));
         } else {
-            int amount = ReduceCommonDebuffDurationAction.getCumulativeDuration(AbstractDungeon.player);
+            int amount = ReduceDebuffDurationAction.getCumulativeDuration(AbstractDungeon.player);
             if(amount > 0) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyTempGainStrengthPowerAction(
                         AbstractDungeon.player, AbstractDungeon.player, amount));

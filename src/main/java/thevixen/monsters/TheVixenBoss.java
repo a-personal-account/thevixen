@@ -28,11 +28,10 @@ import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.actions.AttackAnimationAction;
 import thevixen.actions.PsycrackerAction;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.attack.Psybeam;
 import thevixen.cards.attack.SolarBeam;
-import thevixen.cards.power.SynergyBurst;
 import thevixen.cards.status.BossBurn;
 import thevixen.enums.IntentEnum;
 import thevixen.helpers.BraixenAnimation;
@@ -568,7 +567,7 @@ public class TheVixenBoss extends CustomMonster {
                 break;
             case FACADE_CONST:
                 AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(this));
-                count = ReduceCommonDebuffDurationAction.getCommonDebuffCount(this, false) + 1;
+                count = ReduceDebuffDurationAction.getCommonDebuffCount(this, false) + 1;
                 for(int i = 0; i < count; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
@@ -660,7 +659,7 @@ public class TheVixenBoss extends CustomMonster {
                     if (!this.hasPower(BossFacadePower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new BossFacadePower(AbstractDungeon.player)));
                     }
-                    count += ReduceCommonDebuffDurationAction.getCommonDebuffCount(this, false);
+                    count += ReduceDebuffDurationAction.getCommonDebuffCount(this, false);
                     break;
             }
             if (count > 1) {
@@ -749,7 +748,7 @@ public class TheVixenBoss extends CustomMonster {
 
     public void calcFacade() {
         if(this.nextMove == FACADE_CONST) {
-            this.setMove(MOVES[FACADE_CONST], FACADE_CONST, intents.get(FACADE_CONST), this.damagevalues.get(FACADE_CONST) + burnamount(), ReduceCommonDebuffDurationAction.getCommonDebuffCount(this, false) + 2, true);
+            this.setMove(MOVES[FACADE_CONST], FACADE_CONST, intents.get(FACADE_CONST), this.damagevalues.get(FACADE_CONST) + burnamount(), ReduceDebuffDurationAction.getCommonDebuffCount(this, false) + 2, true);
             this.createIntent();
         }
     }

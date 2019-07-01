@@ -40,7 +40,7 @@ public class Confusion extends AbstractConfusionCard {
 
     private static final int COST = 1;
 
-    private static final int CONFUSION = 7;
+    private static final int CONFUSION = 6;
     private static final int RETAIN = 1;
 
     public Confusion() {

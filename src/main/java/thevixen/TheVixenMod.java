@@ -9,6 +9,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -31,22 +32,16 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thevixen.RazIntent.CustomIntent;
 import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.*;
 import thevixen.cards.skill.*;
-import thevixen.cards.umbreon.UmbreonFoulPlay;
-import thevixen.cards.umbreon.UmbreonHelpingHand;
-import thevixen.cards.umbreon.UmbreonRefresh;
-import thevixen.cards.umbreon.UmbreonSnarl;
 import thevixen.characters.TheVixenCharacter;
 import thevixen.dynamicvariables.*;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.enums.TheVixenCharEnum;
 import thevixen.events.UmbreonEvent;
-import thevixen.helpers.ProperNameKeyword;
 import thevixen.intent.*;
 import thevixen.monsters.TheVixenBoss;
 import thevixen.potions.FullHeal;
@@ -78,7 +73,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     private static TheVixenCharacter theVixenCharacter;
 
-    private Map<String, ProperNameKeyword> keywords;
+    private Map<String, Keyword> keywords;
 
     private static Properties theVixenProperties = new Properties();
     public static boolean eventEnabled;
@@ -341,10 +336,9 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new UmbreonRefresh());
 
         BaseMod.addCard(new UmbreonHelpingHand());
-
+        */
 
         BaseMod.addCard(new DebugCard());
-        */
     }
 
     @Override
@@ -424,12 +418,12 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         String keywordStrings =
                 Gdx.files.internal(MOD_NAME + "/localization/" + language + "/KeywordStrings.json")
                         .readString(String.valueOf(StandardCharsets.UTF_8));
-        Type typeToken = new TypeToken<Map<String, ProperNameKeyword>>() {
+        Type typeToken = new TypeToken<Map<String, Keyword>>() {
         }.getType();
 
         keywords = gson.fromJson(keywordStrings, typeToken);
         keywords.forEach((k, v) -> {
-            BaseMod.addKeyword(v.PROPER_NAME, v.NAMES, v.DESCRIPTION);
+            BaseMod.addKeyword(MOD_NAME.toLowerCase(), v.PROPER_NAME, v.NAMES, v.DESCRIPTION);
         });
     }
 

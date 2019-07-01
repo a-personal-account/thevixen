@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
@@ -36,11 +36,11 @@ public class Refresh extends AbstractVixenCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = ReduceCommonDebuffDurationAction.getCommonDebuffCount(p);
+        int count = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         if(count > 0) {
-            AbstractDungeon.effectsQueue.add(new HealEffect(p.hb.cX - p.animX, p.hb.cY, -1));
+            p.useJumpAnimation();
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, count));
-            AbstractDungeon.actionManager.addToBottom(new ReduceCommonDebuffDurationAction(p, p, this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ReduceDebuffDurationAction(p, p, this.magicNumber));
         }
     }
 

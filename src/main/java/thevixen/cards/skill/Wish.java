@@ -28,7 +28,7 @@ public class Wish extends AbstractVixenCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int ARTIFACT = 1;
 
     public Wish() {

@@ -1,7 +1,5 @@
 package thevixen.cards.skill;
 
-import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,13 +10,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
-import thevixen.cards.attack.FlareBlitz;
-import thevixen.cards.attack.Overheat;
-import thevixen.cards.power.Guts;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.powers.EndurePower;
 
 import java.util.Iterator;
 
@@ -49,7 +43,7 @@ public class MagicCoat extends AbstractVixenCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int energy = ReduceCommonDebuffDurationAction.getCommonDebuffCount(p);
+        int energy = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         float block = this.baseBlock;
 
         if(energy > this.magicNumber) {

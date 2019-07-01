@@ -1,16 +1,11 @@
 package thevixen.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import thevixen.cards.skill.PsychoShift;
-import thevixen.relics.TwistedSpoon;
 
 public class HealByDebuffsAction extends AbstractGameAction {
 
@@ -27,7 +22,7 @@ public class HealByDebuffsAction extends AbstractGameAction {
     @Override
     public void update() {
         if(this.duration == this.startDuration) {
-            int count = ReduceCommonDebuffDurationAction.getCumulativeDuration(this.target);
+            int count = ReduceDebuffDurationAction.getCumulativeDuration(this.target);
             if(count > 0) {
                 AbstractDungeon.actionManager.addToBottom(new HealAction(this.target, this.target, count * card.magicNumber));
             }

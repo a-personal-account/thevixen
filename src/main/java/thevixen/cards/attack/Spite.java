@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempLoseStrengthPowerAction;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
+import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
@@ -44,7 +44,7 @@ public class Spite extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        this.damage = ReduceCommonDebuffDurationAction.getCumulativeDuration(p);
+        this.damage = ReduceDebuffDurationAction.getCumulativeDuration(p);
         for(int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }

@@ -1,29 +1,17 @@
 package thevixen.cards.skill;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import thevixen.TheVixenMod;
-import thevixen.actions.ReduceCommonDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
-import thevixen.cards.attack.FlareBlitz;
-import thevixen.cards.attack.Overheat;
-import thevixen.cards.power.Guts;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.EndurePower;
-
-import java.util.Iterator;
 
 public class Endure extends AbstractVixenCard {
     public static final String ID = "TheVixenMod:Endure";
