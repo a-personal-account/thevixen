@@ -370,6 +370,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addRelicToCustomPool(new ShellBell(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new TwistedSpoon(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new Synchronize(), AbstractCardEnum.THE_VIXEN_ORANGE);
+        BaseMod.addRelicToCustomPool(new ChoiceSpecs(), AbstractCardEnum.THE_VIXEN_ORANGE);
 
         BaseMod.addRelicToCustomPool(new UmbreonRelic(), AbstractCardEnum.THE_VIXEN_ORANGE);
 

@@ -166,7 +166,17 @@
       "At the start of your next turn, heal for half the HP you lost this turn."
     ]
   },
-
+  "TheVixenMod:ChoiceLockedPower": {
+    "NAME": "Choice Locked",
+    "DESCRIPTIONS": [
+      "You can only play #r",
+      " cards this turn."
+    ]
+  },
+  "TheVixenMod:ChoiceSpecsPower": {
+    "NAME": "",
+    "DESCRIPTIONS": []
+  },
 
 
   "TheVixenMod:BossFacadePower": {

@@ -67,6 +67,13 @@
       "Whenever you are afflicted with #bWeak, #rVulnerable or #ytemporary #yStrengthloss, also apply it to the enemy that applied it. NL (apply it to all enemies but for half the amount if you apply it to yourself)"
     ]
   },
+  "TheVixenMod:ChoiceSpecs": {
+    "NAME": "Choice Specs",
+    "FLAVOR": "A rather tricky thing to use.",
+    "DESCRIPTIONS": [
+      "After playing the first card every turn, you may only play cards of that cardtype until end of turn. NL Damage dealt, Block gained and HP healed increased by 50%."
+    ]
+  },
 
 
   "TheVixenMod:UmbreonRelic": {

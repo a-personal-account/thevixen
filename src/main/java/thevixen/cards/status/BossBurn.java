@@ -38,9 +38,6 @@ public class BossBurn extends AbstractCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasRelic("Medical Kit")) {
-            this.downgrade(p);
-        }
     }
 
     @Override
@@ -87,9 +84,7 @@ public class BossBurn extends AbstractCard {
 
     public void downgrade(AbstractPlayer p) {
         this.upgradeMagicNumber(-1);
-        if(this.timesUpgraded-- == 0) {
-            this.useMedicalKit(p);
-        } else {
+        if(this.timesUpgraded-- > 0) {
             if(this.timesUpgraded > 0) {
                 this.name = NAME + "+" + this.timesUpgraded;
             } else {

@@ -3,6 +3,8 @@ package thevixen.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.BandageUp;
+import com.megacrit.cardcrawl.cards.colorless.GoodInstincts;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -51,8 +53,8 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Facade());
-        AbstractDungeon.player.hand.addToHand(new Psychic());
+        AbstractDungeon.player.hand.addToHand(new BandageUp());
+        AbstractDungeon.player.hand.addToHand(new GoodInstincts());
 
         ac = new Ember();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
