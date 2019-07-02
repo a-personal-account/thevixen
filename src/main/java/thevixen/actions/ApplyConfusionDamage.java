@@ -24,7 +24,7 @@ public class ApplyConfusionDamage extends AbstractGameAction {
 
     @Override
     public void update() {
-        AbstractDungeon.actionManager.addToTop(new DamageAction(this.target, new DamageInfo(this.target, this.amount, DamageInfo.DamageType.NORMAL), effect));
+        AbstractDungeon.actionManager.addToTop(new DamageAction(this.target, new DamageInfo(this.source, this.amount, DamageInfo.DamageType.NORMAL), effect));
 
 
         if(this.source == AbstractDungeon.player && AbstractDungeon.player.hasRelic(TwistedSpoon.ID)) {

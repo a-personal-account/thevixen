@@ -8,16 +8,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
-import thevixen.cards.attack.Ember;
-import thevixen.cards.attack.Facade;
-import thevixen.cards.attack.FlameCharge;
+import thevixen.cards.attack.*;
 import thevixen.cards.power.Guts;
 import thevixen.cards.skill.CounterAttackDashCancel;
 import thevixen.cards.skill.PsychoShift;
 import thevixen.cards.skill.Refresh;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.relics.FiriumZ;
 
 import java.util.ArrayList;
 
@@ -52,11 +52,7 @@ public class DebugCard extends AbstractConfusionCard {
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
         AbstractDungeon.player.hand.addToHand(new Facade());
-        AbstractDungeon.player.hand.addToHand(new PsychoShift());
-        AbstractDungeon.player.hand.addToHand(new Guts());
-        AbstractDungeon.player.hand.addToHand(new Refresh());
-        AbstractDungeon.player.hand.addToHand(new CounterAttackDashCancel());
-        AbstractDungeon.player.hand.addToHand(new FlameCharge());
+        AbstractDungeon.player.hand.addToHand(new Psychic());
 
         ac = new Ember();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
@@ -66,7 +62,7 @@ public class DebugCard extends AbstractConfusionCard {
 
         if(!p.hasPower(DrawPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(47));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BerserkPower(NAME, p, 47), 47));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BerserkPower(p, 47), 47));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawPower(p, 5), 5));
         }
 

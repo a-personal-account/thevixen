@@ -83,11 +83,10 @@ public class FiriumZ extends CustomRelic implements SingleTargetRelic, Clickable
     }
 
     @Override
-    public int onAttackedMonster(DamageInfo info, int damageAmount) {
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if(this.counter > -1) {
             this.counter += info.output;
         }
-        return damageAmount;
     }
 
     @Override

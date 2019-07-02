@@ -27,6 +27,7 @@ public class ApplyConfusionMultiDamage extends AbstractGameAction {
         this.actionType = ActionType.DAMAGE;
         this.damageType = type;
         this.attackEffect = effect;
+        this.source = source;
         if (isFast) {
             this.duration = Settings.ACTION_DUR_XFAST;
         } else {
@@ -76,7 +77,7 @@ public class ApplyConfusionMultiDamage extends AbstractGameAction {
                         monster.tint.changeColor(Color.WHITE.cpy());
                     }
 
-                    monster.damage(new DamageInfo(monster, this.damage[i], this.damageType));
+                    monster.damage(new DamageInfo(source, this.damage[i], this.damageType));
 
                     if(spoon) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(monster, this.source, TwistedSpoon.POTENCY));
