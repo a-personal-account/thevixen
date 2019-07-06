@@ -263,8 +263,8 @@
   },
   "TheVixenMod:Curse": {
     "NAME": "Curse",
-    "DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw a card. NL thevixenmod:Sunny_Exhaust: NL Copy your Weak and Vulnerable equally split to all enemies.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to yourself. Draw !M! cards. NL thevixenmod:Sunny_Exhaust: NL Copy your Weak and Vulnerable equally split to all enemies."
+    "DESCRIPTION": "Apply !M! Vulnerable NL to yourself. NL Apply Poison equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable NL to yourself. NL Apply Poison to all enemies equal to the thevixenmod:cumulative_stacks of your thevixenmod:debuffs."
   },
   "TheVixenMod:Disable": {
     "NAME": "Disable",
@@ -303,8 +303,8 @@
   },
   "TheVixenMod:Moody": {
     "NAME": "Moody",
-    "DESCRIPTION": "???",
-    "UPGRADE_DESCRIPTION": "Still ???"
+    "DESCRIPTION": "NCByYW5k b20gZ29vZCBlZmZ lY3RzIG FuZC Ay IGJhZCBvbmVz",
+    "UPGRADE_DESCRIPTION": "NiByYW5k b20gZ29vZCBlZmZ lY3RzIG FuZC Az IGJhZCBvbmVz"
   },
   "TheVixenMod:Blaze": {
     "NAME": "Blaze",
@@ -328,7 +328,8 @@
   },
   "TheVixenMod:Dazzling": {
     "NAME": "Dazzling",
-    "DESCRIPTION": "Whenever a card's thevixenmod:Sunny effect is triggered, gain !M! Block."
+    "DESCRIPTION": "Whenever a card's thevixenmod:Sunny effect is triggered, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Whenever a card's thevixenmod:Sunny effect is triggered, gain !M! Block. NL Gain !MISC! thevixenmod:Sunny_Day."
   },
   "TheVixenMod:Drought": {
     "NAME": "Drought",

@@ -13,11 +13,13 @@ import thevixen.TheVixenMod;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.BlazePower;
 import thevixen.powers.DazzlingPower;
+import thevixen.powers.SunnyDayPower;
 
 public class Dazzling extends CustomCard {
     public static final String ID = "TheVixenMod:Dazzling";
     public static final String NAME;
     public static final String DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "cards/dazzling.png";
 
     private static final CardStrings cardStrings;
@@ -28,17 +30,22 @@ public class Dazzling extends CustomCard {
 
     private static final int COST = 1;
     private static final int DAZZLING = 2;
-    private static final int UPGRADE_DAZZLING = 1;
+    private static final int SUNNY = 2;
 
     public Dazzling() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = DAZZLING;
+        this.misc = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new DazzlingPower(p, this.magicNumber), this.magicNumber));
+        if(this.misc > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new SunnyDayPower(p, this.misc), this.misc));
+        }
     }
 
     @Override
@@ -50,7 +57,9 @@ public class Dazzling extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_DAZZLING);
+            this.misc += SUNNY;
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -58,5 +67,6 @@ public class Dazzling extends CustomCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     }
 }

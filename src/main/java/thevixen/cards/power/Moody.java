@@ -29,10 +29,12 @@ public class Moody extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
+    private static final int MOODY = 2;
+    private static final int UPGRADE_MOODY = 1;
 
     public Moody() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = MOODY;
     }
 
     @Override
@@ -41,7 +43,7 @@ public class Moody extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new IntimidateEffect(p.hb.cX, p.hb.cY), 0.5F));
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new MoodyPower(p, 1), 1));
+                new ApplyPowerAction(p, p, new MoodyPower(p, this.magicNumber), this.magicNumber));
 
     }
 
@@ -54,7 +56,7 @@ public class Moody extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+            this.upgradeMagicNumber(UPGRADE_MOODY);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
