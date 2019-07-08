@@ -43,6 +43,8 @@ public class SolarBeam extends AbstractVixenCard {
         this.baseDamage = DAMAGE;
 
         this.isMultiDamage = true;
+
+        this.cardtrigger = CardTrigger.SUNNYALL;
     }
 
     @Override

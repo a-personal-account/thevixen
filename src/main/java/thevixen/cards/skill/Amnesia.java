@@ -37,6 +37,8 @@ public class Amnesia extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseBlock = this.block = BLOCK;
         this.baseMagicNumber = this.magicNumber = PERCENTAGE;
+
+        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
     }
 
     @Override

@@ -33,6 +33,8 @@ public class Endure extends AbstractVixenCard {
     public Endure() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseBlock = this.block = BLOCK_AMT;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override
@@ -56,6 +58,8 @@ public class Endure extends AbstractVixenCard {
         regular(p, m);
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EndurePower(p, this)));
+
+        this.cardtrigger = CardTrigger.NONE;
     }
 
     @Override

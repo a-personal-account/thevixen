@@ -45,6 +45,8 @@ public class Psychic extends AbstractConfusionCard {
 
         this.baseDamage = this.damage = CONFUSION;
         this.isMultiDamage = true;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override
@@ -119,6 +121,8 @@ public class Psychic extends AbstractConfusionCard {
             upgradeDamage(UPGRADE_CONFUSION);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+
+            this.cardtrigger = CardTrigger.NONE;
         }
     }
 

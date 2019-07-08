@@ -36,6 +36,8 @@ public class Extrasensory extends AbstractConfusionCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = COUNT;
         this.misc = this.baseMagicNumber + 1;
+
+        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
     }
 
     @Override

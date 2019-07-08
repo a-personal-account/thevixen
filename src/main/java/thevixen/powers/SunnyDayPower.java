@@ -1,6 +1,5 @@
 package thevixen.powers;
 
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,6 +15,8 @@ public class SunnyDayPower extends AbstractTheVixenPower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
+
+    public static int totalAmount = 0;
 
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "sunnyday.png";
@@ -50,8 +51,8 @@ public class SunnyDayPower extends AbstractTheVixenPower {
 
     @Override
     public void atStartOfTurn() {
-        if (AbstractDungeon.player.hasRelic("TheVixenMod:EternalFlame") && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyTempGainStrengthPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(SunnyDayPower.POWER_ID).amount));
+        if (this.owner == AbstractDungeon.player && AbstractDungeon.player.hasRelic(EternalFlame.ID) && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyTempGainStrengthPowerAction(this.owner, this.owner, this.owner.getPower(SunnyDayPower.POWER_ID).amount));
         }
     }
 
@@ -76,18 +77,26 @@ public class SunnyDayPower extends AbstractTheVixenPower {
         this.updateRelics();
     }
 
-    private void updateRelics() {
-        AbstractRelic relic = null;
+    @Override
+    public void onVictory() {
+        totalAmount = 0;
+    }
 
-        if(AbstractDungeon.player.hasRelic(BurningStick.ID)) {
-            relic = AbstractDungeon.player.getRelic(BurningStick.ID);
-        } else if(AbstractDungeon.player.hasRelic(EternalFlame.ID)) {
-            relic = AbstractDungeon.player.getRelic(EternalFlame.ID);
-        } else {
-            return;
+    private void updateRelics() {
+        if(this.owner == AbstractDungeon.player) {
+            AbstractRelic relic = null;
+            int amnt = this.amount > 0 ? this.amount : 0;
+            totalAmount = amnt;
+
+            if (AbstractDungeon.player.hasRelic(BurningStick.ID)) {
+                relic = AbstractDungeon.player.getRelic(BurningStick.ID);
+            } else if (AbstractDungeon.player.hasRelic(EternalFlame.ID)) {
+                relic = AbstractDungeon.player.getRelic(EternalFlame.ID);
+            } else {
+                return;
+            }
+            relic.counter = amnt;
         }
-        int amnt = this.amount > 0 ? this.amount : 0;
-        relic.counter = amnt;
     }
 
     static {

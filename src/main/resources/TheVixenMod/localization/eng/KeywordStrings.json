@@ -13,14 +13,14 @@
       "sunny day",
       "sunny_day"
     ],
-    "DESCRIPTION": "1 stack of this buff is used up to trigger a card's #rSunny effect."
+    "DESCRIPTION": "1 stack of this power is used up to trigger a card's #rSunny effect."
   },
   "TheVixenMod:SunnyKeyword": {
     "PROPER_NAME": "Sunny",
     "NAMES": [
       "sunny"
     ],
-    "DESCRIPTION": "Requires the buff #rSunny #rDay to trigger. NL Consumes 1 stack of it upon doing so."
+    "DESCRIPTION": "Requires the power #rSunny #rDay to trigger. NL Consumes 1 stack of it upon doing so."
   },
   "TheVixenMod:SunnyExhaustKeyword": {
     "PROPER_NAME": "Sunny Exhaust",
@@ -28,7 +28,7 @@
       "sunny exhaust",
       "sunny_exhaust"
     ],
-    "DESCRIPTION": "Requires the buff #rSunny #rDay to trigger. NL Consumes 1 stack of it and #rExhausts upon doing so."
+    "DESCRIPTION": "Requires the power #rSunny #rDay to trigger. NL Consumes 1 stack of it and #rExhausts upon doing so."
   },
   "TheVixenMod:SubstituteKeyword": {
     "PROPER_NAME": "Substitute",
@@ -59,14 +59,14 @@
       "cumulative stacks",
       "cumulative_stacks"
     ],
-    "DESCRIPTION": "The stacks of all your #rdebuffs combined, added to the amount of #rCurse- and #bStatus cards in your hand."
+    "DESCRIPTION": "The stacks of all your #rdebuff powers combined, added to the amount of #rCurse- and #bStatus cards in your hand."
   },
   "TheVixenMod:GutsKeyword": {
     "PROPER_NAME": "Guts",
     "NAMES": [
       "guts"
     ],
-    "DESCRIPTION": "Counts as a #rdebuff without having any detrimental effects. NL Does not deteriorate."
+    "DESCRIPTION": "Counts as a #rdebuff power without having any detrimental effects. NL Does not deteriorate."
   },
   "TheVixenMod:CopycatKeyword": {
     "PROPER_NAME": "Copycat",
@@ -87,6 +87,6 @@
     "NAMES": [
       "defiant"
     ],
-    "DESCRIPTION": "Whenever you are inflicted with a #ydebuff, a flame starts orbitting you (you can have as many flames as you have stacks of #bdefiant). NL At the start of your turn, all flames are converted into #rSunny #rDay."
+    "DESCRIPTION": "Whenever you are inflicted with a #ydebuff power, a flame starts orbitting you (you can have as many flames as you have stacks of #bdefiant). NL At the start of your turn, all flames are converted into #rSunny #rDay."
   }
 }

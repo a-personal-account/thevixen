@@ -41,6 +41,9 @@ public class Inferno extends AbstractVixenCard {
 
     public Inferno() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

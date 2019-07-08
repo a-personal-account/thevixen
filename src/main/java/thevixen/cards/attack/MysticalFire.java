@@ -41,6 +41,8 @@ public class MysticalFire extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
         this.baseDamage = this.damage = DAMAGE;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

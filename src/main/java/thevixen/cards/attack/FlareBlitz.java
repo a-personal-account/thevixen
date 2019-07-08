@@ -42,6 +42,8 @@ public class FlareBlitz extends AbstractSunnyBonusCard {
         this.baseDamage = this.damage = DAMAGE;
 
         this.sunnyDamage = SUNNYBONUS;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

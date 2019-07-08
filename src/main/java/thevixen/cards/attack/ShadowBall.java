@@ -41,6 +41,8 @@ public class ShadowBall extends AbstractVixenCard {
 
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = CARDS;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
 

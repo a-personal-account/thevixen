@@ -89,6 +89,8 @@ public class Confusion extends AbstractConfusionCard {
             upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+
+            this.cardtrigger = CardTrigger.SUNNY;
         }
     }
 

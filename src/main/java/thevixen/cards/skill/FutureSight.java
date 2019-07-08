@@ -32,6 +32,8 @@ public class FutureSight extends AbstractVixenCard {
 
     public FutureSight() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+
+        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
     }
 
     @Override

@@ -47,6 +47,8 @@ public class FireSpin extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = SUNNY;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

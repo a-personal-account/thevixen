@@ -42,6 +42,8 @@ public class Flamethrower extends AbstractVixenCard {
 
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = BURN;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

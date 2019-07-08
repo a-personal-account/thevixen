@@ -37,6 +37,16 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
 
     @Override
     public boolean onReceivePower(AbstractPower ap, AbstractCreature ac) {
+        switch (ap.ID) {
+            case VulnerablePower.POWER_ID:
+            case WeakPower.POWER_ID:
+            case GainStrengthPower.POWER_ID:
+            case LoseStrengthPower.POWER_ID:
+                break;
+            default:
+                return true;
+        }
+
         ArrayList<AbstractCreature> targets = new ArrayList<>();
         ArrayList<AbstractPower> toApply = new ArrayList<>();
 

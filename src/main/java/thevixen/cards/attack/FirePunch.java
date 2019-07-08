@@ -39,6 +39,8 @@ public class FirePunch extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = BURN;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

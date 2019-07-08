@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinFat;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import thevixen.RazIntent.CustomIntent;
 import thevixen.cards.DebugCard;
@@ -45,6 +46,8 @@ import thevixen.events.UmbreonEvent;
 import thevixen.intent.*;
 import thevixen.monsters.TheVixenBoss;
 import thevixen.potions.FullHeal;
+import thevixen.powers.GutsPower;
+import thevixen.powers.SunnyDayPower;
 import thevixen.relics.*;
 
 import java.lang.reflect.Type;
@@ -55,7 +58,7 @@ import java.util.*;
 @SpireInitializer
 public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, PostCreateStartingDeckSubscriber,
-        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber {
+        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber, OnStartBattleSubscriber {
     private static final Color CUSTOM_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
 
     private static final String ATTACK_CARD = "512/attack_thevixen.png";
@@ -371,6 +374,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addRelicToCustomPool(new TwistedSpoon(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new Synchronize(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new ChoiceSpecs(), AbstractCardEnum.THE_VIXEN_ORANGE);
+        BaseMod.addRelicToCustomPool(new WeaknessPolicy(), AbstractCardEnum.THE_VIXEN_ORANGE);
 
         BaseMod.addRelicToCustomPool(new UmbreonRelic(), AbstractCardEnum.THE_VIXEN_ORANGE);
 
@@ -432,6 +436,12 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public void receiveAddAudio() {
         BaseMod.addAudio(MOD_NAME + ":vixencry", MOD_NAME + "/sfx/braix.wav");
         BaseMod.addAudio(MOD_NAME + ":blackycry", MOD_NAME + "/sfx/umby.wav");
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        SunnyDayPower.totalAmount = 0;
+        GutsPower.totalAmount = 0;
     }
 
     private void loadConfigData() {

@@ -36,6 +36,8 @@ public class Agility extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = CARDS;
         this.baseBlock = this.block = BLOCK;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override
@@ -72,6 +74,8 @@ public class Agility extends AbstractVixenCard {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+
+            this.cardtrigger = CardTrigger.NONE;
         }
     }
 

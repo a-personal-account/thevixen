@@ -54,6 +54,8 @@ public class Copycat extends AbstractVixenCard {
         card = null;
         this.exhaust = true;
 
+        this.cardtrigger = CardTrigger.SUNNY;
+
         this.originalPortrait = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this, AbstractCard.class, "portrait");
     }
 

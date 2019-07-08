@@ -39,20 +39,11 @@ public class Spite extends AbstractVixenCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        super.use(p, m);
-    }
-
-    @Override
-    protected void regular(AbstractPlayer p, AbstractMonster m) {
         this.damage = ReduceDebuffDurationAction.getCumulativeDuration(p);
         for(int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(m, p, this.damage));
-    }
-    @Override
-    protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        this.regular(p, m);
     }
 
     @Override

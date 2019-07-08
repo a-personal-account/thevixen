@@ -37,6 +37,8 @@ public class Disable extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.misc = BLOCK;
         this.baseMagicNumber = this.magicNumber = CARDS;
+
+        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
     }
 
     @Override

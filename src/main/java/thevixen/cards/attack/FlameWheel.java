@@ -40,6 +40,8 @@ public class FlameWheel extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = BLOCK;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
 

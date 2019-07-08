@@ -37,6 +37,8 @@ public class SunnyDay extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = SUN;
         this.misc = 1;
+
+        this.cardtrigger = CardTrigger.SUNNYDEBUFFEDNOHAND;
     }
 
 

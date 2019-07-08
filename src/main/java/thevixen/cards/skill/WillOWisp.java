@@ -34,10 +34,22 @@ public class WillOWisp extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = BURN;
         this.exhaust = true;
+
+        this.cardtrigger = CardTrigger.SUNNYMULTITARGET;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int alive = monstersAlive();
+
+        if(alive > 1) {
+            super.use(p, m);
+        } else {
+            regular(p, m);
+        }
+    }
+
+    public static int monstersAlive() {
         int alive = 0;
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
@@ -49,11 +61,7 @@ public class WillOWisp extends AbstractVixenCard {
                 alive++;
         }
 
-        if(alive > 1) {
-            super.use(p, m);
-        } else {
-            regular(p, m);
-        }
+        return alive;
     }
 
     @Override

@@ -50,14 +50,14 @@
     "NAME": "Shell Bell",
     "FLAVOR": "Reverberates when others scream in agony.",
     "DESCRIPTIONS": [
-      "Whenever you deal damage to a #rthevixenmod:burned creature, gain 3 Block."
+      "Whenever you deal damage to a #rthevixenmod:burned creature, gain #b"," #bBlock."
     ]
   },
   "TheVixenMod:TwistedSpoon": {
     "NAME": "Twisted Spoon",
     "FLAVOR": "Not to be confused with a strange spoon.",
     "DESCRIPTIONS": [
-      "Whenever your cards cause enemies to deal damage to themselves, they lose 2 #rStrength this turn."
+      "Whenever your cards cause enemies to deal damage to themselves, they lose #b"," #rStrength this turn."
     ]
   },
   "TheVixenMod:Synchronize": {
@@ -72,6 +72,13 @@
     "FLAVOR": "A rather tricky thing to use.",
     "DESCRIPTIONS": [
       "After playing the first card every turn, you may only play cards of that cardtype until end of turn. NL Damage dealt, Block gained and HP healed increased by 50%."
+    ]
+  },
+  "TheVixenMod:WeaknessPolicy": {
+    "NAME": "Weakness Policy",
+    "FLAVOR": "If hit in a weak spot, please fill out form 37B and provide photographic proof of the event. NL A spire spokesperson will get back to you within 3 business days.",
+    "DESCRIPTIONS": [
+      "Whenever you are afflicted with a debuff, gain #b"," #rStrength this turn."
     ]
   },
 

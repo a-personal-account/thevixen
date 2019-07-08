@@ -25,7 +25,7 @@ public class ShellBell extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return this.DESCRIPTIONS[0] + BLOCK + this.DESCRIPTIONS[1];
     }
 
     @Override

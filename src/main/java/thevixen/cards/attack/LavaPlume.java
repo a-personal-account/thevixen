@@ -35,6 +35,8 @@ public class LavaPlume extends AbstractVixenCard {
 
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = ITERATION;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

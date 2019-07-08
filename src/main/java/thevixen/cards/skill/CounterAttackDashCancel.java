@@ -42,6 +42,8 @@ public class CounterAttackDashCancel extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = STRENGTH;
         this.baseBlock = this.block = BLOCK;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

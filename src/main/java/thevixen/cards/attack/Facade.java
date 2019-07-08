@@ -73,6 +73,8 @@ public class Facade extends AbstractWeakReverseCard {
             upgradeMisc();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+
+            this.cardtrigger = CardTrigger.SUNNY;
         }
     }
 

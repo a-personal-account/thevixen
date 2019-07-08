@@ -96,6 +96,8 @@ public class FireBlast extends AbstractVixenCard {
             upgradeMagicNumber(UPGRADE_PERCENTAGE);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+
+            this.cardtrigger = CardTrigger.SUNNY;
         }
     }
 

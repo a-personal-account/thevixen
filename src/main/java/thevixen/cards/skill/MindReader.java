@@ -40,6 +40,8 @@ public class MindReader extends AbstractVixenCard {
         this.baseMagicNumber = this.magicNumber = WEAK;
         this.baseBlock = this.block = BLOCK;
         this.baseDamage = this.damage = BLOCK;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

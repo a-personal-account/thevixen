@@ -40,6 +40,8 @@ public class BurnUp extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = SUN;
         this.exhaust = true;
+
+        this.cardtrigger = CardTrigger.SUNNYALL;
     }
 
     @Override

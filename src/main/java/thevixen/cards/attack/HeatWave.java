@@ -45,6 +45,8 @@ public class HeatWave extends AbstractVixenCard {
         this.baseDamage = DAMAGE;
 
         this.isMultiDamage = true;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

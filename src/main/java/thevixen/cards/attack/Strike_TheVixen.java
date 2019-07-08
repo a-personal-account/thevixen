@@ -39,6 +39,8 @@ public class Strike_TheVixen extends AbstractVixenCard {
         this.baseDamage = this.damage = DAMAGE;
         this.tags.add(BaseModCardTags.BASIC_STRIKE);
         this.tags.add(CardTags.STRIKE);
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

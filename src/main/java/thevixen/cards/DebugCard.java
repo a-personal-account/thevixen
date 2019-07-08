@@ -10,10 +10,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import thevixen.TheVixenMod;
-import thevixen.cards.attack.Ember;
+import thevixen.cards.attack.*;
+import thevixen.cards.skill.Copycat;
 import thevixen.cards.skill.Curse;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.relics.WeaknessPolicy;
 
 import java.util.ArrayList;
 
@@ -47,7 +49,10 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Curse());
+        AbstractDungeon.player.hand.addToHand(new Inferno());
+        AbstractDungeon.player.hand.addToHand(new Strike_TheVixen());
+        AbstractDungeon.player.hand.addToHand(new TrumpCard());
+        AbstractDungeon.player.hand.addToHand(new SolarBeam());
 
         ac = new Curse();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);

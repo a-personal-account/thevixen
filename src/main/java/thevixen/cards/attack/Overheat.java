@@ -42,6 +42,8 @@ public class Overheat extends AbstractSunnyBonusCard {
 
         this.sunnyDamage = SUNNYBONUS;
         this.sunnyMagicNumber = 1;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

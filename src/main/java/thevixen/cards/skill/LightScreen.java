@@ -36,6 +36,8 @@ public class LightScreen extends AbstractVixenCard {
 
         this.baseBlock = this.block = BLOCK;
         this.baseMagicNumber = this.magicNumber = SUNNYBLOCK;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

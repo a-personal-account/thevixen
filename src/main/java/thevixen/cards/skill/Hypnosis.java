@@ -31,6 +31,8 @@ public class Hypnosis extends AbstractVixenCard {
     public Hypnosis() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = SUGGESTION;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

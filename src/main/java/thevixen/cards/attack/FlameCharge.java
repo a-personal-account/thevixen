@@ -39,6 +39,8 @@ public class FlameCharge extends AbstractVixenCard {
 
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = DEX;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

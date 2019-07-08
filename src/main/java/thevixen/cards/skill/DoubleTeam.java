@@ -36,6 +36,8 @@ public class DoubleTeam extends AbstractVixenCard {
 
         this.baseBlock = this.block = BLOCK;
         this.misc = 1;
+
+        this.cardtrigger = CardTrigger.SUNNYDEBUFFED;
     }
 
     @Override

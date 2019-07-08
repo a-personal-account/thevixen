@@ -19,6 +19,8 @@ public class GutsPower extends AbstractTheVixenPower {
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "guts.png";
 
+    public static int totalAmount = 0;
+
     public GutsPower(AbstractCreature owner, int amount) {
         super(IMG);
         this.owner = owner;
@@ -46,6 +48,38 @@ public class GutsPower extends AbstractTheVixenPower {
         }
 
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, block));
+    }
+
+    @Override
+    public void onInitialApplication() {
+        this.updateRelics();
+    }
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        this.updateRelics();
+    }
+    @Override
+    public void reducePower(int reduceAmount) {
+        super.reducePower(reduceAmount);
+        this.updateRelics();
+    }
+    @Override
+    public void onRemove() {
+        this.amount = 0;
+        this.updateRelics();
+    }
+
+    @Override
+    public void onVictory() {
+        totalAmount = 0;
+    }
+
+    private void updateRelics() {
+        if(this.owner == AbstractDungeon.player) {
+            int amnt = this.amount > 0 ? this.amount : 0;
+            totalAmount = amnt;
+        }
     }
 
     @Override

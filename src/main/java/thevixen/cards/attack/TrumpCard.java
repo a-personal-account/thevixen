@@ -40,6 +40,8 @@ public class TrumpCard extends AbstractWeakReverseCard {
 
         this.baseDamage = this.damage = DAMAGE;
         upgradeMisc();
+
+        this.cardtrigger = CardTrigger.SELFDEBUFFED;
     }
 
     @Override

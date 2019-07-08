@@ -49,6 +49,8 @@ public class Psycracker extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = ITERATION;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override

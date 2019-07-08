@@ -42,6 +42,8 @@ public class FireFang extends AbstractVixenCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = BURN;
         this.misc = COUNT;
+
+        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
     }
 
     @Override
