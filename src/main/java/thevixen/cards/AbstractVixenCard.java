@@ -200,9 +200,7 @@ public abstract class AbstractVixenCard extends CustomCard {
             if(color != defaultcolor) {
                 if((float)ReflectionHacks.getPrivate(this, AbstractCard.class, "glowTimer") == 0.3F) {
                     ArrayList list = (ArrayList)ReflectionHacks.getPrivate(this, AbstractCard.class, "glowList");
-                    if(!list.isEmpty()) {
-                        list.remove(0);
-                    }
+                    list.clear();
                 }
 
                 this.blinkyParticleTimer -= Gdx.graphics.getDeltaTime();
