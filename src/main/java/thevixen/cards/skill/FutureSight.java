@@ -48,7 +48,7 @@ public class FutureSight extends AbstractVixenCard {
             AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());
             AbstractDungeon.actionManager.addToBottom(new ShuffleAction(AbstractDungeon.player.drawPile, false));
         }
-        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(Math.max(1, this.energyOnUse), this.energyOnUse, true));
+        AbstractDungeon.actionManager.addToBottom(new FutureSightAction(Math.max(1, this.energyOnUse), this.energyOnUse, !this.freeToPlayOnce));
         this.exhaust = true;
     }
 

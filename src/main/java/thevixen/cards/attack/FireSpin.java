@@ -79,7 +79,9 @@ public class FireSpin extends AbstractVixenCard {
             }
         });
 
-        p.energy.use(EnergyPanel.totalCount);
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
     }
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {

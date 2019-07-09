@@ -59,7 +59,9 @@ public class Barrier extends AbstractConfusionCard {
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, true), this.magicNumber));
 
-        p.energy.use(EnergyPanel.totalCount);
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
     }
 
     @Override

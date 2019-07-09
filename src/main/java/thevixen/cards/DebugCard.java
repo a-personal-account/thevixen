@@ -1,21 +1,20 @@
 package thevixen.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.GoodInstincts;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
-import thevixen.cards.skill.Copycat;
 import thevixen.cards.skill.Curse;
+import thevixen.cards.skill.Defend_TheVixen;
+import thevixen.cards.skill.FutureSight;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.relics.WeaknessPolicy;
 
 import java.util.ArrayList;
 
@@ -49,10 +48,16 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Inferno());
-        AbstractDungeon.player.hand.addToHand(new Strike_TheVixen());
-        AbstractDungeon.player.hand.addToHand(new TrumpCard());
-        AbstractDungeon.player.hand.addToHand(new SolarBeam());
+        AbstractDungeon.player.hand.addToHand(new FutureSight());
+        AbstractDungeon.player.hand.addToHand(new Defend_TheVixen());
+
+
+        AbstractDungeon.player.drawPile.addToTop(new Inferno());
+        AbstractDungeon.player.drawPile.addToTop(new Strike_TheVixen());
+        AbstractDungeon.player.drawPile.addToTop(new TrumpCard());
+        AbstractDungeon.player.drawPile.addToTop(new SolarBeam());
+        AbstractDungeon.player.drawPile.addToTop(new SunnyDay());
+        AbstractDungeon.player.drawPile.addToTop(new FireSpin());
 
         ac = new Curse();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
@@ -60,8 +65,9 @@ public class DebugCard extends AbstractConfusionCard {
         AbstractDungeon.player.hand.refreshHandLayout();
 
 
+        EnergyPanel.setEnergy(4);
         if(!p.hasPower(DrawPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(47));
+            //AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(47));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BerserkPower(p, 47), 47));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawPower(p, 5), 5));
         }

@@ -1,8 +1,10 @@
 package thevixen.actions;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -108,19 +110,27 @@ public class FutureSightAction extends AbstractGameAction {
         TEXT = uiStrings.TEXT;
     }
 
-    private void useCard(AbstractCard card) {
+    private void useCard(final AbstractCard originalcard) {
+
         AbstractMonster mo = AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
+        AbstractCard card = originalcard.makeStatEquivalentCopy();
+        card = card.makeStatEquivalentCopy();
+        card.target_x = Settings.WIDTH / 2.0F + MathUtils.random(-300F, 300F) * Settings.scale;
+        card.target_y = Settings.HEIGHT / 2.0F + MathUtils.random(-150F, 150F) * Settings.scale;
+        card.current_x = card.target_x;
+        card.current_y = card.target_y;
         card.calculateCardDamage(mo);
-        card.energyOnUse = this.energyOnUse;
-        boolean purge = card.purgeOnUse;
-        boolean exhaust = card.exhaust;
-        card.use(AbstractDungeon.player, mo);
-        card.exhaust = exhaust;
-        card.purgeOnUse = purge;
+        card.energyOnUse = energyOnUse;
+        card.freeToPlayOnce = true;
+        card.purgeOnUse = true;
+        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, mo, card.energyOnUse, true));
+
     }
 
     private void end() {
         this.isDone = true;
-        EnergyPanel.setEnergy(this.energyOnUse);
+        if(deductEnergy) {
+            EnergyPanel.setEnergy(this.energyOnUse);
+        }
     }
 }

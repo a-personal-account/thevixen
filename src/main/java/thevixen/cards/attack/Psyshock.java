@@ -62,7 +62,9 @@ public class Psyshock extends AbstractConfusionCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SunnyDayPower(p, count), count));
         }
 
-        p.energy.use(EnergyPanel.totalCount);
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
     }
 
     @Override
