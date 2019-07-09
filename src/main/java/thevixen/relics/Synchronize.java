@@ -18,7 +18,7 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
     public static final String ID = TheVixenMod.MOD_NAME + ":Synchronize";
     public static final String IMG_PATH = "relics/synchronize.png";
 
-    private static final RelicTier TIER = RelicTier.UNCOMMON;
+    private static final RelicTier TIER = RelicTier.COMMON;
     private static final LandingSound SOUND = LandingSound.MAGICAL;
 
     public Synchronize() {

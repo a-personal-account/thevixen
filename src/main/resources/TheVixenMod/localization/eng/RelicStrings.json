@@ -78,7 +78,7 @@
     "NAME": "Weakness Policy",
     "FLAVOR": "If hit in a weak spot, please fill out form 37B and provide photographic proof of the event. NL A spire spokesperson will get back to you within 3 business days.",
     "DESCRIPTIONS": [
-      "Whenever you are afflicted with a debuff, gain #b"," #rStrength this turn."
+      "Whenever you are afflicted with a #ydebuff unrelated to #rStrength or #bDexterity, gain "," #rStrength this turn."
     ]
   },
 

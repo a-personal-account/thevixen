@@ -19,15 +19,13 @@ public class WeaknessPolicy extends CustomRelic implements OnReceivePowerRelic {
     public static final String ID = TheVixenMod.MOD_NAME + ":WeaknessPolicy";
     public static final String IMG_PATH = "relics/weaknesspolicy.png";
 
-    private static final RelicTier TIER = RelicTier.COMMON;
+    private static final RelicTier TIER = RelicTier.UNCOMMON;
     private static final LandingSound SOUND = LandingSound.FLAT;
 
     public static final int POTENCY = 2;
-    private int ignore;
 
     public WeaknessPolicy() {
         super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
-        this.ignore = 0;
     }
 
     @Override
@@ -40,33 +38,24 @@ public class WeaknessPolicy extends CustomRelic implements OnReceivePowerRelic {
         return new WeaknessPolicy();
     }
 
-    @Override
-    public void atTurnStartPostDraw() {
-        this.ignore = 0;
-    }
-
-    @Override
-    public void onPlayerEndTurn() {
-        String[] pows = new String[]{LoseStrengthPower.POWER_ID, LoseDexterityPower.POWER_ID};
-        for(final String p : pows) {
-            if (AbstractDungeon.player.hasPower(p)) {
-                this.ignore++;
-            }
-        }
-    }
-
 
     @Override
     public boolean onReceivePower(AbstractPower ap, AbstractCreature ac) {
-        if(ap.type != AbstractPower.PowerType.DEBUFF || ignore-- > 0) {
+        String[] exceptions = new String[] {
+                LoseStrengthPower.POWER_ID,
+                StrengthPower.POWER_ID,
+                LoseDexterityPower.POWER_ID,
+                DexterityPower.POWER_ID
+        };
+        boolean inExceptions = false;
+        for(final String ex : exceptions) {
+            inExceptions |= ex.equals(ap.ID);
+        }
+        if(ap.type != AbstractPower.PowerType.DEBUFF || inExceptions) {
             return true;
         }
 
         AbstractDungeon.actionManager.addToTop(new ApplyTempGainStrengthPowerAction(AbstractDungeon.player, AbstractDungeon.player, POTENCY));
-        //AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, POTENCY), POTENCY));
-        //AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseDexterityPower(AbstractDungeon.player, POTENCY), POTENCY));
-
-        this.ignore = 1;
 
         return true;
     }
