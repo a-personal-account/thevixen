@@ -17,7 +17,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
+import thevixen.TheVixenMod;
 import thevixen.actions.ApplyBurnAction;
 import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.skill.WillOWisp;
@@ -129,7 +131,7 @@ public abstract class AbstractVixenCard extends CustomCard {
     @SpireOverride
     protected void updateGlow() {
         SpireSuper.call();
-        if(this.isGlowing) {
+        if(this.isGlowing && TheVixenMod.cardColoredBorder) {
 
             Color defaultcolor = Color.valueOf("30c8dcff");
             Color color;
@@ -197,7 +199,7 @@ public abstract class AbstractVixenCard extends CustomCard {
                 default:
                     color = defaultcolor;
             }
-            if(color != defaultcolor) {
+            if(color != defaultcolor && TheVixenMod.cardVFX) {
                 if((float)ReflectionHacks.getPrivate(this, AbstractCard.class, "glowTimer") == 0.3F) {
                     ArrayList list = (ArrayList)ReflectionHacks.getPrivate(this, AbstractCard.class, "glowList");
                     list.clear();
@@ -231,14 +233,16 @@ public abstract class AbstractVixenCard extends CustomCard {
                 }
             }
 
-            /*
-            ArrayList i = ((ArrayList) ReflectionHacks.getPrivate(this, AbstractCard.class, "glowList"));
-            if(!i.isEmpty()) {
-                CardGlowBorder e = (CardGlowBorder) i.get(i.size() - 1);
-                color = color.cpy();
-                color.a = ((Color) ReflectionHacks.getPrivate(e, AbstractGameEffect.class, "color")).a;
-                ReflectionHacks.setPrivate(e, AbstractGameEffect.class, "color", color);
-            }*/
+
+            if(!TheVixenMod.cardVFX) {
+                ArrayList i = ((ArrayList) ReflectionHacks.getPrivate(this, AbstractCard.class, "glowList"));
+                if (!i.isEmpty()) {
+                    CardGlowBorder e = (CardGlowBorder) i.get(i.size() - 1);
+                    color = color.cpy();
+                    color.a = ((Color) ReflectionHacks.getPrivate(e, AbstractGameEffect.class, "color")).a;
+                    ReflectionHacks.setPrivate(e, AbstractGameEffect.class, "color", color);
+                }
+            }
         }
         for(final AbstractGameEffect age : this.blinkylights) {
             age.update();

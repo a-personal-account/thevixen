@@ -1,4 +1,14 @@
 {
+  "TheVixenMod:cardVFX": {
+    "TEXT": [
+      "Card border VFX enabled"
+    ]
+  },
+  "TheVixenMod:cardColoredBorder": {
+    "TEXT": [
+      "Colored card borders on conditional cards"
+    ]
+  },
   "TheVixenMod:eventEnabled": {
     "TEXT": [
       "Event \"Creature of the Night\" enabled on other characters"

@@ -81,6 +81,8 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     private static Properties theVixenProperties = new Properties();
     public static boolean eventEnabled;
     public static boolean bossEnabled;
+    public static boolean cardVFX;
+    public static boolean cardColoredBorder;
 
     public TheVixenMod() {
         BaseMod.subscribe(this);
@@ -95,6 +97,12 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         eventEnabled = false;
         bossEnabled = false;
+        cardVFX = true;
+        cardColoredBorder = true;
+        theVixenProperties.setProperty("cardVFX", Boolean.toString(cardVFX));
+        theVixenProperties.setProperty("cardColoredBorder", Boolean.toString(cardColoredBorder));
+        theVixenProperties.setProperty("eventEnabled", Boolean.toString(eventEnabled));
+        theVixenProperties.setProperty("bossEnabled", Boolean.toString(bossEnabled));
         loadConfigData();
     }
 
@@ -114,6 +122,44 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.registerModBadge(
                 badgeTexture, "The Vixen", "Razash",
                 "Adds a new character to the game - The Vixen", modPanel);
+
+        modPanel.addUIElement(new ModLabeledToggleButton(
+                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":cardColoredBorder").TEXT[0],
+                400.0f, 650.0f, Settings.CREAM_COLOR,
+                FontHelper.charDescFont, cardColoredBorder, modPanel,
+                label -> {},
+                button -> {
+                    cardColoredBorder = button.enabled;
+                    saveConfigData();
+                }));
+        modPanel.addUIElement(new ModLabeledToggleButton(
+                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":cardVFX").TEXT[0],
+                450.0f, 600.0f, Settings.CREAM_COLOR,
+                FontHelper.charDescFont, cardVFX, modPanel,
+                label -> {},
+                button -> {
+                    cardVFX = button.enabled;
+                    saveConfigData();
+                }));
+        modPanel.addUIElement(new ModLabeledToggleButton(
+                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":eventEnabled").TEXT[0],
+                400.0f, 500.0f, Settings.CREAM_COLOR,
+                FontHelper.charDescFont, eventEnabled, modPanel,
+                label -> {},
+                button -> {
+                    eventEnabled = button.enabled;
+                    saveConfigData();
+                }));
+        modPanel.addUIElement(new ModLabeledToggleButton(
+                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":bossEnabled").TEXT[0],
+                400.0f, 400.0f, Settings.CREAM_COLOR,
+                FontHelper.charDescFont, bossEnabled, modPanel,
+                label -> {},
+                button -> {
+                    bossEnabled = button.enabled;
+                    adjustBoss();
+                    saveConfigData();
+                }));
 
 
         BaseMod.addPotion(
@@ -137,32 +183,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                 new Byrd(220F, -30F)
         }));
 
-        modPanel.addUIElement(new ModLabeledToggleButton(
-                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":eventEnabled").TEXT[0],
-                400.0f, 650.0f, Settings.CREAM_COLOR,
-                FontHelper.charDescFont, eventEnabled, modPanel,
-                label -> {},
-                button -> {
-                    eventEnabled = button.enabled;
-                    saveConfigData();
-                }));
-        modPanel.addUIElement(new ModLabeledToggleButton(
-                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":bossEnabled").TEXT[0],
-                400.0f, 550.0f, Settings.CREAM_COLOR,
-                FontHelper.charDescFont, bossEnabled, modPanel,
-                label -> {},
-                button -> {
-                    bossEnabled = button.enabled;
-                    adjustBoss();
-                    saveConfigData();
-                }));
-
-        Copycat.initialize();
-
         BaseMod.addMonster(TheVixenBoss.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new TheVixenBoss()
         }));
         adjustBoss();
+
+
+        Copycat.initialize();
 
         CustomIntent.add(new SwaggerIntent());
         CustomIntent.add(new PsybeamIntent());
@@ -446,11 +473,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     private void loadConfigData() {
         try {
-            SpireConfig config = new SpireConfig(MOD_NAME, MOD_NAME + ":config", theVixenProperties);
+            SpireConfig config = new SpireConfig(MOD_NAME, "config", theVixenProperties);
             config.load();
 
             eventEnabled = config.getBool("eventEnabled");
             bossEnabled = config.getBool("bossEnabled");
+            cardVFX = config.getBool("cardVFX");
+            cardColoredBorder = config.getBool("cardColoredBorder");
         } catch (Exception e) {
             e.printStackTrace();
             saveConfigData();
@@ -459,9 +488,11 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     private void saveConfigData() {
         try {
-            SpireConfig config = new SpireConfig(MOD_NAME, MOD_NAME + ":config", theVixenProperties);
+            SpireConfig config = new SpireConfig(MOD_NAME, "config", theVixenProperties);
             config.setBool("eventEnabled", eventEnabled);
             config.setBool("bossEnabled", bossEnabled);
+            config.setBool("cardVFX", cardVFX);
+            config.setBool("cardColoredBorder", cardColoredBorder);
 
             config.save();
         } catch (Exception e) {
