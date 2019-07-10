@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
@@ -15,6 +16,7 @@ import thevixen.cards.skill.Defend_TheVixen;
 import thevixen.cards.skill.FutureSight;
 import thevixen.cards.skill.SunnyDay;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.relics.FiriumZ;
 
 import java.util.ArrayList;
 
@@ -48,22 +50,21 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new FutureSight());
-        AbstractDungeon.player.hand.addToHand(new Defend_TheVixen());
-
-
-        AbstractDungeon.player.drawPile.addToTop(new Inferno());
-        AbstractDungeon.player.drawPile.addToTop(new Strike_TheVixen());
-        AbstractDungeon.player.drawPile.addToTop(new TrumpCard());
-        AbstractDungeon.player.drawPile.addToTop(new SolarBeam());
-        AbstractDungeon.player.drawPile.addToTop(new SunnyDay());
-        AbstractDungeon.player.drawPile.addToTop(new FireSpin());
+        AbstractDungeon.player.hand.addToHand(new FlameWheel());
+        AbstractDungeon.player.hand.addToHand(new Psybeam());
+        AbstractDungeon.player.hand.addToHand(new Flamethrower());
+        AbstractDungeon.player.hand.addToHand(new Psychic());
+        AbstractDungeon.player.hand.addToHand(new Facade());
+        AbstractDungeon.player.hand.addToHand(new Swagger());
 
         ac = new Curse();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
         AbstractDungeon.player.hand.refreshHandLayout();
 
+        AbstractRelic fr = new FiriumZ();
+        fr.instantObtain();
+        fr.atBattleStart();
 
         EnergyPanel.setEnergy(4);
         if(!p.hasPower(DrawPower.POWER_ID)) {

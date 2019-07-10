@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import thevixen.relics.TwistedSpoon;
 
@@ -24,7 +23,7 @@ public class ApplyConfusionDamage extends AbstractGameAction {
 
     @Override
     public void update() {
-        AbstractDungeon.actionManager.addToTop(new DamageAction(this.target, new DamageInfo(this.source, this.amount, DamageInfo.DamageType.NORMAL), effect));
+        AbstractDungeon.actionManager.addToTop(new DamageAction(this.target, new DamageInfo(this.target, this.amount, DamageInfo.DamageType.NORMAL), effect));
 
 
         if(this.source == AbstractDungeon.player && AbstractDungeon.player.hasRelic(TwistedSpoon.ID)) {

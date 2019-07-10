@@ -2,18 +2,14 @@ package thevixen.actions;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import thevixen.relics.TwistedSpoon;
-
-import java.util.Iterator;
 
 public class ApplyConfusionMultiDamage extends AbstractGameAction {
 
@@ -77,7 +73,7 @@ public class ApplyConfusionMultiDamage extends AbstractGameAction {
                         monster.tint.changeColor(Color.WHITE.cpy());
                     }
 
-                    monster.damage(new DamageInfo(source, this.damage[i], this.damageType));
+                    monster.damage(new DamageInfo(monster, this.damage[i], this.damageType));
 
                     if(spoon) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(monster, this.source, TwistedSpoon.POTENCY));
