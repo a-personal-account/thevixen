@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
@@ -124,6 +125,7 @@ public abstract class AbstractVixenCard extends CustomCard {
         SUNNYEXHAUST,
         SELFDEBUFFED,
         SUNNYDEBUFFED,
+        SUNNYVULN,
         SUNNYDEBUFFEDNOHAND,
         SUNNYMULTITARGET
     }
@@ -166,6 +168,13 @@ public abstract class AbstractVixenCard extends CustomCard {
                     break;
                 case SUNNYDEBUFFED:
                     if(SunnyDayPower.totalAmount > 0 && ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0) {
+                        color = Color.GOLD;
+                    } else {
+                        color = defaultcolor;
+                    }
+                    break;
+                case SUNNYVULN:
+                    if(SunnyDayPower.totalAmount > 0 && AbstractDungeon.player.hasPower(VulnerablePower.POWER_ID)) {
                         color = Color.GOLD;
                     } else {
                         color = defaultcolor;
@@ -263,5 +272,14 @@ public abstract class AbstractVixenCard extends CustomCard {
         for(final AbstractGameEffect age : this.blinkylights) {
             age.render(sb);
         }
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.blinkylights.clear();
+    }
+    @Override
+    public void triggerOnExhaust() {
+        this.blinkylights.clear();
     }
 }

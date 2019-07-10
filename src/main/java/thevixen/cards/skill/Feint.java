@@ -43,7 +43,7 @@ public class Feint extends AbstractVixenCard {
         this.baseBlock = this.block = BLOCK_AMT;
         this.baseMagicNumber = this.magicNumber = VULN;
 
-        this.cardtrigger = CardTrigger.SUNNY;
+        this.cardtrigger = CardTrigger.SUNNYVULN;
     }
 
     @Override

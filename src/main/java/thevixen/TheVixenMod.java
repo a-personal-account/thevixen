@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
-import basemod.abstracts.CustomUnlockBundle;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -32,7 +31,6 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import thevixen.RazIntent.CustomIntent;
 import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
@@ -373,6 +371,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     @Override
     public void receiveSetUnlocks() {
+        /*
         BaseMod.addUnlockBundle(new CustomUnlockBundle(
                 Psybeam.ID, Facade.ID, FireSpin.ID), TheVixenCharEnum.THE_VIXEN, 0);
 
@@ -387,6 +386,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addUnlockBundle(new CustomUnlockBundle(
                 ClearSky.ID, SolarBeam.ID, FutureSight.ID), TheVixenCharEnum.THE_VIXEN, 4);
+         */
     }
 
     @Override

@@ -113,7 +113,7 @@
   "TheVixenMod:Confusion": {
     "NAME": "Confusion",
     "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny: Repeat this effect."
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny: Repeat this effect once."
   },
   "TheVixenMod:Extrasensory": {
     "NAME": "Extrasensory",

@@ -41,6 +41,7 @@ public class Confusion extends AbstractConfusionCard {
     private static final int COST = 1;
 
     private static final int CONFUSION = 6;
+    private static final int UPGRADE_CONFUSION = 1;
     private static final int RETAIN = 1;
 
     public Confusion() {
@@ -87,6 +88,7 @@ public class Confusion extends AbstractConfusionCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
+            this.upgradeDamage(UPGRADE_CONFUSION);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
 
