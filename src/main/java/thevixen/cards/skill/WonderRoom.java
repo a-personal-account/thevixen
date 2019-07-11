@@ -16,6 +16,7 @@ import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.GainDexterityPower;
+import thevixen.powers.ReverseVulnerablePower;
 import thevixen.vfx.WonderRoomEffect;
 
 import java.util.ArrayList;
@@ -67,6 +68,9 @@ public class WonderRoom extends AbstractVixenCard {
         }
         if(p.hasPower(GainDexterityPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, GainDexterityPower.POWER_ID));
+        }
+        if(p.hasPower(ReverseVulnerablePower.POWER_ID)) {
+            p.getPower(ReverseVulnerablePower.POWER_ID).amount = -1;
         }
     }
 

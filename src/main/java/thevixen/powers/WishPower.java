@@ -1,7 +1,9 @@
 package thevixen.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,6 +20,8 @@ public class WishPower extends AbstractTheVixenPower {
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "wish.png";
 
+    private int blockedDamage;
+
     public WishPower(AbstractCreature owner) {
         super(IMG);
         this.owner = owner;
@@ -27,13 +31,33 @@ public class WishPower extends AbstractTheVixenPower {
         this.ID = POWER_ID;
         this.type = POWER_TYPE;
 
+        this.amount = 0;
+        this.priority = 99;
+
         updateDescription();
     }
 
     @Override
     public void atEndOfRound() {
-        AbstractDungeon.actionManager.addToBottom(new HealAction(this.owner, this.owner, this.amount));
+        this.blockedDamage += this.owner.currentBlock;
+        if(this.blockedDamage > 0) {
+            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this.owner, this.owner, (this.blockedDamage + 1) / 2));
+        }
+        if(this.amount > 0) {
+            AbstractDungeon.actionManager.addToBottom(new HealAction(this.owner, this.owner, (this.amount + 1) / 2));
+        }
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+    }
+
+    @Override
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if(!this.owner.hasPower(BufferPower.POWER_ID)) {
+            if (this.amount <= 0) {
+                this.amount = 0;
+                this.blockedDamage += info.output - damageAmount;
+            }
+        }
+        return damageAmount;
     }
 
     @Override
@@ -42,7 +66,7 @@ public class WishPower extends AbstractTheVixenPower {
             if (this.amount < 0) {
                 this.amount = 0;
             }
-            this.amount += (damageAmount + 1) / 2;
+            this.amount += damageAmount;
         }
         return damageAmount;
     }

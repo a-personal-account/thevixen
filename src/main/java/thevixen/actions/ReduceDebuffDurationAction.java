@@ -98,10 +98,25 @@ public class ReduceDebuffDurationAction extends AbstractGameAction {
     public void update() {
         for(final AbstractPower pow : this.target.powers) {
             if(pow.type == AbstractPower.PowerType.DEBUFF) {
-                if (pow.amount > this.amount) {
-                    AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.target, this.source, pow.ID, this.amount));
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.target, this.source, pow.ID));
+                if(pow.amount > 0) {
+                    if (pow.amount > this.amount) {
+                        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.target, this.source, pow.ID, this.amount));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.target, this.source, pow.ID));
+                    }
+                } else if(pow.canGoNegative) {
+                    if (-pow.amount > this.amount) {
+                        final int amnt = this.amount;
+                        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                            @Override
+                            public void update() {
+                                pow.stackPower(amnt);
+                                this.isDone = true;
+                            }
+                        });
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.target, this.source, pow.ID));
+                    }
                 }
             }
         }

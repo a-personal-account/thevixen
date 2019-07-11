@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -49,12 +48,10 @@ public class Psycracker extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = ITERATION;
         this.baseDamage = this.damage = DAMAGE;
-
-        this.cardtrigger = CardTrigger.SUNNY;
     }
 
     @Override
-    protected void regular(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.player.animX = 0.0F;
         ReflectionHacks.setPrivate(AbstractDungeon.player, AbstractCreature.class, "animationTimer", 0.0F);
 
@@ -95,14 +92,6 @@ public class Psycracker extends AbstractVixenCard {
             if(!morecrackers)
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SynergyBurstPower.POWER_ID));
         }
-    }
-
-    @Override
-    protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        /* Remove debuffs if used under Sunny day */
-        AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(p));
-
-        regular(p, m);
     }
 
     @Override

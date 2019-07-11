@@ -19,6 +19,8 @@ public class ReverseVulnerablePower extends AbstractTheVixenPower {
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "trickroom.png";
 
+    private boolean attacked;
+
     public ReverseVulnerablePower(AbstractCreature owner, int amount) {
         super(IMG);
         this.owner = owner;
@@ -28,6 +30,8 @@ public class ReverseVulnerablePower extends AbstractTheVixenPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.type = POWER_TYPE;
+
+        this.attacked = false;
 
         updateDescription();
     }
@@ -42,12 +46,24 @@ public class ReverseVulnerablePower extends AbstractTheVixenPower {
     }
 
     @Override
-    public void atEndOfRound() {
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.POWER_ID, 1));
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if(this.owner.hasPower(VulnerablePower.POWER_ID)) {
+            this.attacked = true;
+            this.flash();
         }
+        return damageAmount;
+    }
+
+    @Override
+    public void atEndOfRound() {
+        if(this.attacked) {
+            if (this.amount == 0) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
+            } else if(this.amount > 0) {
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.POWER_ID, 1));
+            }
+        }
+        this.attacked = false;
     }
 
     @Override
@@ -55,8 +71,10 @@ public class ReverseVulnerablePower extends AbstractTheVixenPower {
         this.description = DESCRIPTIONS[0];
         if(this.amount == 0) {
             this.description += DESCRIPTIONS[1];
-        } else {
+        } else if(this.amount > 0) {
             this.description += DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
+        } else {
+            this.description += DESCRIPTIONS[4];
         }
     }
 

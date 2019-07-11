@@ -19,13 +19,11 @@
       "Sunny Day",
       "Blaze",
       "Substitute",
-      "Inferno Overdrive"
+      "Inferno Overdrive",
+      "Struggle"
     ],
     "NAME": "The Vixen",
     "DIALOG": [
-      "Catch!",
-      "@RUUUUUURGH@",
-      "My drawpile is empty...",
       "Back to the Exordium...",
       "@Argh@",
       "Here we go again...",

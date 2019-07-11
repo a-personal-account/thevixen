@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.skill.Copycat;
 import thevixen.cards.skill.FutureSight;
 
@@ -92,6 +93,9 @@ public class FutureSightAction extends AbstractGameAction {
                     card = (AbstractCard)var1.next();
 
                     this.useCard(card);
+                    if(card instanceof AbstractVixenCard) {
+                        ((AbstractVixenCard)card).resetBlinkyLights();
+                    }
                 }
                 if(deductEnergy) {
                     this.energyOnUse -= AbstractDungeon.gridSelectScreen.selectedCards.size();

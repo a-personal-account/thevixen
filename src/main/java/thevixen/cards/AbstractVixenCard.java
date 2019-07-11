@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
@@ -115,6 +116,9 @@ public abstract class AbstractVixenCard extends CustomCard {
 
 
     protected ArrayList<AbstractGameEffect> blinkylights = new ArrayList<>();
+    public void resetBlinkyLights() {
+        this.blinkylights.clear();
+    }
     protected CardTrigger cardtrigger;
     protected float blinkyParticleTimer;
     public enum CardTrigger {
@@ -126,6 +130,7 @@ public abstract class AbstractVixenCard extends CustomCard {
         SELFDEBUFFED,
         SUNNYDEBUFFED,
         SUNNYVULN,
+        SUNNYWEAK,
         SUNNYDEBUFFEDNOHAND,
         SUNNYMULTITARGET
     }
@@ -168,6 +173,13 @@ public abstract class AbstractVixenCard extends CustomCard {
                     break;
                 case SUNNYDEBUFFED:
                     if(SunnyDayPower.totalAmount > 0 && ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0) {
+                        color = Color.GOLD;
+                    } else {
+                        color = defaultcolor;
+                    }
+                    break;
+                case SUNNYWEAK:
+                    if(SunnyDayPower.totalAmount > 0 && AbstractDungeon.player.hasPower(WeakPower.POWER_ID)) {
                         color = Color.GOLD;
                     } else {
                         color = defaultcolor;
@@ -276,10 +288,10 @@ public abstract class AbstractVixenCard extends CustomCard {
 
     @Override
     public void onMoveToDiscard() {
-        this.blinkylights.clear();
+        this.resetBlinkyLights();
     }
     @Override
     public void triggerOnExhaust() {
-        this.blinkylights.clear();
+        this.resetBlinkyLights();
     }
 }

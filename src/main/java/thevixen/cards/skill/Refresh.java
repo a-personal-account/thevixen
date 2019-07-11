@@ -1,5 +1,6 @@
 package thevixen.cards.skill;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,7 +8,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import thevixen.TheVixenMod;
 import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
@@ -17,6 +17,7 @@ public class Refresh extends AbstractVixenCard {
     public static final String ID = "TheVixenMod:Refresh";
     public static final String NAME;
     public static final String DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "cards/refresh.png";
 
     private static final CardStrings cardStrings;
@@ -26,21 +27,25 @@ public class Refresh extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 0;
-    private static final int DURATION = 1;
+    private static final int DURATION = 0;
     private static final int UPGRADE_DURATION = 1;
 
     public Refresh() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = DURATION;
+        this.misc = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int count = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         if(count > 0) {
-            p.useJumpAnimation();
+            p.useHopAnimation();
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, count));
-            AbstractDungeon.actionManager.addToBottom(new ReduceDebuffDurationAction(p, p, this.magicNumber));
+            if(this.magicNumber > 0) {
+                AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p, p, count * this.magicNumber));
+            }
+            AbstractDungeon.actionManager.addToBottom(new ReduceDebuffDurationAction(p, p, this.misc));
         }
     }
 
@@ -54,6 +59,8 @@ public class Refresh extends AbstractVixenCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_DURATION);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -61,5 +68,6 @@ public class Refresh extends AbstractVixenCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     }
 }

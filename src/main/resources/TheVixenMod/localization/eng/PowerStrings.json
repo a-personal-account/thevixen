@@ -147,10 +147,11 @@
   "TheVixenMod:ReverseVulnerablePower": {
     "NAME": "Filter",
     "DESCRIPTIONS": [
-      "You take significantly less damage while #rVulnerable ",
+      "You take significantly less damage while #rVulnerable",
       " this turn.",
       " for #b",
-      " turns."
+      " turns.",
+      "."
     ]
   },
   "TheVixenMod:DefiantPower": {

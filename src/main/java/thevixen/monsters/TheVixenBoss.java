@@ -32,6 +32,7 @@ import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.attack.Psybeam;
 import thevixen.cards.attack.SolarBeam;
+import thevixen.cards.power.SynergyBurst;
 import thevixen.cards.status.BossBurn;
 import thevixen.enums.IntentEnum;
 import thevixen.helpers.BraixenAnimation;
@@ -74,6 +75,7 @@ public class TheVixenBoss extends CustomMonster {
     private static final byte BLAZE_CONST = 16;
     private static final byte SUBSTITUTE_CONST = 17;
     private static final byte INFERNOOVERDRIVE_CONST = 18;
+    private static final byte STRUGGLE_CONST = 19;
 
     private static final Logger logger = LogManager.getLogger(TheVixenBoss.class.getName());
     public static final String ID = TheVixenMod.MOD_NAME + ":TheVixenBoss";
@@ -338,6 +340,9 @@ public class TheVixenBoss extends CustomMonster {
         this.intents.put(INFERNOOVERDRIVE_CONST, Intent.ATTACK);
         this.damagevalues.put(INFERNOOVERDRIVE_CONST, this.infernooverdrive);
 
+        this.intents.put(STRUGGLE_CONST, Intent.ATTACK);
+        this.damagevalues.put(STRUGGLE_CONST, 3);
+
 
         this.flipHorizontal = true;
         this.turncounter = 0;
@@ -397,8 +402,10 @@ public class TheVixenBoss extends CustomMonster {
         switch(this.nextMove) {
             case PSYCRACKER_CONST:
                 AbstractDungeon.actionManager.addToBottom(new PsycrackerAction(tmp, this.psycracker_count));
-                if(this.hasPower(EndurePower.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, EndurePower.POWER_ID));
+                for(final AbstractPower pow : this.powers) {
+                    if(pow.type == AbstractPower.PowerType.BUFF) {
+                        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, pow.ID));
+                    }
                 }
                 break;
             case SYNERGYBURST_CONST:
@@ -408,6 +415,11 @@ public class TheVixenBoss extends CustomMonster {
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new GhostIgniteEffect(this.hb.cX, this.hb.cY), 0.4F));
                 AbstractDungeon.actionManager.addToBottom(
                         new ApplyPowerAction(this, this, new StrengthPower(this, this.synergyburst), this.synergyburst));
+                break;
+            case STRUGGLE_CONST:
+                this.useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.SMASH));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(this, new DamageInfo(this, this.maxHealth / 4, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
                 break;
             case CLEARSKY_CONST:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ClearSkyPower(this, 99)));
@@ -592,7 +604,11 @@ public class TheVixenBoss extends CustomMonster {
         byte move;
 
         if(this.currentHealth == 1 && !this.hasPower(SubstitutePower.POWER_ID)) {
-            move = PSYCRACKER_CONST;
+            if(this.hasPower(SynergyBurstPower.POWER_ID)) {
+                move = PSYCRACKER_CONST;
+            } else {
+                move = STRUGGLE_CONST;
+            }
         } else if(turncounter >= 20 && !usedOverdrive) {
             move = INFERNOOVERDRIVE_CONST;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new EndurePower(AbstractDungeon.player, null, true)));

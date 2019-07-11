@@ -80,7 +80,7 @@
     "NAMES": [
       "psycracker"
     ],
-    "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 base-damage to a random enemy 8 (12) times. NL Sunny: Remove all debuffs from yourself."
+    "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 base-damage to a random enemy 8 (12) times."
   },
   "TheVixenMod:DefiantKeyword": {
     "PROPER_NAME": "Defiant",
@@ -88,5 +88,12 @@
       "defiant"
     ],
     "DESCRIPTION": "Whenever you are inflicted with a #ydebuff power, a flame starts orbitting you (you can have as many flames as you have stacks of #bdefiant). NL At the start of your turn, all flames are converted into #rSunny #rDay."
+  },
+  "TheVixenMod:TrickRoomKeyword": {
+    "PROPER_NAME": "Trick Room",
+    "NAMES": [
+      "inverted"
+    ],
+    "DESCRIPTION": "Power only deteriotates at the end of a turn when you are #rattacked while #rVulnerable. NL Stacks with #bodd #bmushroom."
   }
 }

@@ -29,7 +29,7 @@ public class Facade extends AbstractWeakReverseCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_DAMAGE = 3;
 
     public Facade() {
@@ -74,7 +74,7 @@ public class Facade extends AbstractWeakReverseCard {
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
 
-            this.cardtrigger = CardTrigger.SUNNY;
+            this.cardtrigger = CardTrigger.SUNNYWEAK;
         }
     }
 

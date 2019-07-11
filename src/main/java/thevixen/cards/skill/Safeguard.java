@@ -36,6 +36,7 @@ public class Safeguard extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseBlock = this.block = BLOCK_AMT;
         this.baseMagicNumber = this.magicNumber = SUNNY;
+        this.misc = 1;
 
         this.exhaust = true;
     }
@@ -46,7 +47,7 @@ public class Safeguard extends AbstractVixenCard {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 p, p, new SunnyDayPower(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                p, p, new ArtifactPower(p, 1), 1));
+                p, p, new ArtifactPower(p, 1), this.misc));
     }
 
     @Override

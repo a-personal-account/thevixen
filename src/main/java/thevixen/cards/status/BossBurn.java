@@ -77,9 +77,13 @@ public class BossBurn extends AbstractCard {
     public void upgrade() {
         this.upgradeMagicNumber(1);
         ++this.timesUpgraded;
-        this.upgraded = true;
         this.name = NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        if(!this.upgraded) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+            this.initializeDescription();
+        }
+        this.upgraded = true;
     }
 
     public void downgrade(AbstractPlayer p) {
@@ -89,6 +93,9 @@ public class BossBurn extends AbstractCard {
                 this.name = NAME + "+" + this.timesUpgraded;
             } else {
                 this.name = NAME;
+
+                this.rawDescription = this.rawDescription.substring(0, this.rawDescription.length() - cardStrings.EXTENDED_DESCRIPTION[0].length());
+                this.initializeDescription();
             }
             this.initializeTitle();
         }
@@ -106,7 +113,7 @@ public class BossBurn extends AbstractCard {
 
     @Override
     public boolean canUpgrade() {
-        return true;
+        return false;
     }
 
     public void triggerWhenDrawn() {

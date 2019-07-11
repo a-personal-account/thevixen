@@ -71,7 +71,7 @@
   "TheVixenMod:Facade": {
     "NAME": "Facade",
     "DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique thevixenmod:debuff on you. NL ( !DBNUM! )",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique thevixenmod:debuff on you. NL ( !DBNUM! ) NL thevixenmod:Sunny: Unaffected by Weak."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Repeat this for every unique thevixenmod:debuff on you. NL ( !DBNUM! ) NL thevixenmod:Sunny: NL Unaffected by Weak."
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
@@ -98,8 +98,8 @@
   },
   "TheVixenMod:Psyshock": {
     "NAME": "Psyshock",
-    "DESCRIPTION": "Target enemy deals !D! damage to itself X times. NL Gain X thevixenmod:Sunny_Day. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself X+1 times. NL Gain X+1 thevixenmod:Sunny_Day. NL Exhaust"
+    "DESCRIPTION": "Target enemy deals !D! damage to itself X times. NL Gain X thevixenmod:Sunny_Day. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself X+1 times. NL Gain X+1 thevixenmod:Sunny_Day. NL Exhaust."
   },
   "TheVixenMod:FirePunch": {
     "NAME": "Fire Punch",
@@ -136,8 +136,8 @@
   },
   "TheVixenMod:SunnyDay": {
     "NAME": "Sunny Day",
-    "DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Reduce the stacksize of debuffs on you by !MISC!.",
-    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Gain [E] and reduce the stacksize of debuffs on you by !MISC!."
+    "DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Reduce the number on all numbered debuffs on you by !MISC!.",
+    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny and debuffed: Gain [E] and NL reduce the number on all numbered debuffs on you by !MISC!."
   },
   "TheVixenMod:PsychUp": {
     "NAME": "Psych Up",
@@ -151,11 +151,11 @@
   },
   "TheVixenMod:Magician": {
     "NAME": "Magician",
-    "DESCRIPTION": "Until end of turn, whenever YOU deal damage, draw a card, gain [E] and temporarily lose !M! Strength and Dexterity. NL Exhaust"
+    "DESCRIPTION": "Until end of turn, whenever YOU deal damage, draw a card, gain [E] and temporarily lose !M! Strength and Dexterity. NL Exhaust."
   },
   "TheVixenMod:FirePledge": {
     "NAME": "Fire Pledge",
-    "DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it. NL thevixenmod:Sunny: Triple it instead. NL Exhaust",
+    "DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it. NL thevixenmod:Sunny: Triple it instead. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Double an enemy's Burn, then gain Block equal to it.  NL thevixenmod:Sunny: Triple it instead."
   },
   "TheVixenMod:LightScreen": {
@@ -168,7 +168,7 @@
   },
   "TheVixenMod:WillOWisp": {
     "NAME": "Will-O-Wisp",
-    "DESCRIPTION": "Apply !M! Burn. NL thevixenmod:Sunny (if possible): NL Apply it to all enemies. NL Exhaust"
+    "DESCRIPTION": "Apply !M! Burn. NL thevixenmod:Sunny (if possible): NL Apply it to all enemies. NL Exhaust."
   },
   "TheVixenMod:CADC": {
     "NAME": "Counter Attack Dash Cancel",
@@ -193,15 +193,16 @@
   },
   "TheVixenMod:Refresh": {
     "NAME": "Refresh",
-    "DESCRIPTION": "Draw a card for each unique thevixenmod:debuff on you NL ( !DBNUM! ), NL then reduce the stackamount of all debuffs on you by !M!."
+    "DESCRIPTION": "Draw a card for each unique thevixenmod:debuff on you NL ( !DBNUM! ) NL then reduce the number on all numbered debuffs on you by !MISC!.",
+    "UPGRADE_DESCRIPTION": "Draw a card and gain NL !M! temporary HP for each unique thevixenmod:debuff on you ( !DBNUM! ), NL then reduce the number on all numbered debuffs on you by !MISC!."
   },
   "TheVixenMod:WonderRoom": {
     "NAME": "Wonder Room",
-    "DESCRIPTION": "All current temporary Strength and Dexterity changes become permanent. NL Exhaust"
+    "DESCRIPTION": "All current temporary Strength and Dexterity changes become permanent. NL Exhaust."
   },
   "TheVixenMod:Safeguard": {
     "NAME": "Safeguard",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! thevixenmod:Sunny_Day and 1 Artifact. NL Exhaust"
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! thevixenmod:Sunny_Day and !MISC! Artifact. NL Exhaust."
   },
   "TheVixenMod:Endure": {
     "NAME": "Endure",
@@ -219,13 +220,13 @@
   },
   "TheVixenMod:ClearSky": {
     "NAME": "Clear Sky",
-    "DESCRIPTION": "thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust"
+    "DESCRIPTION": "thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! thevixenmod:Sunny_Day. NL thevixenmod:Sunny_Day is not consumed this turn. NL Exhaust."
   },
   "TheVixenMod:Copycat": {
     "NAME": "Copycat",
-    "DESCRIPTION": "Repeat the last card you played. NL Exhaust NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Repeat the last card you played. It costs 1. NL Exhaust NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
+    "DESCRIPTION": "Repeat the last card you played. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Repeat the last card you played. It costs 1. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
     "EXTENDED_DESCRIPTION": [
       "I haven't done anything yet!",
       "taints our whole profession.",
@@ -239,8 +240,8 @@
   },
   "TheVixenMod:PsychoShift": {
     "NAME": "Psycho Shift",
-    "DESCRIPTION": "Absorb all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Copy all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust"
+    "DESCRIPTION": "Absorb all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Copy all Vulnerable and Weak from one enemy. NL Heal !M! HP for each thevixenmod:debuffstack on you. NL Exhaust."
   },
   "TheVixenMod:PerishSong": {
     "NAME": "Perish Song",
@@ -248,8 +249,8 @@
   },
   "TheVixenMod:TrickRoom": {
     "NAME": "Trick Room",
-    "DESCRIPTION": "For !M! turns, when Vulnerable, you take 33% less damage instead of 50% more. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "For !M! turns (increased by your Weak), when Vulnerable, you take 33% less damage instead of 50% more. NL Exhaust"
+    "DESCRIPTION": "For !M! turns, Vulnerable's effect on you is thevixenmod:inverted. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "For !M! turns, Vulnerable's effect on you is thevixenmod:inverted. NL Apply 1 Vulnerable to yourself. NL Exhaust."
   },
   "TheVixenMod:DoubleTeam": {
     "NAME": "Double Team",
@@ -258,8 +259,8 @@
   },
   "TheVixenMod:BurnUp": {
     "NAME": "Burn Up",
-    "DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust",
-    "UPGRADE_DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! thevixenmod:Sunny_Day. Exhaust"
+    "DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ). Exhaust.",
+    "UPGRADE_DESCRIPTION": "Consume all your thevixenmod:Sunny_Day. NL Draw a card and gain [E] for each stack ( !SUN! ), then gain !M! thevixenmod:Sunny_Day. Exhaust."
   },
   "TheVixenMod:Curse": {
     "NAME": "Curse",
@@ -286,8 +287,8 @@
   },
   "TheVixenMod:Wish": {
     "NAME": "Wish",
-    "DESCRIPTION": "At the start of your next turn, heal for half the HP you lose this turn. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "At the start of your next turn, heal for half the HP you lose this turn. NL Gain !M! Buffer. NL Exhaust"
+    "DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn and gain temporary_HP equal to half the blocked damage you took plus half your surplus Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of your next turn, heal for half the hp you lose this turn and gain temporary_HP equal to half the blocked damage you took plus half your surplus Block. NL Heal !M! HP. NL Exhaust."
   },
   "TheVixenMod:CalmMind": {
     "NAME": "Calm Mind",
@@ -348,7 +349,7 @@
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
-    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Sunny: Remove all Debuffs from yourself. NL Purge"
+    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Purge"
   },
 
   "TheVixenMod:UmbreonSnarl": {
@@ -371,6 +372,7 @@
 
   "TheVixenMod:BossBurn": {
     "NAME": "Burn",
-    "DESCRIPTION": "When drawn, draw a card. NL While in your drawpile, discardpile or hand, you take !M! more damage. NL Downgrades instead of exhausting."
+    "DESCRIPTION": "When drawn, draw a card. NL While in your drawpile, discardpile or hand, you take !M! more damage.",
+    "EXTENDED_DESCRIPTION": [" NL Downgrades instead of exhausting."]
   }
 }

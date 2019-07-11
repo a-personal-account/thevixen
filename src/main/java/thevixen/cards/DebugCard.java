@@ -5,16 +5,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BerserkPower;
-import com.megacrit.cardcrawl.powers.DrawPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
-import thevixen.cards.skill.Curse;
-import thevixen.cards.skill.Defend_TheVixen;
-import thevixen.cards.skill.FutureSight;
-import thevixen.cards.skill.SunnyDay;
+import thevixen.cards.skill.*;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.relics.FiriumZ;
 
@@ -50,21 +46,18 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new FlameWheel());
-        AbstractDungeon.player.hand.addToHand(new Psybeam());
-        AbstractDungeon.player.hand.addToHand(new Flamethrower());
-        AbstractDungeon.player.hand.addToHand(new Psychic());
-        AbstractDungeon.player.hand.addToHand(new Facade());
-        AbstractDungeon.player.hand.addToHand(new Swagger());
+        AbstractDungeon.player.hand.addToHand(new Refresh());
+        AbstractDungeon.player.hand.addToHand(new Protect());
+        AbstractDungeon.player.hand.addToHand(new Refresh());
 
-        ac = new Curse();ac.upgrade();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -2), -2));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -3), -3));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, 4, false), 4));
+
+        ac = new Refresh();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
 
         AbstractDungeon.player.hand.refreshHandLayout();
-
-        AbstractRelic fr = new FiriumZ();
-        fr.instantObtain();
-        fr.atBattleStart();
 
         EnergyPanel.setEnergy(4);
         if(!p.hasPower(DrawPower.POWER_ID)) {

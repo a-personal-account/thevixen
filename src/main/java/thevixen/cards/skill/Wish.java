@@ -2,13 +2,13 @@ package thevixen.cards.skill;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BufferPower;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
@@ -29,12 +29,12 @@ public class Wish extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
-    private static final int ARTIFACT = 1;
+    private static final int HEAL = 5;
 
     public Wish() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.exhaust = true;
-        this.baseMagicNumber = this.magicNumber = ARTIFACT;
+        this.baseMagicNumber = this.magicNumber = HEAL;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Wish extends AbstractVixenCard {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WishPower(p)));
 
         if(this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BufferPower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));
         }
     }
 
