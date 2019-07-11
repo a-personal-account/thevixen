@@ -55,11 +55,6 @@ public class Overheat extends AbstractSunnyBonusCard {
     }
 
     @Override
-    protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        regular(p, m);
-    }
-
-    @Override
     public AbstractCard makeCopy() {
         return new Overheat();
     }

@@ -1,5 +1,6 @@
 package thevixen.cards;
 
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.powers.SunnyDayPower;
@@ -18,6 +19,11 @@ public abstract class AbstractSunnyBonusCard extends AbstractVixenCard {
         this.sunnyDamage = 0;
         this.sunnyBlock = 0;
         this.sunnyMagicNumber = 0;
+    }
+
+    @Override
+    protected void sunny(AbstractPlayer p, AbstractMonster m) {
+        regular(p, m);
     }
 
     @Override

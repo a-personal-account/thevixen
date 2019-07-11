@@ -1,5 +1,6 @@
 package thevixen.cards;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.*;
@@ -46,16 +48,19 @@ public class DebugCard extends AbstractConfusionCard {
 
 
         AbstractDungeon.player.hand.addToHand(new SunnyDay());
-        AbstractDungeon.player.hand.addToHand(new Refresh());
-        AbstractDungeon.player.hand.addToHand(new Protect());
-        AbstractDungeon.player.hand.addToHand(new Refresh());
-
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -2), -2));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -3), -3));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, 4, false), 4));
-
-        ac = new Refresh();ac.upgrade();
+        AbstractDungeon.player.hand.addToHand(new LightScreen());
+        AbstractDungeon.player.hand.addToHand(new MysticalFire());
+        ac = new MysticalFire();ac.upgrade();
         AbstractDungeon.player.hand.addToHand(ac);
+
+        do {
+            AbstractDungeon.player.drawPile.addToTop(new Defend_TheVixen());
+            AbstractDungeon.player.drawPile.addToTop(new Strike_TheVixen());
+        } while(MathUtils.randomBoolean());
+
+        if(!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
+            (new FrozenEye()).instantObtain();
+        }
 
         AbstractDungeon.player.hand.refreshHandLayout();
 

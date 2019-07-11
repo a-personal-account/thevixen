@@ -55,11 +55,6 @@ public class FlareBlitz extends AbstractSunnyBonusCard {
     }
 
     @Override
-    protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        regular(p, m);
-    }
-
-    @Override
     public AbstractCard makeCopy() {
         return new FlareBlitz();
     }

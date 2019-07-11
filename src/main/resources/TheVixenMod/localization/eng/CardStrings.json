@@ -13,7 +13,8 @@
   },
   "TheVixenMod:FlameWheel": {
     "NAME": "Flame Wheel",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Block for each thevixenmod:Burn on the target. NL thevixenmod:Sunny: Repeat this effect once."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !MISC! Block for each thevixenmod:Burn on the target. NL thevixenmod:Sunny: NL Repeat this effect once.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Gain !MISC! Block for each thevixenmod:Burn on target !M! times. NL thevixenmod:Sunny: Repeat this effect once more."
   },
   "TheVixenMod:Overheat": {
     "NAME": "Overheat",
@@ -38,8 +39,8 @@
   },
   "TheVixenMod:MysticalFire": {
     "NAME": "Mystical Fire",
-    "DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL thevixenmod:Sunny or not Weak: Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "If you are Weak, remove it and apply as much Vulnerable to the target. NL thevixenmod:Sunny or not Weak: Deal !D! damage twice."
+    "DESCRIPTION": " NL Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL Gain !MISC! thevixenmod:Sunny_Day. NL Not thevixenmod:Sunny: NL Shuffle this card into your drawpile.",
+    "UPGRADE_DESCRIPTION": " NL Deal !D! damage twice. NL Apply !M! thevixenmod:Burn. NL Gain !MISC! thevixenmod:Sunny_Day. NL Not thevixenmod:Sunny: NL Put this card on top of your drawpile."
   },
   "TheVixenMod:FireBlast": {
     "NAME": "Fire Blast",

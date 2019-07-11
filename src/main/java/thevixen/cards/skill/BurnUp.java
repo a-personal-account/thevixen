@@ -1,6 +1,7 @@
 package thevixen.cards.skill;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -52,6 +53,14 @@ public class BurnUp extends AbstractVixenCard {
                 for(int j = 0; j < 7; j++) {
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new GhostIgniteEffect(p.hb.cX + MathUtils.random(-p.hb.width, p.hb.width) / 2, p.hb.cY + MathUtils.random(-p.hb.height, p.hb.height) / 2)));
                 }
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        this.isDone = true;
+                        CardCrawlGame.sound.play("ATTACK_FIRE");
+                    }
+                });
+
                 AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
                 AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
                 if(consume) {
