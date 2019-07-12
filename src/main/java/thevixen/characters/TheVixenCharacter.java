@@ -30,6 +30,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.enums.TheVixenCharEnum;
 import thevixen.helpers.BraixenAnimation;
 import thevixen.relics.BurningStick;
+import thevixen.relics.UmbreonRelic;
 import thevixen.vfx.ShinyEffect;
 
 import java.util.ArrayList;
@@ -233,9 +234,10 @@ public class TheVixenCharacter extends CustomPlayer {
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList();
-        panels.add(new CutscenePanel(getResourcePath("scenes/thevixen1.png")));
-        panels.add(new CutscenePanel(getResourcePath("scenes/thevixen2.png")));
-        panels.add(new CutscenePanel(getResourcePath("scenes/thevixen3.png")));
+        String prefix = AbstractDungeon.player.hasRelic(UmbreonRelic.ID) ? "umby" : "thevixen";
+        panels.add(new CutscenePanel(getResourcePath("scenes/" + prefix + "1.png")));
+        panels.add(new CutscenePanel(getResourcePath("scenes/" + prefix + "2.png")));
+        panels.add(new CutscenePanel(getResourcePath("scenes/" + prefix + "3.png")));
         return panels;
     }
 
