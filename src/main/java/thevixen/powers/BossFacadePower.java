@@ -43,7 +43,7 @@ public class BossFacadePower extends AbstractTheVixenPower implements InvisibleP
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if(power.type == PowerType.DEBUFF) {
+        if(power.type == PowerType.DEBUFF && !target.hasPower(power.ID)) {
             calcFacade();
         }
     }

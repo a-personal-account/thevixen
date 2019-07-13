@@ -57,6 +57,8 @@ public class EndurePower extends AbstractTheVixenPower {
         this.description = DESCRIPTIONS[0];
         if(card != null) {
             this.description += DESCRIPTIONS[1];
+        } else {
+            this.description += DESCRIPTIONS[2];
         }
     }
 

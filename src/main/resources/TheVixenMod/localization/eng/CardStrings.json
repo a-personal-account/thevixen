@@ -373,7 +373,7 @@
 
   "TheVixenMod:BossBurn": {
     "NAME": "Burn",
-    "DESCRIPTION": "When drawn, draw a card. NL While in your drawpile, discardpile or hand, you take !M! more damage.",
-    "EXTENDED_DESCRIPTION": [" NL Downgrades instead of exhausting."]
+    "DESCRIPTION": "When drawn, NL draw a card. NL You take !M! more damage.",
+    "EXTENDED_DESCRIPTION": ["Exhaust. NL ", " NL Downgrade this card. NL ", " NL Downgrades instead of exhausting."]
   }
 }

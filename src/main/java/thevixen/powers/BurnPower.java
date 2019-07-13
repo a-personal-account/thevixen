@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import thevixen.actions.SetPlayerBurnAction;
 import thevixen.relics.Charcoal;
 import thevixen.relics.FlameOrb;
 import thevixen.relics.ShellBell;
@@ -42,26 +43,30 @@ public class BurnPower extends AbstractTheVixenPower {
 
     @Override
     public void updateDescription() {
-        this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + burntoweak + DESCRIPTIONS[2]);
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if(this.owner instanceof AbstractPlayer) {
+            this.description += DESCRIPTIONS[4];
+        } else {
+            this.description += DESCRIPTIONS[2] + burntoweak + DESCRIPTIONS[3];
+        }
     }
 
     @Override
     public void atEndOfRound() {
-        boolean fromEnemy = this.owner instanceof AbstractPlayer;
-        if (AbstractDungeon.player.hasRelic(FlameOrb.ID) || fromEnemy) {
-            if(!fromEnemy) {
+        if(this.owner instanceof AbstractMonster) {
+            if (AbstractDungeon.player.hasRelic(FlameOrb.ID)) {
                 AbstractDungeon.player.getRelic(FlameOrb.ID).flash();
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, POWER_ID, (this.amount + 1) / 2));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
             }
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, POWER_ID, (this.amount + 1) / 2));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            if(AbstractDungeon.player.hasRelic(Charcoal.ID)) {
+            if(this.owner instanceof AbstractMonster && AbstractDungeon.player.hasRelic(Charcoal.ID)) {
                 damage += this.amount;
             }
 
@@ -73,7 +78,7 @@ public class BurnPower extends AbstractTheVixenPower {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         /* This makes it important that all burn applicances happen AFTER the damage action is put on the stack. */
-        if (info.type == DamageInfo.DamageType.NORMAL) {
+        if (info.type == DamageInfo.DamageType.NORMAL && this.owner instanceof AbstractMonster) {
             if(AbstractDungeon.player.hasRelic(Charcoal.ID)) {
                 AbstractDungeon.player.getRelic(Charcoal.ID).flash();
             }
@@ -84,6 +89,11 @@ public class BurnPower extends AbstractTheVixenPower {
             }
         }
         return damageAmount;
+    }
+
+    @Override
+    public void onRemove() {
+        SetPlayerBurnAction.addToBottom();
     }
 
     static {

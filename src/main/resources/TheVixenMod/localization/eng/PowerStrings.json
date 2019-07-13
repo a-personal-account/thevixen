@@ -3,8 +3,10 @@
     "NAME": "Burn",
     "DESCRIPTIONS": [
       "This creature takes #b",
-      " more damage. Every #b",
-      " burn applied, the enemy gains 1 weak. At the end of its turn, remove all Burn."
+      " more damage.",
+      " Every #b",
+      " burn applied, the enemy gains 1 weak. At the end of its turn, remove all Burn.",
+      " Caused by Status cards in your drawpile, discardpile or hand."
     ]
   },
   "TheVixenMod:SunnyDayPower": {
@@ -89,8 +91,9 @@
   "TheVixenMod:EndurePower": {
     "NAME": "Endure",
     "DESCRIPTIONS": [
-      "You cannot be reduced below 1 HP this turn.",
-      "Exhaust the Endure card that triggered this if you would."
+      "You cannot be reduced below 1 HP",
+      " this turn. Exhaust the Endure card that triggered this if you would.",
+      "."
     ]
   },
   "TheVixenMod:RetainRightPower": {

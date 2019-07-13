@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.RunicPyramid;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import thevixen.TheVixenMod;
+import thevixen.actions.SetPlayerBurnAction;
 import thevixen.enums.AbstractCardEnum;
-import thevixen.monsters.TheVixenBoss;
 
 public class BossBurn extends AbstractCard {
     public static final String ID = TheVixenMod.MOD_NAME + ":BossBurn";
@@ -25,19 +26,32 @@ public class BossBurn extends AbstractCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = -2;
+    private static final int COST = 2;
 
     public BossBurn() {
         this(0);
     }
     public BossBurn(int timesUpgraded) {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+        super(ID, NAME, IMG_PATH, COST, getBaseDescription(), TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 1 + timesUpgraded;
         this.timesUpgraded = timesUpgraded;
+        this.exhaust = true;
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        SetPlayerBurnAction.addToBottom();
+        return super.makeStatEquivalentCopy();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(this.upgraded) {
+            this.downgrade();
+        } else {
+            this.exhaust = true;
+            SetPlayerBurnAction.addToBottom();
+        }
     }
 
     @Override
@@ -50,22 +64,23 @@ public class BossBurn extends AbstractCard {
 
     @Override
     public void triggerOnExhaust() {
-        if(this.timesUpgraded <= 1) {
-            this.baseMagicNumber = 0;
-        } else {
-            for(int i = 0; i < 2; i++) {
-                this.downgrade(AbstractDungeon.player);
-            }
-            AbstractCard card = this;
+        if(this.upgraded) {
+            final AbstractCard card = this;
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override
                 public void update() {
                     this.isDone = true;
-                    AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                    AbstractDungeon.player.exhaustPile.removeCard(card);
+                    AbstractCard copy = card.makeCopy();
+                    for(int i = card.timesUpgraded - 1; i > 0; i--) {
+                        copy.upgrade();
+                    }
+                    AbstractDungeon.player.discardPile.addToTop(copy);
+                    SetPlayerBurnAction.addToBottom();
                 }
             });
         }
-        this.updateBoss();
+        SetPlayerBurnAction.addToBottom();
     }
 
     @Override
@@ -80,13 +95,15 @@ public class BossBurn extends AbstractCard {
         this.name = NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         if(!this.upgraded) {
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+            this.rawDescription = getUpgradedDescription();
             this.initializeDescription();
+            this.upgraded = true;
         }
-        this.upgraded = true;
+        this.exhaust = false;
+        SetPlayerBurnAction.addToBottom();
     }
 
-    public void downgrade(AbstractPlayer p) {
+    public void downgrade() {
         this.upgradeMagicNumber(-1);
         if(this.timesUpgraded-- > 0) {
             if(this.timesUpgraded > 0) {
@@ -94,21 +111,20 @@ public class BossBurn extends AbstractCard {
             } else {
                 this.name = NAME;
 
-                this.rawDescription = this.rawDescription.substring(0, this.rawDescription.length() - cardStrings.EXTENDED_DESCRIPTION[0].length());
+                this.rawDescription = getBaseDescription();
                 this.initializeDescription();
+                this.upgraded = false;
             }
             this.initializeTitle();
         }
-        this.updateBoss();
+        SetPlayerBurnAction.addToBottom(this.timesUpgraded + 1);
     }
 
-    private void updateBoss() {
-        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if(mo instanceof TheVixenBoss) {
-                ((TheVixenBoss)mo).updateBurn(mo.nextMove, true);
-                break;
-            }
-        }
+    private static String getBaseDescription() {
+        return cardStrings.EXTENDED_DESCRIPTION[0] + DESCRIPTION;
+    }
+    private static String getUpgradedDescription() {
+        return cardStrings.EXTENDED_DESCRIPTION[1] + DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[2];
     }
 
     @Override
