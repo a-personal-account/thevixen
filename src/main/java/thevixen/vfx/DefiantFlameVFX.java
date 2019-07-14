@@ -1,6 +1,8 @@
 package thevixen.vfx;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -38,10 +40,11 @@ public class DefiantFlameVFX extends AbstractGameEffect {
             final float tmpphase = this.phase + (float)(Math.PI * 2 * j / this.amnt);
             final float x = (float)Math.sin(tmpphase + Math.PI / 2) * ac.hb.width * 3 / 4 * distance;
             final float y = (float)Math.cos(tmpphase + Math.PI / 2) * ac.hb.width / 3 * distance;
-            if (Math.abs(x) > ac.hb.width * 3 / 8 || y < 0) {
-                for(int k = 0; k < 2; k++) {
-                    AbstractDungeon.effectsQueue.add(new FireBurstParticleEffect(ac.hb.cX + x, ac.hb.y + y));
-                }
+            for(int k = 0; k < 2; k++) {
+                FireBurstParticleEffect fbpe = new FireBurstParticleEffect(ac.hb.cX + x, ac.hb.y + y);
+                fbpe.renderBehind = y > 0;
+                ReflectionHacks.setPrivate(fbpe, AbstractGameEffect.class, "color", Color.RED.cpy());
+                AbstractDungeon.effectsQueue.add(fbpe);
             }
         }
         if(this.isEnding) {

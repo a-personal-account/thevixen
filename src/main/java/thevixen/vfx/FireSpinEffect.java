@@ -27,11 +27,10 @@ public class FireSpinEffect extends AbstractGameEffect {
 
             for(int k = 0; k < 2; k++) {
                 AbstractDungeon.effectsQueue.add(new FireBurstParticleEffect(ac.hb.cX + x, ac.hb.y + y));
-                //AbstractDungeon.effectList.add(new LightFlareParticleEffect(m.hb.cX + x, m.hb.cY + y, Color.CHARTREUSE));
-                if (Math.abs(x) > ac.hb.width * 3 / 8) {
-                    AbstractDungeon.effectsQueue.add(new FireBurstParticleEffect(ac.hb.cX - x, ac.hb.y + ac.hb.width / 4 - y));
-                    //AbstractDungeon.effectList.add(new LightFlareParticleEffect(m.hb.cX - x, m.hb.cY - y, Color.CHARTREUSE));
-                }
+
+                FireBurstParticleEffect fbpe = new FireBurstParticleEffect(ac.hb.cX - x, ac.hb.y - y);
+                fbpe.renderBehind = true;
+                AbstractDungeon.effectsQueue.add(fbpe);
             }
 
         }
