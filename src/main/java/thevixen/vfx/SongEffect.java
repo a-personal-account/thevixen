@@ -1,6 +1,5 @@
 package thevixen.vfx;
 
-import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -61,6 +60,8 @@ public class SongEffect extends AbstractGameEffect {
         for(int j = 0; j < notes.length; j++) {
             notes[j] = new Note();
         }
+
+        this.renderBehind = true;
     }
 
     public void update() {
@@ -98,10 +99,13 @@ public class SongEffect extends AbstractGameEffect {
 
     public void render(SpriteBatch sb) {
         for(final Note n : notes) {
-            sb.setColor(this.color.cpy());
-            n.render(sb);
+            if(this.renderBehind == n.renderBehind) {
+                sb.setColor(this.color.cpy());
+                n.render(sb);
+            }
         }
-        sb.setColor(Color.WHITE);
+        sb.setColor(Color.WHITE.cpy());
+        this.renderBehind = !this.renderBehind;
     }
 
     public void dispose() {
@@ -127,6 +131,8 @@ public class SongEffect extends AbstractGameEffect {
         private ArrayList<NoteParticleEffect> sparklies = new ArrayList<>();
         private float particleInterval;
 
+        public boolean renderBehind;
+
         public Note() {
             int rand = (int)MathUtils.random(imgs.length * 1.6F);
             if(rand > 2) {
@@ -143,6 +149,8 @@ public class SongEffect extends AbstractGameEffect {
             this.vX = MathUtils.random(-250, 250) * Settings.scale;
             this.vY = MathUtils.random(180, 320) * Settings.scale;
 
+            this.alpha = 1F;
+
             this.width = img.getWidth() * this.scale;
             this.height = img.getHeight() * this.scale;
         }
@@ -153,13 +161,9 @@ public class SongEffect extends AbstractGameEffect {
 
             this.rotation = (float)Math.sin(this.rotationPhase) * 20;
 
-            this.alpha = 1 - (float)((1/(Math.sqrt(Math.PI * 2 * deviation))) * Math.pow(Math.E, -Math.pow(phase - mean, 2)/(2 * deviation))) * 2;
-            this.alpha = Math.min(1F, this.alpha);
-            this.alpha = Math.max(0.1F, this.alpha);
-            BaseMod.logger.error(this.alpha);
-
             this.x = centerX + source.hb.width * (float)Math.sin(phase) * 3 / 4;
             this.y = centerY + source.hb.height / 4 * (float)Math.cos(phase) + offsetY;
+            this.renderBehind = Math.cos(phase) > 0;
 
             updateSparklies();
         }
