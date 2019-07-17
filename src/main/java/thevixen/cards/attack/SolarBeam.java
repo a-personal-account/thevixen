@@ -1,9 +1,10 @@
 package thevixen.cards.attack;
 
+import basemod.ReflectionHacks;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,12 +13,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.HeartBuffEffect;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
-import thevixen.cards.skill.ClearSky;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
@@ -71,7 +72,9 @@ public class SolarBeam extends AbstractVixenCard {
     public static void vfx(AbstractCreature p, boolean isFlipped) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new HeartBuffEffect(p.hb.cX, p.hb.cY)));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4F));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SweepingBeamEffect(p.hb.cX, p.hb.cY, isFlipped)));
+        AbstractGameEffect age = new SweepingBeamEffect(p.hb.cX, p.hb.cY, isFlipped);
+        ReflectionHacks.setPrivate(age, AbstractGameEffect.class, "color", Color.GREEN.cpy());
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(age));
     }
 
     @Override

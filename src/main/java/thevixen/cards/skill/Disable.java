@@ -38,7 +38,7 @@ public class Disable extends AbstractVixenCard {
         this.misc = BLOCK;
         this.baseMagicNumber = this.magicNumber = CARDS;
 
-        this.cardtrigger = CardTrigger.SUNNYEXHAUST;
+        this.cardtrigger = CardTrigger.SUNNYEXHAUSTPILE;
     }
 
     @Override

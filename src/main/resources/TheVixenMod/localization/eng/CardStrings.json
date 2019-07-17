@@ -165,7 +165,7 @@
   },
   "TheVixenMod:Protect": {
     "NAME": "Protect",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thevixenmod:Protectspam. NL Is !M! % less effective for each stack of thevixenmod:Protectspam."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thevixenmod:Protectspam. NL Protect becomes !M! % less effective for each stack of thevixenmod:Protectspam."
   },
   "TheVixenMod:WillOWisp": {
     "NAME": "Will-O-Wisp",
@@ -181,7 +181,7 @@
   },
   "TheVixenMod:Incinerate": {
     "NAME": "Incinerate",
-    "DESCRIPTION": "Exhaust a card in your hand. Gain 2 thevixenmod:Sunny_Day and !M! Strength this turn."
+    "DESCRIPTION": "Exhaust a card in your hand. Gain !MISC! thevixenmod:Sunny_Day and !M! Strength this turn."
   },
   "TheVixenMod:Hypnosis": {
     "NAME": "Hypnosis",
@@ -350,7 +350,7 @@
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
-    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effect. NL Purge"
+    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effects. NL Purge"
   },
 
   "TheVixenMod:UmbreonSnarl": {

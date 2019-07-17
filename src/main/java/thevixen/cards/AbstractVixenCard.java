@@ -29,6 +29,7 @@ import thevixen.powers.ClearSkyPower;
 import thevixen.powers.DazzlingPower;
 import thevixen.powers.GutsPower;
 import thevixen.powers.SunnyDayPower;
+import thevixen.vfx.SparkleEffect;
 import thevixen.vfx.TorchParticleColored;
 
 import java.util.ArrayList;
@@ -51,10 +52,15 @@ public abstract class AbstractVixenCard extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(p.hasPower(SunnyDayPower.POWER_ID)) {
             p.getPower(SunnyDayPower.POWER_ID).flash();
-            AbstractDungeon.effectList.add(new InflameEffect(p));
+            if(TheVixenMod.sunnyVFX) {
+                AbstractDungeon.effectList.add(new InflameEffect(p));
+            }
             sunny(p, m);
             removeSunny(p);
             if(p.hasPower(DazzlingPower.POWER_ID)) {
+                for(int i = p.getPower(DazzlingPower.POWER_ID).amount; i > 0; i--) {
+                    AbstractDungeon.effectList.add(new SparkleEffect(p.hb.cX + MathUtils.random(-p.hb.width, p.hb.width) / 2, p.hb.cY + MathUtils.random(-p.hb.height, p.hb.height) / 2));
+                }
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, p.getPower(DazzlingPower.POWER_ID).amount));
             }
         } else {
@@ -132,7 +138,8 @@ public abstract class AbstractVixenCard extends CustomCard {
         SUNNYVULN,
         SUNNYWEAK,
         SUNNYDEBUFFEDNOHAND,
-        SUNNYMULTITARGET
+        SUNNYMULTITARGET,
+        SUNNYEXHAUSTPILE
     }
 
     @SpireOverride
@@ -141,55 +148,41 @@ public abstract class AbstractVixenCard extends CustomCard {
         if(this.isGlowing && TheVixenMod.cardColoredBorder) {
 
             Color defaultcolor = Color.valueOf("30c8dcff");
-            Color color;
+            Color color = defaultcolor;
             switch(this.cardtrigger) {
                 case SUNNY:
                     if(SunnyDayPower.totalAmount > 0) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYEXHAUST:
                     if(SunnyDayPower.totalAmount > 0) {
                         color = Color.GRAY;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case NOTSUNNYEXHAUST:
-                    if(SunnyDayPower.totalAmount > 0) {
-                        color = defaultcolor;
-                    } else {
+                    if(SunnyDayPower.totalAmount == 0) {
                         color = Color.GRAY;
                     }
                     break;
                 case SELFDEBUFFED:
                     if(ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0) {
                         color = Color.BLUE;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYDEBUFFED:
                     if(SunnyDayPower.totalAmount > 0 && ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player) > 0) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYWEAK:
                     if(SunnyDayPower.totalAmount > 0 && AbstractDungeon.player.hasPower(WeakPower.POWER_ID)) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYVULN:
                     if(SunnyDayPower.totalAmount > 0 && AbstractDungeon.player.hasPower(VulnerablePower.POWER_ID)) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYDEBUFFEDNOHAND: {
@@ -197,28 +190,24 @@ public abstract class AbstractVixenCard extends CustomCard {
                     amnt -= GutsPower.totalAmount;
                     if (SunnyDayPower.totalAmount > 0 && amnt > 0) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 }
                 case SUNNYMULTITARGET:
                     if (SunnyDayPower.totalAmount > 0 && WillOWisp.monstersAlive() > 1) {
                         color = Color.GOLD;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
                 case SUNNYALL:
                     if (SunnyDayPower.totalAmount > 0) {
                         color = Color.RED;
-                    } else {
-                        color = defaultcolor;
                     }
                     break;
-
-                default:
-                    color = defaultcolor;
+                case SUNNYEXHAUSTPILE:
+                    if (SunnyDayPower.totalAmount > 0 && !AbstractDungeon.player.exhaustPile.isEmpty()) {
+                        color = Color.RED;
+                    }
+                    break;
             }
             if(color != defaultcolor && TheVixenMod.cardVFX) {
                 if((float)ReflectionHacks.getPrivate(this, AbstractCard.class, "glowTimer") == 0.3F) {

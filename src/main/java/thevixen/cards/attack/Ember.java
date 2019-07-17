@@ -1,11 +1,24 @@
 package thevixen.cards.attack;
 
+import basemod.ReflectionHacks;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.FireBurstParticleEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightFlareParticleEffect;
 import thevixen.TheVixenMod;
+import thevixen.actions.EmberEffectAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.helpers.RandomPoint;
 
 public class Ember extends AbstractVixenCard {
     public static final String ID = "TheVixenMod:Ember";
@@ -32,6 +45,13 @@ public class Ember extends AbstractVixenCard {
         this.baseDamage = this.damage = DAMAGE;
 
         this.cardtrigger = CardTrigger.SUNNY;
+    }
+
+    @Override
+    protected void regular(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new EmberEffectAction(m));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+
     }
 
     @Override

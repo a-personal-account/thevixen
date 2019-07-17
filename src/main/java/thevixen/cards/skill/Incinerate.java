@@ -33,6 +33,7 @@ public class Incinerate extends AbstractVixenCard {
     public Incinerate() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = STRENGTH;
+        this.misc = STRENGTH;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class Incinerate extends AbstractVixenCard {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                p, p, new SunnyDayPower(p, STRENGTH), STRENGTH));
+                p, p, new SunnyDayPower(p, this.misc), this.misc));
         AbstractDungeon.actionManager.addToBottom(new ApplyTempGainStrengthPowerAction(p, p, this.magicNumber));
     }
 

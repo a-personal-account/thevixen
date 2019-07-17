@@ -1,7 +1,7 @@
 package thevixen.cards.power;
 
 import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.Color;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
@@ -15,11 +15,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightningOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import thevixen.TheVixenMod;
 import thevixen.cards.attack.Psycracker;
 import thevixen.enums.AbstractCardEnum;
@@ -47,6 +44,8 @@ public class SynergyBurst extends CustomCard {
     public SynergyBurst() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = STRENGTH;
+
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override

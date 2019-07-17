@@ -56,7 +56,7 @@ import java.util.*;
 @SpireInitializer
 public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, PostCreateStartingDeckSubscriber,
-        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber, OnStartBattleSubscriber {
+        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, OnStartBattleSubscriber {
     private static final Color CUSTOM_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
 
     private static final String ATTACK_CARD = "512/attack_thevixen.png";
@@ -81,6 +81,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public static boolean bossEnabled;
     public static boolean cardVFX;
     public static boolean cardColoredBorder;
+    public static boolean sunnyVFX;
 
     public TheVixenMod() {
         BaseMod.subscribe(this);
@@ -96,11 +97,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         eventEnabled = false;
         bossEnabled = false;
         cardVFX = true;
+        sunnyVFX = true;
         cardColoredBorder = true;
         theVixenProperties.setProperty("cardVFX", Boolean.toString(cardVFX));
         theVixenProperties.setProperty("cardColoredBorder", Boolean.toString(cardColoredBorder));
         theVixenProperties.setProperty("eventEnabled", Boolean.toString(eventEnabled));
         theVixenProperties.setProperty("bossEnabled", Boolean.toString(bossEnabled));
+        theVixenProperties.setProperty("sunnyVFX", Boolean.toString(sunnyVFX));
         loadConfigData();
     }
 
@@ -156,6 +159,16 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                 button -> {
                     bossEnabled = button.enabled;
                     adjustBoss();
+                    saveConfigData();
+                }));
+
+        modPanel.addUIElement(new ModLabeledToggleButton(
+                CardCrawlGame.languagePack.getUIString(MOD_NAME + ":sunnyVFX").TEXT[0],
+                400.0f, 250.0f, Settings.CREAM_COLOR,
+                FontHelper.charDescFont, sunnyVFX, modPanel,
+                label -> {},
+                button -> {
+                    sunnyVFX = button.enabled;
                     saveConfigData();
                 }));
 
@@ -370,26 +383,6 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     }
 
     @Override
-    public void receiveSetUnlocks() {
-        /*
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-                Psybeam.ID, Facade.ID, FireSpin.ID), TheVixenCharEnum.THE_VIXEN, 0);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-                Extrasensory.ID, TrickRoom.ID, Copycat.ID), TheVixenCharEnum.THE_VIXEN, 1);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-                Guts.ID, SynergyBurst.ID, WonderRoom.ID), TheVixenCharEnum.THE_VIXEN, 2);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
-                FlameOrb.ID, Synchronize.ID, FiriumZ.ID), TheVixenCharEnum.THE_VIXEN, 3);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-                ClearSky.ID, SolarBeam.ID, FutureSight.ID), TheVixenCharEnum.THE_VIXEN, 4);
-         */
-    }
-
-    @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new BurningStick(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new EternalFlame(), AbstractCardEnum.THE_VIXEN_ORANGE);
@@ -402,6 +395,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addRelicToCustomPool(new Synchronize(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new ChoiceSpecs(), AbstractCardEnum.THE_VIXEN_ORANGE);
         BaseMod.addRelicToCustomPool(new WeaknessPolicy(), AbstractCardEnum.THE_VIXEN_ORANGE);
+        BaseMod.addRelicToCustomPool(new OranBerry(), AbstractCardEnum.THE_VIXEN_ORANGE);
 
         BaseMod.addRelicToCustomPool(new UmbreonRelic(), AbstractCardEnum.THE_VIXEN_ORANGE);
 

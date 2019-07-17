@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -376,8 +375,6 @@ public class TheVixenBoss extends CustomMonster {
 
         DamageInfo tmp = null;
 
-        int burns = 0;
-
         if(this.damagevalues.containsKey(this.nextMove)) {
             tmp = new DamageInfo(this, this.damagevalues.get(this.nextMove));
 
@@ -429,7 +426,7 @@ public class TheVixenBoss extends CustomMonster {
                 break;
 
             case BLAZE_CONST:
-                Blaze();
+                Blaze(true);
                 break;
 
             case SUBSTITUTE_CONST:
@@ -473,8 +470,8 @@ public class TheVixenBoss extends CustomMonster {
                     AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(this));
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlameBarrierEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.FIRE));
-                    if(burns > 0) {
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, burns * 2));
+                    if(AbstractDungeon.player.hasPower(BurnPower.POWER_ID)) {
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, AbstractDungeon.player.getPower(BurnPower.POWER_ID).amount * 2));
                     }
                 }
                 break;
@@ -496,7 +493,7 @@ public class TheVixenBoss extends CustomMonster {
                         this.isDone = true;
                     }
                 });
-                Blaze();
+                Blaze(false);
                 break;
 
             case PSYBEAM_CONST:
@@ -531,7 +528,7 @@ public class TheVixenBoss extends CustomMonster {
                 for(int i = 0; i < count; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.FIRE));
                 }
-                Blaze();
+                Blaze(false);
                 break;
 
             case OVERHEAT_CONST:
@@ -558,7 +555,7 @@ public class TheVixenBoss extends CustomMonster {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, this, BossFacadePower.POWER_ID));
-                Blaze();
+                Blaze(false);
                 break;
 
 
@@ -575,45 +572,47 @@ public class TheVixenBoss extends CustomMonster {
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
-    private void Blaze() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.blaze), this.blaze));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BlazePower(this, this.blaze), this.blaze));
-        if(this.currentHealth <= this.maxHealth / 2) {
-            //When below 50% hp, start upgrading the burns in the deck.
-            int count = this.blaze;
-            if (this.hasPower(BlazePower.POWER_ID)) {
-                count += this.getPower(BlazePower.POWER_ID).amount;
-            }
-            int i = 0;
-            ArrayList<AbstractCard> list = new ArrayList<>();
-            while (i < count) {
-                CardGroup pile = AbstractDungeon.player.drawPile;
-                boolean repeat = false;
-                do {
-                    for (final AbstractCard ac : pile.group) {
-                        if (ac.cardID == BossBurn.ID) {
-                            ac.upgrade();
-                            if(!list.contains(ac)) {
-                                list.add(ac);
-                            }
-                            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-                                @Override
-                                public void update() {
-                                    AbstractDungeon.effectList.add(new GhostIgniteEffect(
-                                            AbstractDungeon.player.hb.cX + MathUtils.random(-AbstractDungeon.player.hb.width, AbstractDungeon.player.hb.width) / 2F,
-                                            AbstractDungeon.player.hb.cY + MathUtils.random(-AbstractDungeon.player.hb.height, AbstractDungeon.player.hb.height) / 2F));
-                                    this.isDone = true;
+    private void Blaze(boolean executeOnLowascension) {
+        if(AbstractDungeon.ascensionLevel >= 9 || executeOnLowascension) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.blaze), this.blaze));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BlazePower(this, this.blaze), this.blaze));
+            if (this.currentHealth <= this.maxHealth / 2) {
+                //When below 50% hp, start upgrading the burns in the deck.
+                int count = this.blaze;
+                if (this.hasPower(BlazePower.POWER_ID)) {
+                    count += this.getPower(BlazePower.POWER_ID).amount;
+                }
+                int i = 0;
+                ArrayList<AbstractCard> list = new ArrayList<>();
+                while (i < count) {
+                    CardGroup pile = AbstractDungeon.player.drawPile;
+                    boolean repeat = false;
+                    do {
+                        for (final AbstractCard ac : pile.group) {
+                            if (ac.cardID == BossBurn.ID) {
+                                ac.upgrade();
+                                if (!list.contains(ac)) {
+                                    list.add(ac);
                                 }
-                            });
-                            if (++i == count) {
-                                break;
+                                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                                    @Override
+                                    public void update() {
+                                        AbstractDungeon.effectList.add(new GhostIgniteEffect(
+                                                AbstractDungeon.player.hb.cX + MathUtils.random(-AbstractDungeon.player.hb.width, AbstractDungeon.player.hb.width) / 2F,
+                                                AbstractDungeon.player.hb.cY + MathUtils.random(-AbstractDungeon.player.hb.height, AbstractDungeon.player.hb.height) / 2F));
+                                        this.isDone = true;
+                                    }
+                                });
+                                if (++i == count) {
+                                    break;
+                                }
                             }
                         }
+                        pile = AbstractDungeon.player.discardPile;
+                    } while (repeat = !repeat);
+                    if (i == 0) {
+                        break;
                     }
-                    pile = AbstractDungeon.player.discardPile;
-                } while(repeat = !repeat);
-                if(i == 0) {
-                    break;
                 }
             }
         }
@@ -644,9 +643,11 @@ public class TheVixenBoss extends CustomMonster {
                     firstCycle = false;
                     move = SUBSTITUTE_CONST;
                 } else {
-                    this.getMove(num);
-                    return;
-                    //move = BLAZE_CONST;
+                    if(AbstractDungeon.ascensionLevel >= 9) {
+                        this.getMove(num);
+                        return;
+                    }
+                    move = BLAZE_CONST;
                 }
             } else {
                 int index;

@@ -81,6 +81,13 @@
       "Whenever you are afflicted with a #ydebuff unrelated to #rStrength or #bDexterity, gain "," #rStrength this turn."
     ]
   },
+  "TheVixenMod:OranBerry": {
+    "NAME": "Oran Berry",
+    "FLAVOR": "By tradition, these berries are harvested by brutally ripping out the trees they grow on.",
+    "DESCRIPTIONS": [
+      "Once per combat, when you take unblocked attack damage while below #r","% of your max HP, heal for #b","% of your max HP. NL Has #b"," uses."
+    ]
+  },
 
 
   "TheVixenMod:UmbreonRelic": {

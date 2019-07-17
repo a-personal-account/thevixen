@@ -51,6 +51,7 @@ public class Agility extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
+        p.useFastShakeAnimation(0.3F);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainRightPower(p, this.magicNumber), this.magicNumber));
 
     }

@@ -19,6 +19,11 @@
       "Custom act 3 bossfight enabled"
     ]
   },
+  "TheVixenMod:sunnyVFX": {
+    "TEXT": [
+      "Fire VFX after triggering Sunny"
+    ]
+  },
 
   "TheVixenMod:FutureSightAction": {
     "TEXT": [

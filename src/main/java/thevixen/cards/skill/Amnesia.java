@@ -2,6 +2,7 @@ package thevixen.cards.skill;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,9 +12,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.vfx.combat.UnknownParticleEffect;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.helpers.RandomPoint;
 import thevixen.powers.SunnyDayPower;
 
 public class Amnesia extends AbstractVixenCard {
@@ -43,6 +46,9 @@ public class Amnesia extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
+        for(int i = 0; i < 3; i++) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new UnknownParticleEffect(p.hb.cX, p.hb.cY + p.hb.height / 3)));
+        }
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 
@@ -53,6 +59,10 @@ public class Amnesia extends AbstractVixenCard {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, (this.block + 1) / 2), (this.block + 1) / 2));
 
         this.exhaust = true;
+
+        for(int i = 0; i < 15; i++) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new UnknownParticleEffect(RandomPoint.x(p.hb), RandomPoint.y(p.hb))));
+        }
     }
 
     @SpireOverride

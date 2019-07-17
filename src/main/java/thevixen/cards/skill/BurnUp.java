@@ -1,6 +1,5 @@
 package thevixen.cards.skill;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -17,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.helpers.RandomPoint;
 import thevixen.powers.ClearSkyPower;
 import thevixen.powers.SunnyDayPower;
 
@@ -51,7 +51,7 @@ public class BurnUp extends AbstractVixenCard {
             boolean consume = !p.hasPower(ClearSkyPower.POWER_ID);
             for(int i = p.getPower(SunnyDayPower.POWER_ID).amount; i > 0; i--) {
                 for(int j = 0; j < 7; j++) {
-                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new GhostIgniteEffect(p.hb.cX + MathUtils.random(-p.hb.width, p.hb.width) / 2, p.hb.cY + MathUtils.random(-p.hb.height, p.hb.height) / 2)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new GhostIgniteEffect(RandomPoint.x(p.hb), RandomPoint.y(p.hb))));
                 }
                 AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                     @Override

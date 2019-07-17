@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.TheVixenMod;
+import thevixen.actions.PlayHealSFXAction;
 import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
@@ -70,6 +71,7 @@ public class SunnyDay extends AbstractVixenCard {
         }
 
         AbstractDungeon.actionManager.addToBottom(new ReduceDebuffDurationAction(p, p, this.misc));
+        AbstractDungeon.actionManager.addToBottom(new PlayHealSFXAction());
 
         this.regular(p, m);
     }

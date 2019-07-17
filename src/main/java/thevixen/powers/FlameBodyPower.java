@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import thevixen.actions.EmberEffectAction;
 
 
 public class FlameBodyPower extends AbstractTheVixenPower {
@@ -35,6 +36,7 @@ public class FlameBodyPower extends AbstractTheVixenPower {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
 
+            AbstractDungeon.actionManager.addToTop(new EmberEffectAction(info.owner, this.amount));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(info.owner, this.owner, new BurnNextTurnPower(info.owner, this.amount), this.amount));
         }
 
