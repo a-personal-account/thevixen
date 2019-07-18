@@ -57,18 +57,7 @@ import java.util.*;
 public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, PostCreateStartingDeckSubscriber,
         PostCreateStartingRelicsSubscriber, AddAudioSubscriber, OnStartBattleSubscriber {
-    private static final Color CUSTOM_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
 
-    private static final String ATTACK_CARD = "512/attack_thevixen.png";
-    private static final String SKILL_CARD = "512/skill_thevixen.png";
-    private static final String POWER_CARD = "512/power_thevixen.png";
-    private static final String ENERGY_ORB = "512/card_thevixen_orb.png";
-    private static final String CARD_ENERGY_ORB = "512/card_small_orb.png";
-
-    private static final String ATTACK_CARD_PORTRAIT = "1024/attack_thevixen.png";
-    private static final String SKILL_CARD_PORTRAIT = "1024/skill_thevixen.png";
-    private static final String POWER_CARD_PORTRAIT = "1024/power_thevixen.png";
-    private static final String ENERGY_ORB_PORTRAIT = "1024/card_small_orb.png";
 
     public static final String MOD_NAME = "TheVixenMod";
 
@@ -86,13 +75,35 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public TheVixenMod() {
         BaseMod.subscribe(this);
 
+        final Color VIXEN_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
+        final Color BLACKY_COLOR = CardHelper.getColor(70.0F, 20.0F, 50.0F);
+
+        final String ATTACK_CARD = "512/attack_thevixen.png";
+        final String SKILL_CARD = "512/skill_thevixen.png";
+        final String POWER_CARD = "512/power_thevixen.png";
+        final String ENERGY_ORB = "512/card_thevixen_orb.png";
+        final String CARD_ENERGY_ORB = "512/card_small_orb.png";
+
+        final String ATTACK_CARD_PORTRAIT = "1024/attack_thevixen.png";
+        final String SKILL_CARD_PORTRAIT = "1024/skill_thevixen.png";
+        final String POWER_CARD_PORTRAIT = "1024/power_thevixen.png";
+        final String ENERGY_ORB_PORTRAIT = "1024/card_small_orb.png";
+
         BaseMod.addColor(AbstractCardEnum.THE_VIXEN_ORANGE,
-                CUSTOM_COLOR, CUSTOM_COLOR, CUSTOM_COLOR, CUSTOM_COLOR, CUSTOM_COLOR, CUSTOM_COLOR, CUSTOM_COLOR,
+                VIXEN_COLOR, VIXEN_COLOR, VIXEN_COLOR, VIXEN_COLOR, VIXEN_COLOR, VIXEN_COLOR, VIXEN_COLOR,
                 getResourcePath(ATTACK_CARD), getResourcePath(SKILL_CARD),
                 getResourcePath(POWER_CARD), getResourcePath(ENERGY_ORB),
                 getResourcePath(ATTACK_CARD_PORTRAIT), getResourcePath(SKILL_CARD_PORTRAIT),
                 getResourcePath(POWER_CARD_PORTRAIT), getResourcePath(ENERGY_ORB_PORTRAIT),
                 getResourcePath(CARD_ENERGY_ORB));
+
+        BaseMod.addColor(AbstractCardEnum.THE_VIXEN_BLACK,
+                BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR,
+                getResourcePath("512/attack_blacky.png"), getResourcePath("512/skill_blacky.png"),
+                getResourcePath(POWER_CARD), getResourcePath("512/card_blacky_orb.png"),
+                getResourcePath("1024/attack_blacky.png"), getResourcePath("1024/skill_blacky.png"),
+                getResourcePath(POWER_CARD_PORTRAIT), getResourcePath("1024/card_small_orb_blacky.png"),
+                getResourcePath("512/card_small_orb_blacky.png"));
 
         eventEnabled = false;
         bossEnabled = false;
@@ -372,12 +383,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         /*
         BaseMod.addCard(new Psycracker());
+
         BaseMod.addCard(new UmbreonSnarl());
         BaseMod.addCard(new UmbreonFoulPlay());
         BaseMod.addCard(new UmbreonRefresh());
-
         BaseMod.addCard(new UmbreonHelpingHand());
-        */
+         */
+
 
         BaseMod.addCard(new DebugCard());
     }

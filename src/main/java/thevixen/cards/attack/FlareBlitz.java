@@ -1,5 +1,6 @@
 package thevixen.cards.attack;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -13,9 +14,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractSunnyBonusCard;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.vfx.CrossSlash;
 
 public class FlareBlitz extends AbstractSunnyBonusCard {
     public static final String ID = "TheVixenMod:FlareBlitz";
@@ -48,6 +51,7 @@ public class FlareBlitz extends AbstractSunnyBonusCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CrossSlash(m.hb.cX, m.hb.cY, Color.ORANGE)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
 
         AbstractDungeon.actionManager.addToBottom(

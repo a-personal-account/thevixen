@@ -350,7 +350,7 @@
 
   "TheVixenMod:Psycracker": {
     "NAME": "Psycracker",
-    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effects. NL Purge"
+    "DESCRIPTION": "Deal !D! damage to NL a random enemy !M! times. NL Lose Synergy Burst's effects. NL Purge."
   },
 
   "TheVixenMod:UmbreonSnarl": {
@@ -367,7 +367,7 @@
   },
   "TheVixenMod:UmbreonHelpingHand": {
     "NAME": "Umbreon",
-    "DESCRIPTION": "Reduce the cost of all cards in your hand by !M!. NL Exhaust Retain"
+    "DESCRIPTION": "Reduce the cost of all cards in your hand NL by !M! this turn. NL Exhaust Retain"
   },
 
 

@@ -51,7 +51,7 @@
       "debuff",
       "debuffstack"
     ],
-    "DESCRIPTION": "This means all your powers that are debuffs, as well as #rCurse- and #bStatus cards in your hand."
+    "DESCRIPTION": "This means all your powers that are debuffs, as well as unique #rCurse- and #bStatus cards in your hand."
   },
   "TheVixenMod:CumulativeDurationKeyword": {
     "PROPER_NAME": "Cumulative Stacks",
@@ -80,7 +80,7 @@
     "NAMES": [
       "psycracker"
     ],
-    "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 base-damage to a random enemy 8 (12) times."
+    "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 basedamage to a random enemy 8 (12) times. NL Lose #ySynergy #yBurst's effects."
   },
   "TheVixenMod:DefiantKeyword": {
     "PROPER_NAME": "Defiant",
@@ -94,6 +94,6 @@
     "NAMES": [
       "inverted"
     ],
-    "DESCRIPTION": "Power only deteriotates at the end of a turn when you are #rattacked while #rVulnerable. NL Stacks with #bodd #bmushroom."
+    "DESCRIPTION": "Power only deteriotates at the end of turn if you were #rattacked while #rVulnerable during said turn. NL Stacks with #bodd #bmushroom."
   }
 }

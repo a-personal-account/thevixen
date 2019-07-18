@@ -41,7 +41,7 @@ public class PsycrackerOrb extends AbstractGameEffect {
     private ArrayList<AfterImage> afterimages;
     private float clearAfterImages;
 
-    public PsycrackerOrb(AbstractCreature source, int index) {
+    public static Texture getCircleTexture() {
         if(imgs == null) {
             imgs = new Texture[6];
             imgs[0] = ImageMaster.loadImage(TheVixenMod.getResourcePath("vfx/psycracker/circle.png"));
@@ -51,7 +51,10 @@ public class PsycrackerOrb extends AbstractGameEffect {
             imgs[4] = ImageMaster.loadImage(TheVixenMod.getResourcePath("vfx/psycracker/star.png"));
             imgs[5] = ImageMaster.loadImage(TheVixenMod.getResourcePath("vfx/psycracker/heart.png"));
         }
-
+        return imgs[0];
+    }
+    public PsycrackerOrb(AbstractCreature source, int index) {
+        getCircleTexture();
         this.rotation = MathUtils.random(-15, 15);
         this.scale = 0F;
 
