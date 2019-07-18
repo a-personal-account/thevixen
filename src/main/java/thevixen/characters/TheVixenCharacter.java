@@ -210,7 +210,7 @@ public class TheVixenCharacter extends CustomPlayer {
 
     @Override
     public String getSpireHeartText() {
-        return charStrings.TEXT[1];
+        return charStrings.TEXT[1 + (Math.max(0, MathUtils.random(1, 100 + charStrings.TEXT.length - 2) - 100))];
     }
 
     @Override

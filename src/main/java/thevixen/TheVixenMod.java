@@ -379,18 +379,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
         BaseMod.addCard(new Wish());
 
-        // Special (5)
-
-        /*
-        BaseMod.addCard(new Psycracker());
-
-        BaseMod.addCard(new UmbreonSnarl());
-        BaseMod.addCard(new UmbreonFoulPlay());
-        BaseMod.addCard(new UmbreonRefresh());
-        BaseMod.addCard(new UmbreonHelpingHand());
-         */
-
-
+        // Special
         BaseMod.addCard(new DebugCard());
     }
 
@@ -421,22 +410,26 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     @Override
     public void receivePostCreateStartingRelics(AbstractPlayer.PlayerClass playerClass, ArrayList<String> relics) { }
 
-    /* Just a reminder in case I need to check that later */
-    private boolean isVixen(AbstractPlayer.PlayerClass playerClass) {
-        return playerClass != TheVixenCharEnum.THE_VIXEN;
-    }
 
+    private static String ENGLISH = "eng";
     private static String getLanguageString() {
         // Note to translators - add your language here (by alphabetical order).
         switch (Settings.language) {
             default:
-                return "eng";
+                return ENGLISH;
         }
     }
 
     @Override
     public void receiveEditStrings() {
         String language = getLanguageString();
+
+        this.loadStrings(ENGLISH);
+        if(!language.equals(ENGLISH)) {
+            this.loadStrings(language);
+        }
+    }
+    private void loadStrings(String language) {
         String l10nPath = MOD_NAME + "/localization/";
         BaseMod.loadCustomStringsFile(RelicStrings.class, l10nPath + language + "/RelicStrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class, l10nPath + language + "/PotionStrings.json");
