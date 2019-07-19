@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -55,13 +56,17 @@ public class Facade extends AbstractWeakReverseCard {
     protected void regular(AbstractPlayer p, AbstractMonster m) {
         int debuffcount = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         for(int i = 0; i <= debuffcount; i++) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new RandomAnimatedSlashEffect(RandomPoint.x(m.hb), RandomPoint.y(m.hb))));
+            VFX(m);
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         }
     }
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
         this.regular(p, m);
+    }
+
+    public static void VFX(AbstractCreature target) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new RandomAnimatedSlashEffect(RandomPoint.x(target.hb), RandomPoint.y(target.hb))));
     }
 
     @Override

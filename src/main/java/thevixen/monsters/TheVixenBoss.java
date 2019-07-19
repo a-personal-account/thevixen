@@ -30,16 +30,19 @@ import thevixen.actions.AttackAnimationAction;
 import thevixen.actions.PsycrackerAction;
 import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractVixenCard;
+import thevixen.cards.attack.Facade;
 import thevixen.cards.attack.Psybeam;
 import thevixen.cards.attack.SolarBeam;
 import thevixen.cards.status.BossBurn;
 import thevixen.enums.IntentEnum;
 import thevixen.helpers.BraixenAnimation;
+import thevixen.helpers.RandomPoint;
 import thevixen.powers.ConfusionPower;
 import thevixen.powers.*;
 import thevixen.relics.BurningStick;
 import thevixen.relics.FiriumZ;
 import thevixen.vfx.FireSpinEffect;
+import thevixen.vfx.RandomAnimatedSlashEffect;
 import thevixen.vfx.ShinyEffect;
 import thevixen.vfx.SwaggerEffect;
 
@@ -552,7 +555,8 @@ public class TheVixenBoss extends CustomMonster {
                 AbstractDungeon.actionManager.addToBottom(new AttackAnimationAction(this));
                 count = ReduceDebuffDurationAction.getCommonDebuffCount(this, false) + 1;
                 for(int i = 0; i < count; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    Facade.VFX(AbstractDungeon.player);
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, tmp, AbstractGameAction.AttackEffect.NONE));
                 }
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, this, BossFacadePower.POWER_ID));
                 Blaze(false);
