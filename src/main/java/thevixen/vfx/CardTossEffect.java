@@ -24,7 +24,6 @@ public class CardTossEffect extends AbstractGameEffect {
     private AbstractCreature source;
     private Hitbox target;
 
-    private Color color;
     private float rotationVelocity;
     private Hitbox hb;
 

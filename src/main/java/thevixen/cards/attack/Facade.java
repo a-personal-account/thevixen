@@ -1,7 +1,5 @@
 package thevixen.cards.attack;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -18,7 +16,7 @@ import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.cards.AbstractWeakReverseCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.helpers.RandomPoint;
-import thevixen.vfx.PsycrackerFireworks;
+import thevixen.vfx.RandomAnimatedSlashEffect;
 
 public class Facade extends AbstractWeakReverseCard {
     public static final String ID = "TheVixenMod:Facade";
@@ -57,7 +55,7 @@ public class Facade extends AbstractWeakReverseCard {
     protected void regular(AbstractPlayer p, AbstractMonster m) {
         int debuffcount = ReduceDebuffDurationAction.getCommonDebuffCount(p);
         for(int i = 0; i <= debuffcount; i++) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new PsycrackerFireworks(Color.PURPLE.cpy().sub(MathUtils.random(-0.2F, 0.2F), MathUtils.random(-0.2F, 0.2F), MathUtils.random(-0.2F, 0.2F), 0), RandomPoint.x(m.hb), RandomPoint.y(m.hb))));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new RandomAnimatedSlashEffect(RandomPoint.x(m.hb), RandomPoint.y(m.hb))));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         }
     }
