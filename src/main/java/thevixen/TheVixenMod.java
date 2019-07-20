@@ -200,9 +200,9 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                 new Mugger(-300F, 25F)
         }));
         BaseMod.addMonster(MOD_NAME + ":UmbreonEvent3", () -> new MonsterGroup(new AbstractMonster[]{
-                new Byrd(-220F, -60F),
-                new Healer(0F, 0F),
-                new Byrd(220F, -30F)
+                new Byrd(-220F, 0F),
+                new Byrd(220F, 0F),
+                new Healer(0F, 0F)
         }));
 
         BaseMod.addMonster(TheVixenBoss.ID, () -> new MonsterGroup(new AbstractMonster[]{

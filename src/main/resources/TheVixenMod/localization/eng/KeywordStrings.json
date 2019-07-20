@@ -95,5 +95,20 @@
       "inverted"
     ],
     "DESCRIPTION": "Power only deteriotates at the end of turn if you were #rattacked while #rVulnerable during said turn. NL Stacks with #bodd #bmushroom."
+  },
+  "TheVixenMod:NotSunnyKeyword": {
+    "PROPER_NAME": "Not Sunny",
+    "NAMES": [
+      "not sunny",
+      "not_sunny"
+    ],
+    "DESCRIPTION": "Requires the power #rSunny #rDay to NOT trigger. NL Consumes 1 stack of it upon doing so."
+  },
+  "TheVixenMod:MysticalFireKeyword": {
+    "PROPER_NAME": "Mystical Fire Addendum",
+    "NAMES": [
+      "gain"
+    ],
+    "DESCRIPTION": "You gain the #rSunny #rDay AFTER the Sunny effect triggers."
   }
 }

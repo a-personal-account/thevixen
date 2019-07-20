@@ -39,18 +39,18 @@
   },
   "TheVixenMod:MysticalFire": {
     "NAME": "Mystical Fire",
-    "DESCRIPTION": " NL Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL Gain !MISC! thevixenmod:Sunny_Day. NL Not thevixenmod:Sunny: NL Shuffle this card into your drawpile.",
-    "UPGRADE_DESCRIPTION": " NL Deal !D! damage twice. NL Apply !M! thevixenmod:Burn. NL Gain !MISC! thevixenmod:Sunny_Day. NL Not thevixenmod:Sunny: NL Put this card on top of your drawpile."
+    "DESCRIPTION": " NL Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day. NL thevixenmod:Not_Sunny: NL Shuffle this card into your drawpile.",
+    "UPGRADE_DESCRIPTION": " NL Deal !D! damage twice. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day. NL thevixenmod:Not_Sunny: NL Put this card on top of your drawpile."
   },
   "TheVixenMod:FireBlast": {
     "NAME": "Fire Blast",
-    "DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other enemies. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to the other enemies. NL thevixenmod:Sunny: Shuffle an unupgraded Fire Blast into your Discard Pile. NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to all other enemies. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to target enemy and !M! % less to all other enemies. Exhaust. NL thevixenmod:Sunny: Shuffle an unupgraded Fire Blast into your Discard Pile."
   },
   "TheVixenMod:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! thevixenmod:Burn. NL thevixenmod:Sunny: Retain your rightmost attack, skill or power."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: NL Retain your rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! thevixenmod:Burn. NL thevixenmod:Sunny: NL Retain your rightmost attack, skill or power."
   },
   "TheVixenMod:Swagger": {
     "NAME": "Swagger",
@@ -76,7 +76,7 @@
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Deal damage to all enemies equal to the target's thevixenmod:Burn. NL Next turn, the target receives a thevixenmod:Burn equal to the thevixenmod:Burn it has now. NL Not thevixenmod:Sunny: Exhaust"
+    "DESCRIPTION": "Deal damage to all enemies equal to the target's thevixenmod:Burn. NL Next turn, the target receives a thevixenmod:Burn equal to the thevixenmod:Burn it has now. NL thevixenmod:Not_Sunny: Exhaust"
   },
   "TheVixenMod:LavaPlume": {
     "NAME": "Lava Plume",
