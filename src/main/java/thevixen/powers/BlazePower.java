@@ -1,10 +1,14 @@
 package thevixen.powers;
 
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import basemod.ReflectionHacks;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 
 public class BlazePower extends AbstractTheVixenPower {
@@ -27,11 +31,49 @@ public class BlazePower extends AbstractTheVixenPower {
         this.type = POWER_TYPE;
 
         updateDescription();
+
+        this.priority = 6;
+        this.setGreenColor(this.owner.currentHealth);
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + (this.owner.maxHealth / 2) + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public int onLoseHp(int damageAmount) {
+        if(this.owner.currentHealth > this.owner.maxHealth / 2 && this.owner.currentHealth - damageAmount <= this.owner.maxHealth / 2) {
+            AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.owner.hb.cX - this.owner.animX, this.owner.hb.cY + this.owner.hb.height / 2.0F, DESCRIPTIONS[3], Color.RED.cpy()));
+            this.flash();
+            this.setGreenColor(this.owner.currentHealth - damageAmount);
+        }
+        return damageAmount;
+    }
+    @Override
+    public int onHeal(int healAmount) {
+        if(this.owner.currentHealth <= this.owner.maxHealth / 2 && this.owner.currentHealth + healAmount > this.owner.maxHealth / 2) {
+            this.setGreenColor(this.owner.currentHealth + healAmount);
+        }
+        return healAmount;
+    }
+
+    @Override
+    public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+        if(this.owner.currentHealth > this.owner.maxHealth / 2) {
+            c = Color.DARK_GRAY.cpy();
+        }
+        super.renderIcons(sb, x, y, c);
+    }
+
+    private void setGreenColor(int hp) {
+        Color c;
+        if(hp > this.owner.maxHealth / 2) {
+            c = Color.DARK_GRAY.cpy();
+        } else {
+            c = new Color(0.0F, 1.0F, 0.0F, 1.0F);
+        }
+        ReflectionHacks.setPrivate(this, AbstractPower.class, "greenColor", c);
     }
 
     static {

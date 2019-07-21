@@ -39,8 +39,8 @@
   },
   "TheVixenMod:MysticalFire": {
     "NAME": "Mystical Fire",
-    "DESCRIPTION": " NL Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day. NL thevixenmod:Not_Sunny: NL Shuffle this card into your drawpile.",
-    "UPGRADE_DESCRIPTION": " NL Deal !D! damage twice. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day. NL thevixenmod:Not_Sunny: NL Put this card on top of your drawpile."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Not_Sunny: NL Shuffle this card into your drawpile. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL Apply !M! thevixenmod:Burn. NL thevixenmod:Not_Sunny: NL Put this card on top of your drawpile. NL thevixenmod:Gain !MISC! thevixenmod:Sunny_Day."
   },
   "TheVixenMod:FireBlast": {
     "NAME": "Fire Blast",

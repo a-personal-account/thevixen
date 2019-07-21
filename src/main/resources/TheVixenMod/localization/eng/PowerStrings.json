@@ -27,8 +27,10 @@
   "TheVixenMod:BlazePower": {
     "NAME": "Blaze",
     "DESCRIPTIONS": [
-      "If you are at or below 50% Health, whenever you apply Burn, apply #b",
-      " more Burn."
+      "If you are at or below #y50% Health #b(","), whenever you apply #rBurn, apply #b",
+      " more #rBurn.",
+      "Blaze active",
+      "Blaze inactive"
     ]
   },
   "TheVixenMod:MoodyPower": {

@@ -109,6 +109,6 @@
     "NAMES": [
       "gain"
     ],
-    "DESCRIPTION": "You gain the #rSunny #rDay AFTER the Sunny effect triggers."
+    "DESCRIPTION": "You gain the #rSunny #rDay regardless of the #rNot #rSunny effect."
   }
 }

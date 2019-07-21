@@ -35,6 +35,8 @@ public class Wish extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = HEAL;
+
+        this.tags.add(CardTags.HEALING);
     }
 
     @Override

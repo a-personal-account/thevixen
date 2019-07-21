@@ -41,6 +41,8 @@ public class PsychoShift extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = HEAL;
         this.exhaust = true;
+
+        this.tags.add(CardTags.HEALING);
     }
 
     @Override

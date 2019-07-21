@@ -70,7 +70,7 @@ public class Extrasensory extends AbstractConfusionCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_COUNT);
-            this.misc = this.baseMagicNumber + 2;
+            this.misc = this.baseMagicNumber + 1;
         }
     }
 
