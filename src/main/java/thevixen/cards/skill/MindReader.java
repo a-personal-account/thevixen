@@ -46,10 +46,7 @@ public class MindReader extends AbstractVixenCard {
 
     @Override
     protected void regular(AbstractPlayer p, AbstractMonster m) {
-        if (m.intent == AbstractMonster.Intent.ATTACK
-                || m.intent == AbstractMonster.Intent.ATTACK_BUFF
-                || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF
-                || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
+        if (m.getIntentBaseDmg() > -1) {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         } else {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
@@ -58,10 +55,7 @@ public class MindReader extends AbstractVixenCard {
 
     @Override
     protected void sunny(AbstractPlayer p, AbstractMonster m) {
-        if (m.intent == AbstractMonster.Intent.ATTACK
-                || m.intent == AbstractMonster.Intent.ATTACK_BUFF
-                || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF
-                || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
+        if (m.getIntentBaseDmg() > -1) {
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         } else {
