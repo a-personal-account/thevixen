@@ -110,5 +110,34 @@
       "gain"
     ],
     "DESCRIPTION": "You gain the #rSunny #rDay regardless of the #rNot #rSunny effect."
+  },
+  "TheVixenMod:RightmostKeyword": {
+    "PROPER_NAME": "Rightmost Addendum",
+    "NAMES": [
+      "rightmost"
+    ],
+    "DESCRIPTION": "If there are not enough cards to #rretain, #bdraw #bcards #bnext #bturn equal to the amount of missing cards."
+  },
+
+  "TheVixenMod:MoodyNonSense1": {
+    "PROPER_NAME": "b20gZ29vZCBlZmZ",
+    "NAMES": [
+      "b20gz29vzcblzmz"
+    ],
+    "DESCRIPTION": "Option only available if appropriate cards are in hand."
+  },
+  "TheVixenMod:MoodyNonSense2": {
+    "PROPER_NAME": "FuZC Addendum",
+    "NAMES": [
+      "fuzc"
+    ],
+    "DESCRIPTION": "This will happen regardless of the starting effects."
+  },
+  "TheVixenMod:MoodyNonSense3": {
+    "PROPER_NAME": "IGJhZCBvbmVz Addendum",
+    "NAMES": [
+      "igjhzcbvbmvz"
+    ],
+    "DESCRIPTION": "You can consider this card the \"Form\" for self-debuffing."
   }
 }

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import thevixen.relics.Charcoal;
 import thevixen.relics.FlameOrb;
 import thevixen.relics.ShellBell;
@@ -48,6 +49,7 @@ public class RetainRightPower extends AbstractTheVixenPower {
         } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
+        this.description += DESCRIPTIONS[3];
     }
 
     @Override
@@ -62,7 +64,7 @@ public class RetainRightPower extends AbstractTheVixenPower {
             }
         }
         if(found < this.amount) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SunnyDayPower(this.owner, this.amount - found), this.amount - found));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DrawCardNextTurnPower(this.owner, this.amount - found), this.amount - found));
         }
 
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));

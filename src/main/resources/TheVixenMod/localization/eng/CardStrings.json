@@ -49,8 +49,8 @@
   },
   "TheVixenMod:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: NL Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! thevixenmod:Burn. NL thevixenmod:Sunny: NL Retain your rightmost attack, skill or power."
+    "DESCRIPTION": "Deal !D! damage. NL thevixenmod:Sunny: NL Retain your thevixenmod:rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! thevixenmod:Burn. NL thevixenmod:Sunny: NL Retain your thevixenmod:rightmost attack, skill or power."
   },
   "TheVixenMod:Swagger": {
     "NAME": "Swagger",
@@ -76,7 +76,7 @@
   },
   "TheVixenMod:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Deal damage to all enemies equal to the target's thevixenmod:Burn. NL Next turn, the target receives a thevixenmod:Burn equal to the thevixenmod:Burn it has now. NL thevixenmod:Not_Sunny: Exhaust"
+    "DESCRIPTION": "Deal damage to all enemies equal to the target's thevixenmod:Burn. NL Next turn, the target receives a thevixenmod:Burn equal to the thevixenmod:Burn it has now. NL thevixenmod:Not_Sunny: Exhaust."
   },
   "TheVixenMod:LavaPlume": {
     "NAME": "Lava Plume",
@@ -113,8 +113,8 @@
   },
   "TheVixenMod:Confusion": {
     "NAME": "Confusion",
-    "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power.",
-    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny: Repeat this effect once."
+    "DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your thevixenmod:rightmost attack, skill or power.",
+    "UPGRADE_DESCRIPTION": "Target enemy deals !D! damage to itself. NL Retain your thevixenmod:rightmost attack, skill or power. NL thevixenmod:Sunny: Repeat this effect once."
   },
   "TheVixenMod:Extrasensory": {
     "NAME": "Extrasensory",
@@ -142,8 +142,8 @@
   },
   "TheVixenMod:PsychUp": {
     "NAME": "Psych Up",
-    "DESCRIPTION": "Gain Strength and Block equal to the Strength and Block of target enemy this turn. NL thevixenmod:Sunny: Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Steal target enemy's Strength and Block until end of turn. NL thevixenmod:Sunny: Draw !M! cards.",
+    "DESCRIPTION": "Gain Strength and Block equal to the Strength and Block of target enemy this turn. NL thevixenmod:Sunny: Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Steal target enemy's Strength and Block until end of turn. NL thevixenmod:Sunny: Draw !M! cards. NL Exhaust.",
     "EXTENDED_DESCRIPTION": ["Snatch+"]
   },
   "TheVixenMod:MindReader": {
@@ -216,8 +216,8 @@
   },
   "TheVixenMod:Agility": {
     "NAME": "Agility",
-    "DESCRIPTION": "Retain your !M! rightmost attack, skill or power cards. NL thevixenmod:Sunny: Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Retain your !M! rightmost attack, skill or power cards. NL Gain !B! Block."
+    "DESCRIPTION": "Retain your !M! thevixenmod:rightmost attack, skill or power cards. NL thevixenmod:Sunny: Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Retain your !M! thevixenmod:rightmost attack, skill or power cards. NL Gain !B! Block."
   },
   "TheVixenMod:ClearSky": {
     "NAME": "Clear Sky",
@@ -294,7 +294,7 @@
   "TheVixenMod:CalmMind": {
     "NAME": "Calm Mind",
     "DESCRIPTION": "Draw !MISC! cards. NL thevixenmod:Sunny_Exhaust: NL Gain !M! Strength and Dexterity this turn.",
-    "UPGRADE_DESCRIPTION": "Draw !MISC! cards. NL Retain your rightmost attack, skill or power. NL thevixenmod:Sunny_Exhaust: NL Gain !M! Strength and Dexterity this turn."
+    "UPGRADE_DESCRIPTION": "Draw !MISC! cards. NL Retain your thevixenmod:rightmost attack, skill or power. NL thevixenmod:Sunny_Exhaust: NL Gain !M! Strength and Dexterity this turn."
   },
 
 
@@ -305,8 +305,8 @@
   },
   "TheVixenMod:Moody": {
     "NAME": "Moody",
-    "DESCRIPTION": "NCByYW5k b20gZ29vZCBlZmZ lY3RzIG FuZC Ay IGJhZCBvbmVz",
-    "UPGRADE_DESCRIPTION": "NiByYW5k b20gZ29vZCBlZmZ lY3RzIG FuZC Az IGJhZCBvbmVz"
+    "DESCRIPTION": "NCByYW5k thevixenmod:b20gZ29vZCBlZmZ lY3RzIG thevixenmod:FuZC Ay IGJhZCBvbmVz",
+    "UPGRADE_DESCRIPTION": "NiByYW5k b20gZ29vZCBlZmZ lY3RzIG FuZC Az thevixenmod:IGJhZCBvbmVz"
   },
   "TheVixenMod:Blaze": {
     "NAME": "Blaze",

@@ -37,13 +37,12 @@ public class PsychUp extends AbstractVixenCard {
     private static final int CARDS = 2;
     private static final int UPGRADE_CARDS = 1;
 
-    private int strengthtransfer;
-
     public PsychUp() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = CARDS;
 
         this.cardtrigger = CardTrigger.SUNNY;
+        this.exhaust = true;
     }
 
     @Override
@@ -60,7 +59,7 @@ public class PsychUp extends AbstractVixenCard {
         }
 
         /* steal strength */
-        strengthtransfer = 0;
+        int strengthtransfer = 0;
         if(m.hasPower(StrengthPower.POWER_ID)) {
             strengthtransfer = m.getPower(StrengthPower.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(

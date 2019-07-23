@@ -103,7 +103,8 @@
     "DESCRIPTIONS": [
       "Retain the rightmost card in your hand.",
       "Retain the #b",
-      " rightmost attack, skill or power cards in your hand."
+      " rightmost attack, skill or power cards in your hand.",
+      " NL If there are not enough cards to #rretain, #bdraw #bcards #bnext #bturn equal to the amount of missing cards."
     ]
   },
   "TheVixenMod:ClearSkyPower": {

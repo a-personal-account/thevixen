@@ -28,7 +28,7 @@ public class Moody extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final int MOODY = 2;
     private static final int UPGRADE_MOODY = 1;
 
