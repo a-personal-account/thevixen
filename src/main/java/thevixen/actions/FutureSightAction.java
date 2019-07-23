@@ -37,6 +37,7 @@ public class FutureSightAction extends AbstractGameAction {
         this.energyOnUse = energyOnUse;
     }
 
+
     public void update() {
         AbstractCard card;
         if (this.duration == Settings.ACTION_DUR_MED) {
@@ -49,12 +50,20 @@ public class FutureSightAction extends AbstractGameAction {
 
             while(var5.hasNext()) {
                 card = (AbstractCard)var5.next();
-                boolean found = false;
-                for(final String ex : exceptions) {
-                    if(ex.equalsIgnoreCase(card.cardID)) {
-                        found = true;
-                        break;
+                boolean found = card.type == AbstractCard.CardType.STATUS || card.type == AbstractCard.CardType.CURSE;
+                if(!found) {
+                    for (final String ex : exceptions) {
+                        if (ex.equalsIgnoreCase(card.cardID)) {
+                            found = true;
+                            break;
+                        }
                     }
+                }
+                if(!found) {
+                    boolean freeToPlayOnce = card.freeToPlayOnce;
+                    card.freeToPlayOnce = true;
+                    found = !card.hasEnoughEnergy();
+                    card.freeToPlayOnce = freeToPlayOnce;
                 }
                 if(!found) {
                     tmp.addToRandomSpot(card);

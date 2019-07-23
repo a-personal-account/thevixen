@@ -176,8 +176,8 @@
   "TheVixenMod:ChoiceLockedPower": {
     "NAME": "Choice Locked",
     "DESCRIPTIONS": [
-      "You can only play #r",
-      " cards this turn."
+      "Only #r",
+      " cards can be played this turn."
     ]
   },
   "TheVixenMod:ChoiceSpecsPower": {

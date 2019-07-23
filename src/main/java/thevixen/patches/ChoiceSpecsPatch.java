@@ -15,6 +15,7 @@ public class ChoiceSpecsPatch {
         public static SpireReturn<Boolean> Prefix(AbstractCard __instance) {
             if (AbstractDungeon.player.hasPower(ChoiceLockedPower.POWER_ID) &&
                     !((ChoiceLockedPower)AbstractDungeon.player.getPower(ChoiceLockedPower.POWER_ID)).matches(__instance.type)) {
+                __instance.cantUseMessage = AbstractDungeon.player.getPower(ChoiceLockedPower.POWER_ID).description.replace("#r", "");
                 return SpireReturn.Return(false);
             }
             return SpireReturn.Continue();

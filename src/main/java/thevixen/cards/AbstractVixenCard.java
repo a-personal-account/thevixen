@@ -43,8 +43,6 @@ public abstract class AbstractVixenCard extends CustomCard {
         super(id, name, imagePath, COST, description, TYPE, COLOR, rarity, target);
 
         this.cardtrigger = CardTrigger.NONE;
-
-        this.tags.add(TheVixenCardTags.Fire);
     }
 
     /* Using a fire card while under Sunny Day triggers the sunny method */

@@ -8,9 +8,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.actions.FutureSightAction;
 import thevixen.cards.AbstractVixenCard;
+import thevixen.cards.TheVixenCardTags;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
@@ -34,6 +36,22 @@ public class FutureSight extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
         this.cardtrigger = CardTrigger.SUNNYEXHAUST;
+
+        this.tags.add(TheVixenCardTags.IgnoreChoiceSpecs);
+    }
+
+    @Override
+    public boolean hasEnoughEnergy() {
+        if (AbstractDungeon.actionManager.turnHasEnded) {
+            this.cantUseMessage = TEXT[10];
+            return false;
+        } else {
+            if (EnergyPanel.totalCount < this.costForTurn && !this.freeToPlayOnce) {
+                this.cantUseMessage = TEXT[11];
+                return false;
+            }
+            return true;
+        }
     }
 
     @Override

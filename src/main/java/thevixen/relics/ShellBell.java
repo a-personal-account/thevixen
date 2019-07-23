@@ -15,10 +15,10 @@ public class ShellBell extends CustomRelic {
     public static final String ID = TheVixenMod.MOD_NAME + ":ShellBell";
     public static final String IMG_PATH = "relics/shellbell.png";
 
-    private static final RelicTier TIER = RelicTier.COMMON;
+    private static final RelicTier TIER = RelicTier.UNCOMMON;
     private static final LandingSound SOUND = LandingSound.SOLID;
 
-    public static final int BLOCK = 3;
+    public static final int BLOCK = 2;
 
     public ShellBell() {
         super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);

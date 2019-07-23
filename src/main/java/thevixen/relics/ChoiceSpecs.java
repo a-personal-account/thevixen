@@ -1,7 +1,6 @@
 package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
+import thevixen.cards.TheVixenCardTags;
 import thevixen.powers.ChoiceLockedPower;
 import thevixen.powers.ChoiceSpecsPower;
 
@@ -35,7 +35,7 @@ public class ChoiceSpecs extends CustomRelic {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if(!AbstractDungeon.player.hasPower(ChoiceLockedPower.POWER_ID)) {
+        if(!AbstractDungeon.player.hasPower(ChoiceLockedPower.POWER_ID) && !card.hasTag(TheVixenCardTags.IgnoreChoiceSpecs)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChoiceLockedPower(AbstractDungeon.player, card.type)));
             this.beginLongPulse();
         }

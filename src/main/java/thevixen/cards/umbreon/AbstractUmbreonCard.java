@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.TheVixenCardTags;
@@ -31,13 +32,27 @@ public abstract class AbstractUmbreonCard extends AbstractVixenCard {
 
         this.retain = true;
         this.exhaust = true;
-        this.tags.add(TheVixenCardTags.Umbreon);
+        this.tags.add(TheVixenCardTags.IgnoreChoiceSpecs);
 
         this.setBannerTexture(TheVixenMod.getResourcePath("512/banner_blacky.png"), TheVixenMod.getResourcePath("1024/banner_blacky.png"));
         if(frames == null) {
             frames = new TextureAtlas.AtlasRegion[2];
             frames[0] = regionFromTexture(TheVixenMod.getResourcePath("512/attackframe_blacky.png"));
             frames[1] = regionFromTexture(TheVixenMod.getResourcePath("512/skillframe_blacky.png"));
+        }
+    }
+
+    @Override
+    public boolean hasEnoughEnergy() {
+        if (AbstractDungeon.actionManager.turnHasEnded) {
+            this.cantUseMessage = TEXT[10];
+            return false;
+        } else {
+            if (EnergyPanel.totalCount < this.costForTurn && !this.freeToPlayOnce) {
+                this.cantUseMessage = TEXT[11];
+                return false;
+            }
+            return true;
         }
     }
 
