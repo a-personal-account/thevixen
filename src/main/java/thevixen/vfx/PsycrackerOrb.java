@@ -7,10 +7,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import thevixen.TheVixenMod;
 import thevixen.helpers.RainbowColor;
 
@@ -126,6 +128,7 @@ public class PsycrackerOrb extends AbstractGameEffect {
                 this.x += f.x * velocityFactor;
                 this.y += f.y * velocityFactor;
                 if (this.y > this.targetY) {
+                    CardCrawlGame.sound.play("RELIC_DROP_MAGICAL");
                     this.step++;
                 }
                 break;
@@ -170,6 +173,8 @@ public class PsycrackerOrb extends AbstractGameEffect {
                 if ((f.x > 0 && this.x > this.targetX) || (f.x < 0 && this.x < this.targetX)) {
                     this.step++;
                     this.rce = new RingClosingEffect(imgs[0], this.color, this.x, this.y);
+
+                    CardCrawlGame.sound.play("HEAL_" + MathUtils.random(1, 3));
                     AbstractDungeon.effectsQueue.add(this.rce);
                 }
                 break;
@@ -178,6 +183,7 @@ public class PsycrackerOrb extends AbstractGameEffect {
             case 5:
                 if(rce.isDone) {
                     this.isDone = true;
+                    CardCrawlGame.sound.play("ATTACK_FIRE");
                     AbstractDungeon.effectsQueue.add(new PsycrackerFireworks(this.color, this.x, this.y));
                 }
                 break;

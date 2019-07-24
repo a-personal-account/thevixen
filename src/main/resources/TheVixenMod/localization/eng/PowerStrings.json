@@ -140,7 +140,7 @@
     "NAME": "Analytic",
     "DESCRIPTIONS": [
       "Whenever you play #b2 or less cards during your turn, gain #r",
-      " #rSunny #Day."
+      " #rSunny #rDay."
     ]
   },
   "TheVixenMod:AnalyticPlusPower": {

@@ -41,7 +41,8 @@ public class Wish extends AbstractVixenCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new WishEffect(false), 0.5F));
+        AbstractDungeon.effectList.add(new WishEffect(false));
+        CardCrawlGame.sound.playV("RELIC_DROP_MAGICAL", 1F);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WishPower(p)));
 
         if(this.upgraded) {

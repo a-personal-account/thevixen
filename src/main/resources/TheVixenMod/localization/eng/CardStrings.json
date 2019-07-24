@@ -255,8 +255,8 @@
   },
   "TheVixenMod:DoubleTeam": {
     "NAME": "Double Team",
-    "DESCRIPTION": "Gain !B! Block. NL Unaffected by Frail. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Frail's effect is reverted for this card. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you."
+    "DESCRIPTION": "Gain !B! Block. NL Unaffected by Frail. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you ( !DBNUM! ).",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Frail's effect is reverted for this card. NL thevixenmod:Sunny (if possible): Gain 1 extra Block for each unique thevixenmod:debuff on you ( !DBNUM! )."
   },
   "TheVixenMod:BurnUp": {
     "NAME": "Burn Up",
@@ -270,8 +270,8 @@
   },
   "TheVixenMod:Disable": {
     "NAME": "Disable",
-    "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose a card from your Exhaustpile and add it to your Hand.",
-    "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose !M! cards from your Exhaustpile and add it to your Hand."
+    "DESCRIPTION": "Enemy loses !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose a card from your Exhaust pile and add it to your Hand.",
+    "UPGRADE_DESCRIPTION": "All enemies lose !MISC! Strength this turn. NL thevixenmod:Sunny_Exhaust: NL Choose !M! cards from your Exhaust pile and add it to your Hand."
   },
   "TheVixenMod:TailWhip": {
     "NAME": "Tail Whip",
@@ -283,8 +283,8 @@
   },
   "TheVixenMod:FutureSight": {
     "NAME": "Future Sight",
-    "DESCRIPTION": "Play a card from your Drawpile. NL thevixenmod:Sunny_Exhaust: NL Play up to X cards from your Drawpile.",
-    "UPGRADE_DESCRIPTION": "Play a card from your Drawpile. NL thevixenmod:Sunny_Exhaust: NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
+    "DESCRIPTION": "Play a card from your draw pile. NL thevixenmod:Sunny_Exhaust: NL Play up to X cards from your draw pile.",
+    "UPGRADE_DESCRIPTION": "Play a card from your draw pile. NL thevixenmod:Sunny_Exhaust: NL Shuffle your discard pile into your draw pile, then play up to X cards from it."
   },
   "TheVixenMod:Wish": {
     "NAME": "Wish",
