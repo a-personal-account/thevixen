@@ -62,7 +62,7 @@ public class SolarBeam extends AbstractVixenCard {
             AbstractDungeon.effectList.add(new InflameEffect(p));
             vfx(p, false);
             for(int i = 0; i < amount; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
                 AbstractDungeon.actionManager.addToBottom(new WaitAction(0.05F));
             }
         }

@@ -97,14 +97,6 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                 getResourcePath(POWER_CARD_PORTRAIT), getResourcePath(ENERGY_ORB_PORTRAIT),
                 getResourcePath(CARD_ENERGY_ORB));
 
-        BaseMod.addColor(AbstractCardEnum.THE_VIXEN_BLACK,
-                BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR, BLACKY_COLOR,
-                getResourcePath("512/attack_blacky.png"), getResourcePath("512/skill_blacky.png"),
-                getResourcePath(POWER_CARD), getResourcePath("512/card_blacky_orb.png"),
-                getResourcePath("1024/attack_blacky.png"), getResourcePath("1024/skill_blacky.png"),
-                getResourcePath(POWER_CARD_PORTRAIT), getResourcePath("1024/card_small_orb_blacky.png"),
-                getResourcePath("512/card_small_orb_blacky.png"));
-
         eventEnabled = false;
         bossEnabled = false;
         cardVFX = true;

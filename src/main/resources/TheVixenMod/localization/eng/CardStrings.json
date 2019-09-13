@@ -212,7 +212,7 @@
   },
   "TheVixenMod:MagicCoat": {
     "NAME": "Magic Coat",
-    "DESCRIPTION": "Gain !B! Block. NL Gain up to !M! [E] for each unique thevixenmod:debuff on you ( !DBNUM! ). NL (5 extra Block for each thevixenmod:debuff above the limit)"
+    "DESCRIPTION": "Gain !B! Block. NL Costs up to !M! [E] less for each unique thevixenmod:debuff on you ( !DBNUM! ). NL ( !MISC! extra Block for each thevixenmod:debuff above the limit)"
   },
   "TheVixenMod:Agility": {
     "NAME": "Agility",

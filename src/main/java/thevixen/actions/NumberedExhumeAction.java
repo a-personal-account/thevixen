@@ -37,7 +37,7 @@ public class NumberedExhumeAction extends AbstractGameAction {
             } else if (this.p.exhaustPile.isEmpty()) {
                 this.isDone = true;
             } else if (this.p.exhaustPile.size() <= this.amnt) {
-                for(int i = 0; i < this.amnt && this.p.hand.size() < 10; i++) {
+                for(int i = 0; i < this.amnt && this.p.hand.size() < 10 && !this.p.exhaustPile.isEmpty(); i++) {
                     AbstractCard card = this.p.exhaustPile.getTopCard();
                     card.unfadeOut();
                     this.p.hand.addToHand(card);

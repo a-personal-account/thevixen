@@ -1,14 +1,14 @@
 package thevixen.cards;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.relics.PaperFrog;
-import thevixen.powers.BurnPower;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.PenNibPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import thevixen.powers.TelepathyPower;
-import thevixen.relics.Charcoal;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,6 +44,11 @@ public abstract class AbstractConfusionCard extends AbstractVixenCard {
                 if (AbstractDungeon.player.hasPower(PenNibPower.POWER_ID)) {
                     tmp *= 2;
                     this.isDamageModified = true;
+                }
+
+                if (Settings.isEndless && AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
+                    float mod = AbstractDungeon.player.getBlight("DeadlyEnemies").effectFloat();
+                    tmp *= mod;
                 }
             }
 

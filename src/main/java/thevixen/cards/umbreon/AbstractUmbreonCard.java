@@ -28,13 +28,22 @@ public abstract class AbstractUmbreonCard extends AbstractVixenCard {
     public AbstractUmbreonCard(
             String id, String name, String imagePath, String description, CardType TYPE,
             CardTarget target) {
-        super(id, name, imagePath, COST, description, TYPE, AbstractCardEnum.THE_VIXEN_BLACK, CardRarity.SPECIAL, target);
+        super(id, name, imagePath, COST, description, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, CardRarity.SPECIAL, target);
 
         this.retain = true;
         this.exhaust = true;
         this.tags.add(TheVixenCardTags.IgnoreChoiceSpecs);
 
         this.setBannerTexture(TheVixenMod.getResourcePath("512/banner_blacky.png"), TheVixenMod.getResourcePath("1024/banner_blacky.png"));
+        this.setOrbTexture(TheVixenMod.getResourcePath("512/card_blacky_orb.png"), TheVixenMod.getResourcePath("512/card_blacky_orb.png"));
+        switch(this.type) {
+            case ATTACK:
+                this.setBackgroundTexture(TheVixenMod.getResourcePath("512/attack_blacky.png"), TheVixenMod.getResourcePath("1024/attack_blacky.png"));
+                break;
+            case SKILL:
+                this.setBackgroundTexture(TheVixenMod.getResourcePath("512/skill_blacky.png"), TheVixenMod.getResourcePath("1024/skill_blacky.png"));
+                break;
+        }
         if(frames == null) {
             frames = new TextureAtlas.AtlasRegion[2];
             frames[0] = regionFromTexture(TheVixenMod.getResourcePath("512/attackframe_blacky.png"));
