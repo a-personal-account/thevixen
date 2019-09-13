@@ -46,9 +46,10 @@ public abstract class AbstractConfusionCard extends AbstractVixenCard {
                     this.isDamageModified = true;
                 }
 
-                if (Settings.isEndless && AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
+                if (AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
                     float mod = AbstractDungeon.player.getBlight("DeadlyEnemies").effectFloat();
                     tmp *= mod;
+                    this.isDamageModified = true;
                 }
             }
 
@@ -85,6 +86,13 @@ public abstract class AbstractConfusionCard extends AbstractVixenCard {
                     for(i = 0; i < tmp.length; ++i) {
                         tmp[i] *= 2;
                     }
+                }
+                if (AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
+                    float mod = AbstractDungeon.player.getBlight("DeadlyEnemies").effectFloat();
+                    for(i = 0; i < tmp.length; ++i) {
+                        tmp[i] *= mod;
+                    }
+                    this.isDamageModified = true;
                 }
             }
 
@@ -172,6 +180,11 @@ public abstract class AbstractConfusionCard extends AbstractVixenCard {
             if(AbstractDungeon.player != null) {
                 if (AbstractDungeon.player.hasPower(PenNibPower.POWER_ID)) {
                     tmp *= 2;
+                    this.isDamageModified = true;
+                }
+                if (AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
+                    float mod = AbstractDungeon.player.getBlight("DeadlyEnemies").effectFloat();
+                    tmp *= mod;
                     this.isDamageModified = true;
                 }
             }
@@ -263,6 +276,12 @@ public abstract class AbstractConfusionCard extends AbstractVixenCard {
                 if (AbstractDungeon.player.hasPower(PenNibPower.POWER_ID)) {
                     for(i = 0; i < tmp.length; ++i) {
                         tmp[i] *= 2;
+                    }
+                }
+                if (AbstractDungeon.player.hasBlight("DeadlyEnemies")) {
+                    float mod = AbstractDungeon.player.getBlight("DeadlyEnemies").effectFloat();
+                    for(i = 0; i < tmp.length; ++i) {
+                        tmp[i] *= mod;
                     }
                 }
             }
