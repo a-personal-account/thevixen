@@ -22,7 +22,7 @@ import thevixen.powers.BurnPower;
 import java.util.Iterator;
 
 public class Hex extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Hex";
+    public static final String ID = TheVixenMod.makeID("Hex");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

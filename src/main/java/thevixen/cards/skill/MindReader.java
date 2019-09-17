@@ -18,7 +18,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class MindReader extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:MindReader";
+    public static final String ID = TheVixenMod.makeID("MindReader");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/mindreader.png";

@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import thevixen.TheVixenMod;
 import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.TheVixenCardTags;
 import thevixen.enums.AbstractCardEnum;
+import thevixen.helpers.AssetLoader;
 import thevixen.relics.UmbreonRelic;
 
 import java.lang.reflect.Method;
@@ -115,7 +115,7 @@ public abstract class AbstractUmbreonCard extends AbstractVixenCard {
 
 
     private TextureAtlas.AtlasRegion regionFromTexture(String tex) {
-        Texture texture = ImageMaster.loadImage(tex);
+        Texture texture = AssetLoader.loadImage(tex);
 
         return new TextureAtlas.AtlasRegion(texture, 0, 0, texture.getWidth(), texture.getHeight());
     }

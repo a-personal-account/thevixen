@@ -25,7 +25,7 @@ import thevixen.powers.BurnPower;
 import java.util.Iterator;
 
 public class Inferno extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Inferno";
+    public static final String ID = TheVixenMod.makeID("Inferno");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/inferno.png";

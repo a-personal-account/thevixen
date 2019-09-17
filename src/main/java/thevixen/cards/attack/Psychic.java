@@ -23,7 +23,7 @@ import thevixen.powers.BurnPower;
 import java.util.Iterator;
 
 public class Psychic extends AbstractConfusionCard {
-    public static final String ID = "TheVixenMod:Psychic";
+    public static final String ID = TheVixenMod.makeID("Psychic");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

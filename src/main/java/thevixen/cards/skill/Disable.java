@@ -15,7 +15,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.util.ArrayList;
 
 public class Disable extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Disable";
+    public static final String ID = TheVixenMod.makeID("Disable");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

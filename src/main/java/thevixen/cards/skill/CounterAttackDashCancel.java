@@ -21,7 +21,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class CounterAttackDashCancel extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:CADC";
+    public static final String ID = TheVixenMod.makeID("CADC");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/cadc.png";

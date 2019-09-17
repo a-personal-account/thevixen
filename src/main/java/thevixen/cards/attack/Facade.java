@@ -20,7 +20,7 @@ import thevixen.helpers.RandomPoint;
 import thevixen.vfx.RandomAnimatedSlashEffect;
 
 public class Facade extends AbstractWeakReverseCard {
-    public static final String ID = "TheVixenMod:Facade";
+    public static final String ID = TheVixenMod.makeID("Facade");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

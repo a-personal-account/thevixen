@@ -26,7 +26,7 @@ import thevixen.powers.SynergyBurstPower;
 import java.util.ArrayList;
 
 public class Psycracker extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Psycracker";
+    public static final String ID = TheVixenMod.makeID("Psycracker");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/psycracker.png";

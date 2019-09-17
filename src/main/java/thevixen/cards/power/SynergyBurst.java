@@ -23,7 +23,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SynergyBurstPower;
 
 public class SynergyBurst extends CustomCard {
-    public static final String ID = "TheVixenMod:SynergyBurst";
+    public static final String ID = TheVixenMod.makeID("SynergyBurst");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

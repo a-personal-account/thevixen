@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.util.Iterator;
 
 public class WillOWisp extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:WillOWisp";
+    public static final String ID = TheVixenMod.makeID("WillOWisp");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/willowisp.png";

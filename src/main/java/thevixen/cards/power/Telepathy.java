@@ -16,7 +16,7 @@ import thevixen.powers.BlazePower;
 import thevixen.powers.TelepathyPower;
 
 public class Telepathy extends CustomCard {
-    public static final String ID = "TheVixenMod:Telepathy";
+    public static final String ID = TheVixenMod.makeID("Telepathy");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/telepathy.png";

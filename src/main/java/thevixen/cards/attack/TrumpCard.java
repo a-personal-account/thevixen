@@ -19,7 +19,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.CardTossEffect;
 
 public class TrumpCard extends AbstractWeakReverseCard {
-    public static final String ID = "TheVixenMod:TrumpCard";
+    public static final String ID = TheVixenMod.makeID("TrumpCard");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

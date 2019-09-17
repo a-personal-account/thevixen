@@ -18,7 +18,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.relics.UmbreonRelic;
 
 public class UmbreonFoulPlay extends AbstractUmbreonCard {
-    public static final String ID = "TheVixenMod:UmbreonFoulPlay";
+    public static final String ID = TheVixenMod.makeID("UmbreonFoulPlay");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/umbreonfoulplay.png";

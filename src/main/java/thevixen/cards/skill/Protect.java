@@ -16,7 +16,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.ProtectSpamPower;
 
 public class Protect extends CustomCard {
-    public static final String ID = "TheVixenMod:Protect";
+    public static final String ID = TheVixenMod.makeID("Protect");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/protect.png";

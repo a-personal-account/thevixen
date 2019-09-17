@@ -18,7 +18,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.SongEffect;
 
 public class PerishSong extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:PerishSong";
+    public static final String ID = TheVixenMod.makeID("PerishSong");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/perishsong.png";

@@ -16,7 +16,7 @@ import thevixen.powers.DazzlingPower;
 import thevixen.powers.SunnyDayPower;
 
 public class Dazzling extends CustomCard {
-    public static final String ID = "TheVixenMod:Dazzling";
+    public static final String ID = TheVixenMod.makeID("Dazzling");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

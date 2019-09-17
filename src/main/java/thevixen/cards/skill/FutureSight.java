@@ -17,7 +17,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class FutureSight extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:FutureSight";
+    public static final String ID = TheVixenMod.makeID("FutureSight");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

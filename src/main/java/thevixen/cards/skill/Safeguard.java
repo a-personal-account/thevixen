@@ -15,7 +15,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class Safeguard extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Safeguard";
+    public static final String ID = TheVixenMod.makeID("Safeguard");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/safeguard.png";

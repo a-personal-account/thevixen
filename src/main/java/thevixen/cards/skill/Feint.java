@@ -20,7 +20,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.util.Iterator;
 
 public class Feint extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Feint";
+    public static final String ID = TheVixenMod.makeID("Feint");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/feint.png";

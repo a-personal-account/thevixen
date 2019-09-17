@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.EndurePower;
 
 public class Endure extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Endure";
+    public static final String ID = TheVixenMod.makeID("Endure");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

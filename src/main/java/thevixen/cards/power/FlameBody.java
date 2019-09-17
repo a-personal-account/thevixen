@@ -13,7 +13,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.FlameBodyPower;
 
 public class FlameBody extends CustomCard {
-    public static final String ID = "TheVixenMod:FlameBody";
+    public static final String ID = TheVixenMod.makeID("FlameBody");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/flamebody.png";

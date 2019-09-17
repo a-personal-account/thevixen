@@ -19,7 +19,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.BurnPower;
 
 public class FlameWheel extends AbstractSunnyBonusCard {
-    public static final String ID = "TheVixenMod:FlameWheel";
+    public static final String ID = TheVixenMod.makeID("FlameWheel");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

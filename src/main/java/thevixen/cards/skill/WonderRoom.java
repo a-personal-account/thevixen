@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class WonderRoom extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:WonderRoom";
+    public static final String ID = TheVixenMod.makeID("WonderRoom");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/wonderroom.png";

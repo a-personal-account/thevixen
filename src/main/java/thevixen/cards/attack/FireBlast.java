@@ -20,7 +20,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.util.Iterator;
 
 public class FireBlast extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:FireBlast";
+    public static final String ID = TheVixenMod.makeID("FireBlast");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

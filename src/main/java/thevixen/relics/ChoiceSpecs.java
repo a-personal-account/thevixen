@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
 import thevixen.cards.TheVixenCardTags;
+import thevixen.helpers.AssetLoader;
 import thevixen.powers.ChoiceLockedPower;
 import thevixen.powers.ChoiceSpecsPower;
 
@@ -20,7 +20,7 @@ public class ChoiceSpecs extends CustomRelic {
     private static final LandingSound SOUND = LandingSound.CLINK;
 
     public ChoiceSpecs() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
     }
 
     @Override

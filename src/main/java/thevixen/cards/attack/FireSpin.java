@@ -23,7 +23,7 @@ public class FireSpin extends AbstractVixenCard {
     private static final float PHASEINCREASE = (float)Math.toRadians(30);
     private static final float SPINTIME = 0.03F;
 
-    public static final String ID = "TheVixenMod:FireSpin";
+    public static final String ID = TheVixenMod.makeID("FireSpin");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/firespin.png";

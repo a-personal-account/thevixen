@@ -19,7 +19,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SubstitutePower;
 
 public class Substitute extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Substitute";
+    public static final String ID = TheVixenMod.makeID("Substitute");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/substitute.png";

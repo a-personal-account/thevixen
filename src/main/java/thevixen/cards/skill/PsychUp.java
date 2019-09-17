@@ -20,7 +20,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class PsychUp extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:PsychUp";
+    public static final String ID = TheVixenMod.makeID("PsychUp");
     public static final String NAME;
     public static final String UPGRADE_NAME;
     public static final String DESCRIPTION;

@@ -1,6 +1,5 @@
 package thevixen.relics;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
+import thevixen.helpers.AssetLoader;
 
 public class OranBerry extends CustomRelic {
     public static final String ID = TheVixenMod.MOD_NAME + ":OranBerry";
@@ -23,7 +23,7 @@ public class OranBerry extends CustomRelic {
     private int curportrait;
 
     public OranBerry() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
         this.counter = uses;
         this.curportrait = this.counter;
     }

@@ -21,7 +21,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.helpers.RandomPoint;
 
 public class Ember extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Ember";
+    public static final String ID = TheVixenMod.makeID("Ember");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/ember.png";

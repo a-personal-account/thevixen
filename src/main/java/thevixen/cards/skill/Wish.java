@@ -16,7 +16,7 @@ import thevixen.powers.WishPower;
 import thevixen.vfx.WishEffect;
 
 public class Wish extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Wish";
+    public static final String ID = TheVixenMod.makeID("Wish");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

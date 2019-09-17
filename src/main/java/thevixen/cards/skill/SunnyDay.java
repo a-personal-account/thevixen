@@ -17,7 +17,7 @@ import thevixen.powers.GutsPower;
 import thevixen.powers.SunnyDayPower;
 
 public class SunnyDay extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:SunnyDay";
+    public static final String ID = TheVixenMod.makeID("SunnyDay");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

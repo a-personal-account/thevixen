@@ -60,8 +60,9 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
 
     public static final String MOD_NAME = "TheVixenMod";
-
-    private static TheVixenCharacter theVixenCharacter;
+    public static String makeID(String name) {
+        return MOD_NAME + ":" + name;
+    }
 
     private Map<String, Keyword> keywords;
 
@@ -76,7 +77,6 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.subscribe(this);
 
         final Color VIXEN_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
-        final Color BLACKY_COLOR = CardHelper.getColor(70.0F, 20.0F, 50.0F);
 
         final String ATTACK_CARD = "512/attack_thevixen.png";
         final String SKILL_CARD = "512/skill_thevixen.png";
@@ -258,7 +258,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     @Override
     public void receiveEditCharacters() {
-        theVixenCharacter = new TheVixenCharacter("The Vixen");
+        TheVixenCharacter theVixenCharacter = new TheVixenCharacter("The Vixen");
         BaseMod.addCharacter(
                 theVixenCharacter, getResourcePath("charSelect/button.png"), getResourcePath("charSelect/portrait.png"),
                 TheVixenCharEnum.THE_VIXEN);

@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.MagicianPower;
 
 public class Magician extends CustomCard {
-    public static final String ID = "TheVixenMod:Magician";
+    public static final String ID = TheVixenMod.makeID("Magician");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/magician.png";
