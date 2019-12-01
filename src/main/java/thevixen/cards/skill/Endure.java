@@ -58,8 +58,6 @@ public class Endure extends AbstractVixenCard {
         regular(p, m);
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EndurePower(p, this)));
-
-        this.cardtrigger = CardTrigger.NONE;
     }
 
     @Override

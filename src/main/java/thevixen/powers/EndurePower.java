@@ -29,7 +29,7 @@ public class EndurePower extends AbstractTheVixenPower {
     private boolean eternal;
 
     public EndurePower(AbstractCreature owner, Endure card) {
-        this(owner, null, false);
+        this(owner, card, false);
     }
     public EndurePower(AbstractCreature owner) {
         this(owner, null);

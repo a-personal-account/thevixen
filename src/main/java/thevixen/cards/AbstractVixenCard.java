@@ -121,6 +121,7 @@ public abstract class AbstractVixenCard extends CustomCard {
 
     protected ArrayList<AbstractGameEffect> blinkylights = new ArrayList<>();
     public void resetBlinkyLights() {
+        AbstractDungeon.effectList.addAll(this.blinkylights);
         this.blinkylights.clear();
     }
     protected CardTrigger cardtrigger;
