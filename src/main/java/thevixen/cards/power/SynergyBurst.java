@@ -36,7 +36,7 @@ public class SynergyBurst extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 3;
-    private static final int STRENGTH = 1;
+    private static final int STRENGTH = 2;
     private static final int UPGRADE_STRENGTH = 1;
     public static int getStrength() { return STRENGTH; }
     public static int getUpgradeStrength() { return UPGRADE_STRENGTH; }

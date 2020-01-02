@@ -46,7 +46,6 @@ public class DefiantPower extends AbstractTheVixenPower {
     @Override
     public void atEndOfRound() {
         if(triggered > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SunnyDayPower(this.owner, this.triggered), this.triggered));
             this.triggered = 0;
             if(this.dfv != null) {
                 this.dfv.end();
@@ -60,6 +59,7 @@ public class DefiantPower extends AbstractTheVixenPower {
         if(power.type == PowerType.DEBUFF && target == this.owner) {
             if(this.triggered < this.amount) {
                 this.triggered++;
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SunnyDayPower(this.owner, 1), 1));
                 if(this.dfv == null) {
                     this.dfv = new DefiantFlameVFX(this.owner);
                     AbstractDungeon.effectList.add(this.dfv);

@@ -48,25 +48,19 @@
     "PROPER_NAME": "Debuffs Addendum",
     "NAMES": [
       "debuffs",
-      "debuff",
-      "debuffstack"
+      "debuff"
     ],
-    "DESCRIPTION": "This means all your powers that are debuffs, as well as unique #rCurse- and #bStatus cards in your hand."
+    "DESCRIPTION": "This means all powers on you that are debuffs, as well as unique #rCurse- and #bStatus cards in your hand."
   },
   "TheVixenMod:CumulativeDurationKeyword": {
     "PROPER_NAME": "Cumulative Stacks",
     "NAMES": [
       "cumulative stacks",
-      "cumulative_stacks"
+      "cumulative_stacks",
+      "debuffstacks",
+      "debuffstack"
     ],
-    "DESCRIPTION": "The stacks of all your #rdebuff powers combined, added to the amount of #rCurse- and #bStatus cards in your hand."
-  },
-  "TheVixenMod:GutsKeyword": {
-    "PROPER_NAME": "Guts",
-    "NAMES": [
-      "guts"
-    ],
-    "DESCRIPTION": "Counts as a #rdebuff power without having any detrimental effects. NL Does not deteriorate."
+    "DESCRIPTION": "The stacks of all #rdebuff powers on you combined, added to the amount of #rCurse- and #bStatus cards in your hand."
   },
   "TheVixenMod:CopycatKeyword": {
     "PROPER_NAME": "Copycat",
@@ -81,13 +75,6 @@
       "psycracker"
     ],
     "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 basedamage to a random enemy 8 (12) times. NL Lose #ySynergy #yBurst's effects."
-  },
-  "TheVixenMod:DefiantKeyword": {
-    "PROPER_NAME": "Defiant",
-    "NAMES": [
-      "defiant"
-    ],
-    "DESCRIPTION": "Whenever you are inflicted with a #ydebuff power, a flame starts orbitting you (you can have as many flames as you have stacks of #bdefiant). NL At the start of your turn, all flames are converted into #rSunny #rDay."
   },
   "TheVixenMod:TrickRoomKeyword": {
     "PROPER_NAME": "Trick Room",
@@ -139,5 +126,12 @@
       "igjhzcbvbmvz"
     ],
     "DESCRIPTION": "You can consider this card the \"Form\" for self-debuffing."
+  },
+  "TheVixenMod:DoNothingDebuff": {
+    "PROPER_NAME": "Donothing Debuff",
+    "NAMES": [
+      "donothingdebuff"
+    ],
+    "DESCRIPTION": "Does nothing."
   }
 }
