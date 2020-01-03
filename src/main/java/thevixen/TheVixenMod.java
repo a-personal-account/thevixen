@@ -1,9 +1,6 @@
 package thevixen;
 
-import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
-import basemod.ReflectionHacks;
+import basemod.*;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -70,6 +67,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public static boolean eventEnabled;
     public static boolean bossEnabled;
     public static boolean cardVFX;
+    public static float cardVFXAmount;
     public static boolean cardColoredBorder;
     public static boolean sunnyVFX;
 
@@ -102,11 +100,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         cardVFX = true;
         sunnyVFX = true;
         cardColoredBorder = true;
+        cardVFXAmount = 0.5F;
         theVixenProperties.setProperty("cardVFX", Boolean.toString(cardVFX));
         theVixenProperties.setProperty("cardColoredBorder", Boolean.toString(cardColoredBorder));
         theVixenProperties.setProperty("eventEnabled", Boolean.toString(eventEnabled));
         theVixenProperties.setProperty("bossEnabled", Boolean.toString(bossEnabled));
         theVixenProperties.setProperty("sunnyVFX", Boolean.toString(sunnyVFX));
+        theVixenProperties.setProperty("cardVFXAmount", Float.toString(cardVFXAmount));
         loadConfigData();
     }
 
@@ -143,6 +143,14 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                 label -> {},
                 button -> {
                     cardVFX = button.enabled;
+                    saveConfigData();
+                }));
+        modPanel.addUIElement(new ModSlider(
+                "",
+                500.0f, 580.0f, 200F,
+                "%", modPanel,
+                slider -> {
+                    cardVFXAmount = slider.value;
                     saveConfigData();
                 }));
         modPanel.addUIElement(new ModLabeledToggleButton(
@@ -470,6 +478,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
             eventEnabled = config.getBool("eventEnabled");
             bossEnabled = config.getBool("bossEnabled");
             cardVFX = config.getBool("cardVFX");
+            cardVFXAmount = config.getFloat("cardVFXAmount");
             cardColoredBorder = config.getBool("cardColoredBorder");
         } catch (Exception e) {
             e.printStackTrace();

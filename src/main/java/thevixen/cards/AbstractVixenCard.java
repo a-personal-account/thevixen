@@ -235,7 +235,7 @@ public abstract class AbstractVixenCard extends CustomCard {
                     offsety = MathUtils.random(this.hb.height) - this.hb.height / 2;
                     this.blinkylights.add(new TorchParticleColored(calcx(offsetx, offsety), calcy(offsetx, offsety), color.cpy()));
 
-                    this.blinkyParticleTimer = 0.04F;
+                    this.blinkyParticleTimer = (1F - Math.min(TheVixenMod.cardVFXAmount, 0.999F)) / 12.5F;
                 }
                 while(!this.blinkylights.isEmpty() && this.blinkylights.get(this.blinkylights.size() - 1).isDone) {
                     this.blinkylights.remove(this.blinkylights.size() - 1);
