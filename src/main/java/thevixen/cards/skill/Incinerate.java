@@ -38,7 +38,7 @@ public class Incinerate extends AbstractVixenCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(1, false));
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 p, p, new SunnyDayPower(p, this.misc), this.misc));

@@ -107,6 +107,11 @@ public class TheVixenCharacter extends CustomPlayer {
     }
 
     @Override
+    public String getPortraitImageName() {
+        return "ironcladPortrait.png";
+    }
+
+    @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<String>();
 

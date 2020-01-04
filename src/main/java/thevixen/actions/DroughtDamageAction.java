@@ -41,8 +41,6 @@ public class DroughtDamageAction extends AbstractGameAction {
             this.isDone = true;
         } else {
             if (this.target.currentHealth > 0) {
-                this.target.damageFlash = true;
-                this.target.damageFlashFrames = 4;
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.FIRE));
                 this.target.damage(new DamageInfo(this.source, damage, DamageInfo.DamageType.THORNS));
                 if (this.amount > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {

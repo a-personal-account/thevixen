@@ -55,9 +55,9 @@ public class Protect extends CustomCard {
         }
     }
 
-    @SpireOverride
+    @Override
     protected void applyPowersToBlock() {
-        SpireSuper.call();
+        super.applyPowersToBlock();
 
         if(AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ProtectSpamPower.POWER_ID)) {
             this.block *= Math.pow((100 - this.magicNumber) / 100.0, AbstractDungeon.player.getPower(ProtectSpamPower.POWER_ID).amount);
