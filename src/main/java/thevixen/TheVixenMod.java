@@ -74,7 +74,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public TheVixenMod() {
         BaseMod.subscribe(this);
 
-        final Color VIXEN_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
+        final Color VIXEN_COLOR = CardHelper.getColor(255, 180, 50);
 
         final String ATTACK_CARD = "512/attack_thevixen.png";
         final String SKILL_CARD = "512/skill_thevixen.png";
@@ -145,14 +145,16 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                     cardVFX = button.enabled;
                     saveConfigData();
                 }));
-        modPanel.addUIElement(new ModSlider(
+        ModSlider ms = new ModSlider(
                 "",
                 500.0f, 580.0f, 200F,
                 "%", modPanel,
                 slider -> {
                     cardVFXAmount = slider.value;
                     saveConfigData();
-                }));
+                });
+        ms.setValue(cardVFXAmount);
+        modPanel.addUIElement(ms);
         modPanel.addUIElement(new ModLabeledToggleButton(
                 CardCrawlGame.languagePack.getUIString(MOD_NAME + ":eventEnabled").TEXT[0],
                 400.0f, 500.0f, Settings.CREAM_COLOR,
@@ -492,6 +494,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
             config.setBool("eventEnabled", eventEnabled);
             config.setBool("bossEnabled", bossEnabled);
             config.setBool("cardVFX", cardVFX);
+            config.setFloat("cardVFXAmount", cardVFXAmount);
             config.setBool("cardColoredBorder", cardColoredBorder);
 
             config.save();
