@@ -1,7 +1,6 @@
 package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -14,7 +13,6 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
@@ -24,6 +22,7 @@ import com.megacrit.cardcrawl.vfx.combat.RedFireballEffect;
 import thevixen.TheVixenMod;
 import thevixen.actions.AttackAnimationAction;
 import thevixen.actions.VexTargetAction;
+import thevixen.helpers.AssetLoader;
 import thevixen.helpers.SingleTargetRelic;
 import thevixen.powers.EndurePower;
 
@@ -35,7 +34,7 @@ public class FiriumZ extends CustomRelic implements SingleTargetRelic, Clickable
     private static final LandingSound SOUND = LandingSound.CLINK;
 
     public FiriumZ() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
     }
 
     @Override

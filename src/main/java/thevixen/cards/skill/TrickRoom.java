@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class TrickRoom extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:TrickRoom";
+    public static final String ID = TheVixenMod.makeID("TrickRoom");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

@@ -16,7 +16,7 @@ import thevixen.powers.ConfusionPower;
 import thevixen.vfx.SwaggerEffect;
 
 public class Swagger extends AbstractConfusionCard {
-    public static final String ID = TheVixenMod.MOD_NAME + ":Swagger";
+    public static final String ID = TheVixenMod.makeID("Swagger");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/swagger.png";

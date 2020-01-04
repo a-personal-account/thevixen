@@ -15,7 +15,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class Incinerate extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Incinerate";
+    public static final String ID = TheVixenMod.makeID("Incinerate");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/incinerate.png";

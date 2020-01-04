@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.BlazePower;
 
 public class Blaze extends CustomCard {
-    public static final String ID = "TheVixenMod:Blaze";
+    public static final String ID = TheVixenMod.makeID("Blaze");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/blaze.png";

@@ -19,7 +19,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.RefreshEffect;
 
 public class Refresh extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Refresh";
+    public static final String ID = TheVixenMod.makeID("Refresh");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

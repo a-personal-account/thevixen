@@ -1,15 +1,14 @@
 package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
 import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.actions.ReduceDebuffDurationAction;
 import thevixen.characters.TheVixenCharacter;
+import thevixen.helpers.AssetLoader;
 import thevixen.powers.SunnyDayPower;
 
 public class BurningStick extends CustomRelic {
@@ -23,7 +22,7 @@ public class BurningStick extends CustomRelic {
     public static final int SUN = 1;
 
     public BurningStick() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
     }
 
     @Override

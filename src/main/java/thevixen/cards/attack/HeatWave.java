@@ -21,7 +21,7 @@ import thevixen.powers.BurnPower;
 import java.util.Iterator;
 
 public class HeatWave extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:HeatWave";
+    public static final String ID = TheVixenMod.makeID("HeatWave");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/heatwave.png";

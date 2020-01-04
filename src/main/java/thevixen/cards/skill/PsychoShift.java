@@ -21,7 +21,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.lang.reflect.Constructor;
 
 public class PsychoShift extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:PsychoShift";
+    public static final String ID = TheVixenMod.makeID("PsychoShift");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

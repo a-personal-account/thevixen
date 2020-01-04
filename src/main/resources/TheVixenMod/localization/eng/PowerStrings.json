@@ -51,7 +51,7 @@
     "NAME": "Substitute",
     "DESCRIPTIONS": [
       "Prevent the next #b",
-      " damage you would take. Any damage you would take when this effect wears off is negated."
+      " damage you would take. NL Any damage you would take when this wears off is negated."
     ]
   },
   "TheVixenMod:TelepathyPower": {
@@ -72,8 +72,7 @@
   "TheVixenMod:GutsPower": {
     "NAME": "Guts",
     "DESCRIPTIONS": [
-      "Effects act as if you had one more common debuff with duration #b",
-      ". At the end of your turn, gain Block equal to the cumulative duration of your common debuffs."
+      "At the end of your turn, gain 1 Block for each debuffstack on you. NL This counts as a debuff."
     ]
   },
   "TheVixenMod:FlameBodyPower": {
@@ -172,6 +171,9 @@
     "DESCRIPTIONS": [
       "At the start of your next turn, heal for half the HP you lost this turn."
     ]
+  },
+  "TheVixenMod:BurnRetainPower": {
+    "NAME": "On Fire!!!"
   },
   "TheVixenMod:ChoiceLockedPower": {
     "NAME": "Choice Locked",

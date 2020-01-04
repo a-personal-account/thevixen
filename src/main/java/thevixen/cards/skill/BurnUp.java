@@ -21,7 +21,7 @@ import thevixen.powers.ClearSkyPower;
 import thevixen.powers.SunnyDayPower;
 
 public class BurnUp extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:BurnUp";
+    public static final String ID = TheVixenMod.makeID("BurnUp");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

@@ -29,7 +29,7 @@ import java.lang.reflect.Field;
 public class Copycat extends AbstractVixenCard {
     public static Texture aura;
 
-    public static final String ID = "TheVixenMod:Copycat";
+    public static final String ID = TheVixenMod.makeID("Copycat");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

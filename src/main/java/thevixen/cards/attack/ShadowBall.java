@@ -25,7 +25,7 @@ import thevixen.powers.SunnyDayPower;
 import thevixen.vfx.ShadowBallEffect;
 
 public class ShadowBall extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:ShadowBall";
+    public static final String ID = TheVixenMod.makeID("ShadowBall");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

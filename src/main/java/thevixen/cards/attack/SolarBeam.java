@@ -23,7 +23,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class SolarBeam extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:SolarBeam";
+    public static final String ID = TheVixenMod.makeID("SolarBeam");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;
@@ -42,6 +42,7 @@ public class SolarBeam extends AbstractVixenCard {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
         this.baseDamage = DAMAGE;
+        this.baseMagicNumber = 1;
 
         this.isMultiDamage = true;
 

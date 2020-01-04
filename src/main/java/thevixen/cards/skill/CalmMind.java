@@ -17,7 +17,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.RetainRightPower;
 
 public class CalmMind extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:CalmMind";
+    public static final String ID = TheVixenMod.makeID("CalmMind");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

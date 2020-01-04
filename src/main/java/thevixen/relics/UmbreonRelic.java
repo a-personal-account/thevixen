@@ -1,15 +1,12 @@
 package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
@@ -18,6 +15,7 @@ import thevixen.cards.umbreon.UmbreonFoulPlay;
 import thevixen.cards.umbreon.UmbreonHelpingHand;
 import thevixen.cards.umbreon.UmbreonRefresh;
 import thevixen.cards.umbreon.UmbreonSnarl;
+import thevixen.helpers.AssetLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +43,7 @@ public class UmbreonRelic extends CustomRelic {
     }
 
     public UmbreonRelic() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
     }
 
     public void onEquip() {

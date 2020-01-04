@@ -13,7 +13,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class MagicCoat extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:MagicCoat";
+    public static final String ID = TheVixenMod.makeID("MagicCoat");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/magiccoat.png";

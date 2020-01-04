@@ -16,7 +16,7 @@ import thevixen.powers.ClearSkyPower;
 import thevixen.powers.SunnyDayPower;
 
 public class ClearSky extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:ClearSky";
+    public static final String ID = TheVixenMod.makeID("ClearSky");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

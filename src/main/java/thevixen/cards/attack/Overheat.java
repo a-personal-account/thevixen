@@ -19,7 +19,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.OverheatEffect;
 
 public class Overheat extends AbstractSunnyBonusCard {
-    public static final String ID = "TheVixenMod:Overheat";
+    public static final String ID = TheVixenMod.makeID("Overheat");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/overheat.png";

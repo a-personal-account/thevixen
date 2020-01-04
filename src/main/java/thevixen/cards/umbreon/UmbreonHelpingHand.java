@@ -11,7 +11,7 @@ import thevixen.TheVixenMod;
 import java.util.Iterator;
 
 public class UmbreonHelpingHand extends AbstractUmbreonCard {
-    public static final String ID = "TheVixenMod:UmbreonHelpingHand";
+    public static final String ID = TheVixenMod.makeID("UmbreonHelpingHand");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/umbreonhelpinghand.png";

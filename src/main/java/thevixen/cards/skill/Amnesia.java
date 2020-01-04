@@ -20,7 +20,7 @@ import thevixen.helpers.RandomPoint;
 import thevixen.powers.SunnyDayPower;
 
 public class Amnesia extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Amnesia";
+    public static final String ID = TheVixenMod.makeID("Amnesia");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/amnesia.png";

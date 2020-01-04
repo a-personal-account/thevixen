@@ -19,7 +19,7 @@ import thevixen.powers.ConfusionPower;
 import thevixen.vfx.EyeOpeningEffect;
 
 public class ConfuseRay extends AbstractConfusionCard {
-    public static final String ID = TheVixenMod.MOD_NAME + ":ConfuseRay";
+    public static final String ID = TheVixenMod.makeID("ConfuseRay");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/confuseray.png";

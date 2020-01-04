@@ -1,16 +1,15 @@
 package thevixen.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnReceivePowerRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thevixen.TheVixenMod;
+import thevixen.helpers.AssetLoader;
 
 import java.util.ArrayList;
 
@@ -22,7 +21,7 @@ public class Synchronize extends CustomRelic implements OnReceivePowerRelic {
     private static final LandingSound SOUND = LandingSound.MAGICAL;
 
     public Synchronize() {
-        super(ID, ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), ImageMaster.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
+        super(ID, AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH)), AssetLoader.loadImage(TheVixenMod.getResourcePath(IMG_PATH.replace("relics/", "relics/outline/"))), TIER, SOUND);
     }
 
     @Override

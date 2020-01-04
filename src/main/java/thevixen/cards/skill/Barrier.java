@@ -19,7 +19,7 @@ import thevixen.cards.AbstractConfusionCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class Barrier extends AbstractConfusionCard {
-    public static final String ID = "TheVixenMod:Barrier";
+    public static final String ID = TheVixenMod.makeID("Barrier");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/barrier.png";

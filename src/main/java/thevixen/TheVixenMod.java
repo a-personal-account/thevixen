@@ -1,9 +1,6 @@
 package thevixen;
 
-import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
-import basemod.ReflectionHacks;
+import basemod.*;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -60,8 +57,9 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
 
     public static final String MOD_NAME = "TheVixenMod";
-
-    private static TheVixenCharacter theVixenCharacter;
+    public static String makeID(String name) {
+        return MOD_NAME + ":" + name;
+    }
 
     private Map<String, Keyword> keywords;
 
@@ -69,14 +67,14 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
     public static boolean eventEnabled;
     public static boolean bossEnabled;
     public static boolean cardVFX;
+    public static float cardVFXAmount;
     public static boolean cardColoredBorder;
     public static boolean sunnyVFX;
 
     public TheVixenMod() {
         BaseMod.subscribe(this);
 
-        final Color VIXEN_COLOR = CardHelper.getColor(255.0F, 180.0F, 50.0F);
-        final Color BLACKY_COLOR = CardHelper.getColor(70.0F, 20.0F, 50.0F);
+        final Color VIXEN_COLOR = CardHelper.getColor(255, 180, 50);
 
         final String ATTACK_CARD = "512/attack_thevixen.png";
         final String SKILL_CARD = "512/skill_thevixen.png";
@@ -102,11 +100,13 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         cardVFX = true;
         sunnyVFX = true;
         cardColoredBorder = true;
+        cardVFXAmount = 0.5F;
         theVixenProperties.setProperty("cardVFX", Boolean.toString(cardVFX));
         theVixenProperties.setProperty("cardColoredBorder", Boolean.toString(cardColoredBorder));
         theVixenProperties.setProperty("eventEnabled", Boolean.toString(eventEnabled));
         theVixenProperties.setProperty("bossEnabled", Boolean.toString(bossEnabled));
         theVixenProperties.setProperty("sunnyVFX", Boolean.toString(sunnyVFX));
+        theVixenProperties.setProperty("cardVFXAmount", Float.toString(cardVFXAmount));
         loadConfigData();
     }
 
@@ -145,6 +145,16 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
                     cardVFX = button.enabled;
                     saveConfigData();
                 }));
+        ModSlider ms = new ModSlider(
+                "",
+                500.0f, 580.0f, 200F,
+                "%", modPanel,
+                slider -> {
+                    cardVFXAmount = slider.value;
+                    saveConfigData();
+                });
+        ms.setValue(cardVFXAmount);
+        modPanel.addUIElement(ms);
         modPanel.addUIElement(new ModLabeledToggleButton(
                 CardCrawlGame.languagePack.getUIString(MOD_NAME + ":eventEnabled").TEXT[0],
                 400.0f, 500.0f, Settings.CREAM_COLOR,
@@ -258,7 +268,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
 
     @Override
     public void receiveEditCharacters() {
-        theVixenCharacter = new TheVixenCharacter("The Vixen");
+        TheVixenCharacter theVixenCharacter = new TheVixenCharacter("The Vixen");
         BaseMod.addCharacter(
                 theVixenCharacter, getResourcePath("charSelect/button.png"), getResourcePath("charSelect/portrait.png"),
                 TheVixenCharEnum.THE_VIXEN);
@@ -470,6 +480,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
             eventEnabled = config.getBool("eventEnabled");
             bossEnabled = config.getBool("bossEnabled");
             cardVFX = config.getBool("cardVFX");
+            cardVFXAmount = config.getFloat("cardVFXAmount");
             cardColoredBorder = config.getBool("cardColoredBorder");
         } catch (Exception e) {
             e.printStackTrace();
@@ -483,6 +494,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
             config.setBool("eventEnabled", eventEnabled);
             config.setBool("bossEnabled", bossEnabled);
             config.setBool("cardVFX", cardVFX);
+            config.setFloat("cardVFXAmount", cardVFXAmount);
             config.setBool("cardColoredBorder", cardColoredBorder);
 
             config.save();

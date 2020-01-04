@@ -53,7 +53,7 @@ public class BurnPower extends AbstractTheVixenPower {
 
     @Override
     public void atEndOfRound() {
-        if(this.owner instanceof AbstractMonster) {
+        if(this.owner instanceof AbstractMonster && !this.owner.hasPower(BurnRetainPower.POWER_ID)) {
             if (AbstractDungeon.player.hasRelic(FlameOrb.ID)) {
                 AbstractDungeon.player.getRelic(FlameOrb.ID).flash();
                 AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, POWER_ID, (this.amount + 1) / 2));

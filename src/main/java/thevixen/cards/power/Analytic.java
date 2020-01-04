@@ -15,7 +15,7 @@ import thevixen.powers.AnalyticPower;
 import thevixen.powers.DroughtPower;
 
 public class Analytic extends CustomCard {
-    public static final String ID = "TheVixenMod:Analytic";
+    public static final String ID = TheVixenMod.makeID("Analytic");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/analytic.png";

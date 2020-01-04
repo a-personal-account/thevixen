@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class LightScreen extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:LightScreen";
+    public static final String ID = TheVixenMod.makeID("LightScreen");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/lightscreen.png";

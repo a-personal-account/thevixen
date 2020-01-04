@@ -19,7 +19,7 @@ import thevixen.cards.AbstractSunnyBonusCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class FlareBlitz extends AbstractSunnyBonusCard {
-    public static final String ID = "TheVixenMod:FlareBlitz";
+    public static final String ID = TheVixenMod.makeID("FlareBlitz");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/flareblitz.png";

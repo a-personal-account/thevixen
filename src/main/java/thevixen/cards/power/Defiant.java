@@ -15,7 +15,7 @@ import thevixen.powers.DefiantPower;
 import thevixen.powers.DroughtPower;
 
 public class Defiant extends CustomCard {
-    public static final String ID = "TheVixenMod:Defiant";
+    public static final String ID = TheVixenMod.makeID("Defiant");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

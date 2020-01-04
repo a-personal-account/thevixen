@@ -24,7 +24,7 @@ import thevixen.cards.AbstractConfusionCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class Psybeam extends AbstractConfusionCard {
-    public static final String ID = "TheVixenMod:Psybeam";
+    public static final String ID = TheVixenMod.makeID("Psybeam");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

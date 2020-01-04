@@ -26,7 +26,7 @@ import thevixen.powers.RetainRightPower;
 import thevixen.vfx.EyeOpeningEffect;
 
 public class Confusion extends AbstractConfusionCard {
-    public static final String ID = "TheVixenMod:Confusion";
+    public static final String ID = TheVixenMod.makeID("Confusion");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

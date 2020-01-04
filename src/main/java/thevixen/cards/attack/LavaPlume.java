@@ -13,7 +13,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class LavaPlume extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:LavaPlume";
+    public static final String ID = TheVixenMod.makeID("LavaPlume");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/lavaplume.png";

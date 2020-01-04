@@ -12,7 +12,7 @@ import thevixen.actions.ApplyTempLoseStrengthPowerAction;
 import java.util.Iterator;
 
 public class UmbreonSnarl extends AbstractUmbreonCard {
-    public static final String ID = "TheVixenMod:UmbreonSnarl";
+    public static final String ID = TheVixenMod.makeID("UmbreonSnarl");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/umbreonsnarl.png";

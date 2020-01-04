@@ -14,7 +14,7 @@ import thevixen.powers.DazzlingPower;
 import thevixen.powers.DroughtPower;
 
 public class Drought extends CustomCard {
-    public static final String ID = "TheVixenMod:Drought";
+    public static final String ID = TheVixenMod.makeID("Drought");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/drought.png";

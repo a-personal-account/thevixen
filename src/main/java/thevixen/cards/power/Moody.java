@@ -16,7 +16,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.MoodyPower;
 
 public class Moody extends CustomCard {
-    public static final String ID = "TheVixenMod:Moody";
+    public static final String ID = TheVixenMod.makeID("Moody");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

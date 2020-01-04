@@ -15,7 +15,7 @@ import thevixen.actions.SetPlayerBurnAction;
 import thevixen.enums.AbstractCardEnum;
 
 public class BossBurn extends AbstractCard {
-    public static final String ID = TheVixenMod.MOD_NAME + ":BossBurn";
+    public static final String ID = TheVixenMod.makeID("BossBurn");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "status/burn";

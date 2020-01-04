@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thevixen.TheVixenMod;
 
 public class UmbreonRefresh extends AbstractUmbreonCard {
-    public static final String ID = "TheVixenMod:UmbreonRefresh";
+    public static final String ID = TheVixenMod.makeID("UmbreonRefresh");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/umbreonrefresh.png";

@@ -17,7 +17,7 @@ import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
 public class Strike_TheVixen extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:Strike_TheVixen";
+    public static final String ID = TheVixenMod.makeID("Strike_TheVixen");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/strike.png";

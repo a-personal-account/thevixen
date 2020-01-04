@@ -20,7 +20,7 @@ import thevixen.enums.AbstractCardEnum;
 import java.util.Iterator;
 
 public class FireBlast extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:FireBlast";
+    public static final String ID = TheVixenMod.makeID("FireBlast");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;
@@ -36,13 +36,16 @@ public class FireBlast extends AbstractVixenCard {
     private static final int DAMAGE = 14;
     private static final int UPGRADE_DAMAGE = 5;
     private static final int PERCENTAGE = 50;
-    private static final int UPGRADE_PERCENTAGE = -20;
+    private static final int UPGRADE_PERCENTAGE = 70;
+
+    private int percentage;
 
     public FireBlast() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
 
         this.baseDamage = this.damage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = PERCENTAGE;
+        this.percentage = PERCENTAGE;
+        this.baseMagicNumber = this.baseDamage * percentage / 100;
 
         this.exhaust = true;
     }
@@ -65,7 +68,7 @@ public class FireBlast extends AbstractVixenCard {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         AbstractMonster mo;
 
-        int damage = this.baseDamage * (100 - this.magicNumber) / 100;
+        int damage = this.magicNumber;
         DamageInfo di = new DamageInfo(p, damage, this.damageTypeForTurn);
         while(var3.hasNext()) {
             mo = (AbstractMonster)var3.next();
@@ -93,7 +96,9 @@ public class FireBlast extends AbstractVixenCard {
         if (!this.upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMagicNumber(UPGRADE_PERCENTAGE);
+            this.percentage = UPGRADE_PERCENTAGE;
+            this.baseMagicNumber = this.baseDamage * percentage / 100;
+            this.upgradedMagicNumber = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
 
@@ -106,5 +111,18 @@ public class FireBlast extends AbstractVixenCard {
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
         UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.magicNumber = this.damage * this.percentage / 100;
+        this.isMagicNumberModified = (this.magicNumber != this.baseMagicNumber);
+    }
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.magicNumber = this.damage * this.percentage / 100;
+        this.isMagicNumberModified = (this.magicNumber != this.baseMagicNumber);
     }
 }

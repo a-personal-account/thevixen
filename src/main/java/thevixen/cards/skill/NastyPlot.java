@@ -15,7 +15,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class NastyPlot extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:NastyPlot";
+    public static final String ID = TheVixenMod.makeID("NastyPlot");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

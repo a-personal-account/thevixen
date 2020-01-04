@@ -26,7 +26,7 @@ import thevixen.relics.FiriumZ;
 import java.util.ArrayList;
 
 public class DebugCard extends AbstractConfusionCard {
-    public static final String ID = TheVixenMod.MOD_NAME + ":DebugCard";
+    public static final String ID = TheVixenMod.makeID("DebugCard");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/debug.png";

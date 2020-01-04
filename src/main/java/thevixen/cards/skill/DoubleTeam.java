@@ -15,7 +15,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.SunnyDayPower;
 
 public class DoubleTeam extends AbstractVixenCard {
-    public static final String ID = "TheVixenMod:DoubleTeam";
+    public static final String ID = TheVixenMod.makeID("DoubleTeam");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION;

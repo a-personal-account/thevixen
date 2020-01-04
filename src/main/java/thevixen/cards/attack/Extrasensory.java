@@ -14,7 +14,7 @@ import thevixen.enums.AbstractCardEnum;
 import thevixen.vfx.EyeOpeningEffect;
 
 public class Extrasensory extends AbstractConfusionCard {
-    public static final String ID = TheVixenMod.MOD_NAME + ":Extrasensory";
+    public static final String ID = TheVixenMod.makeID("Extrasensory");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/extrasensory.png";
