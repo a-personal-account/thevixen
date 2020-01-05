@@ -322,7 +322,7 @@
   },
   "TheVixenMod:Guts": {
     "NAME": "Guts",
-    "DESCRIPTION": "At the end of your turn, gain 1 Block for each thevixenmod:debuffstack on you. NL Gain !M! Donothingdebuff."
+    "DESCRIPTION": "At the end of your turn, gain 1 Block for each thevixenmod:debuffstack on you. NL Gain !M! thevixenmod:Do-Nothing-Debuff."
   },
   "TheVixenMod:FlameBody": {
     "NAME": "Flame Body",

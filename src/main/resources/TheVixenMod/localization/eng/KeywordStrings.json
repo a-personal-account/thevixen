@@ -128,10 +128,10 @@
     "DESCRIPTION": "You can consider this card the \"Form\" for self-debuffing."
   },
   "TheVixenMod:DoNothingDebuff": {
-    "PROPER_NAME": "Donothing Debuff",
+    "PROPER_NAME": "Do-nothing-Debuff",
     "NAMES": [
-      "donothingdebuff"
+      "do-nothing-debuff"
     ],
-    "DESCRIPTION": "Does nothing."
+    "DESCRIPTION": "Does nothing. NL What exactly did you expect?"
   }
 }
