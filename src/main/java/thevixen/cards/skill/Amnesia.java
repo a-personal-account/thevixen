@@ -65,9 +65,9 @@ public class Amnesia extends AbstractVixenCard {
         }
     }
 
-    @SpireOverride
+    @Override
     protected void applyPowersToBlock() {
-        SpireSuper.call();
+        super.applyPowersToBlock();
 
         if(AbstractDungeon.player != null && AbstractDungeon.player.hasPower(SunnyDayPower.POWER_ID)) {
             this.block = (int)(this.block * (100F + PERCENTAGE) / 100F);
