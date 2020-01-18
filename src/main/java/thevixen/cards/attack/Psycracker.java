@@ -18,14 +18,13 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import thevixen.TheVixenMod;
 import thevixen.actions.PsycrackerAction;
-import thevixen.cards.AbstractVixenCard;
 import thevixen.cards.power.SynergyBurst;
-import thevixen.enums.AbstractCardEnum;
+import thevixen.cards.umbreon.AbstractGoldenFrameCard;
 import thevixen.powers.SynergyBurstPower;
 
 import java.util.ArrayList;
 
-public class Psycracker extends AbstractVixenCard {
+public class Psycracker extends AbstractGoldenFrameCard {
     public static final String ID = TheVixenMod.makeID("Psycracker");
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -34,7 +33,6 @@ public class Psycracker extends AbstractVixenCard {
     private static final CardStrings cardStrings;
 
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 2;
@@ -42,12 +40,15 @@ public class Psycracker extends AbstractVixenCard {
     private static final int ITERATION = 8;
     private static final int UPGRADE_ITERATION = 4;
     public Psycracker() {
-        super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+        super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, TARGET);
 
         this.purgeOnUse = true;
 
         this.baseMagicNumber = this.magicNumber = ITERATION;
         this.baseDamage = this.damage = DAMAGE;
+
+        this.setBannerTexture(TheVixenMod.getResourcePath("512/banner_blacky.png"), TheVixenMod.getResourcePath("1024/banner_blacky.png"));
+
     }
 
     @Override

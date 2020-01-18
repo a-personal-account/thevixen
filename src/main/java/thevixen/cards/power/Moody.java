@@ -1,6 +1,7 @@
 package thevixen.cards.power;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -35,6 +36,8 @@ public class Moody extends CustomCard {
     public Moody() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MOODY;
+
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override
