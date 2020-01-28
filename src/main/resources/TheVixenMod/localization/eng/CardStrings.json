@@ -194,8 +194,8 @@
   },
   "TheVixenMod:Refresh": {
     "NAME": "Refresh",
-    "DESCRIPTION": "Draw a card for each unique thevixenmod:debuff on you NL ( !DBNUM! ) NL then reduce the number on all debuffs on you by !MISC!.",
-    "UPGRADE_DESCRIPTION": "Draw a card and gain NL !M! temporary HP for each unique thevixenmod:debuff on you ( !DBNUM! ), NL then reduce the number on all debuffs on you by !MISC!."
+    "DESCRIPTION": "Draw a card for each unique thevixenmod:debuff on you. NL ( !DBNUM! ) NL Then reduce the number on all debuffs on you by !MISC!.",
+    "UPGRADE_DESCRIPTION": "Draw a card and gain NL !M! temporary HP for each unique thevixenmod:debuff on you. NL ( !DBNUM! ) NL Then reduce the number on all debuffs on you by !MISC!."
   },
   "TheVixenMod:WonderRoom": {
     "NAME": "Wonder Room",

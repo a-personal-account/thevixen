@@ -1,6 +1,5 @@
 package thevixen.cards.skill;
 
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,12 +12,11 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import com.megacrit.cardcrawl.vfx.combat.BloodShotEffect;
 import thevixen.TheVixenMod;
-import thevixen.cards.AbstractConfusionCard;
+import thevixen.cards.AbstractVixenCard;
 import thevixen.enums.AbstractCardEnum;
 
-public class Barrier extends AbstractConfusionCard {
+public class Barrier extends AbstractVixenCard {
     public static final String ID = TheVixenMod.makeID("Barrier");
     public static final String NAME;
     public static final String DESCRIPTION;
