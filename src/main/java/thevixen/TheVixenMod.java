@@ -29,7 +29,6 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinWizard;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import thevixen.RazIntent.CustomIntent;
-import thevixen.cards.DebugCard;
 import thevixen.cards.attack.*;
 import thevixen.cards.power.*;
 import thevixen.cards.skill.*;
@@ -308,7 +307,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new FlareBlitz());
         BaseMod.addCard(new Inferno());
         BaseMod.addCard(new LavaPlume());
-        BaseMod.addCard(new Hex());
+        BaseMod.addCard(new BlastBurn());
 
         BaseMod.addCard(new ShadowBall());
         BaseMod.addCard(new SolarBeam());
@@ -382,7 +381,7 @@ public class TheVixenMod implements EditCardsSubscriber, EditCharactersSubscribe
         BaseMod.addCard(new Wish());
 
         // Special
-        BaseMod.addCard(new DebugCard());
+        //BaseMod.addCard(new DebugCard());
     }
 
     @Override

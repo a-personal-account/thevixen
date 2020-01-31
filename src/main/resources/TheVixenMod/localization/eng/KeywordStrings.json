@@ -18,7 +18,8 @@
   "TheVixenMod:SunnyKeyword": {
     "PROPER_NAME": "Sunny",
     "NAMES": [
-      "sunny"
+      "sunny",
+      "(sunny"
     ],
     "DESCRIPTION": "Requires the power #rSunny #rDay to trigger. NL Consumes 1 stack of it upon doing so."
   },

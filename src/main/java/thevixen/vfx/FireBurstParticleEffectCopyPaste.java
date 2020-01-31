@@ -2,16 +2,13 @@ package thevixen.vfx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import thevixen.TheVixenMod;
 
 public class FireBurstParticleEffectCopyPaste extends AbstractGameEffect {
     private TextureAtlas.AtlasRegion img;
@@ -23,6 +20,9 @@ public class FireBurstParticleEffectCopyPaste extends AbstractGameEffect {
     private float floor;
     private float GRAVITY;
 
+    public FireBurstParticleEffectCopyPaste(float x, float y) {
+        this(Color.ORANGE.cpy(), x, y, 180.0F * Settings.scale);
+    }
     public FireBurstParticleEffectCopyPaste(Color color, float x, float y, float gravity) {
         int roll = MathUtils.random(0, 2);
         if (roll == 0) {
@@ -71,7 +71,6 @@ public class FireBurstParticleEffectCopyPaste extends AbstractGameEffect {
         if (this.duration < 0.0F) {
             this.isDone = true;
         }
-
     }
 
     public void render(SpriteBatch sb) {
@@ -82,5 +81,14 @@ public class FireBurstParticleEffectCopyPaste extends AbstractGameEffect {
     }
 
     public void dispose() {
+    }
+
+    public void offset(float offsetX, float offsetY) {
+        x += offsetX;
+        y += offsetY;
+    }
+
+    public void setScale(float scale) {
+        this.scale *= scale;
     }
 }

@@ -126,8 +126,13 @@
   },
   "TheVixenMod:Spite": {
     "NAME": "Spite",
-    "DESCRIPTION": "Enemy takes 1 damage and loses 1 Strength this turn for each thevixenmod:debuffstack on you. NL ( !DBCD! )",
-    "UPGRADE_DESCRIPTION": "Enemy takes 1 damage twice and loses 1 Strength this turn for each thevixenmod:debuffstack on you. NL ( !DBCD! )"
+    "DESCRIPTION": "Deal !D! damage and target loses !M! Strength this turn. NL 1 for each thevixenmod:debuffstack on you.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice and target loses !M! Strength this turn. NL 1 for each thevixenmod:debuffstack on you."
+  },
+  "TheVixenMod:BlastBurn": {
+    "NAME": "Blast Burn",
+    "DESCRIPTION": "Deal !D! damage 4 times. NL Put a Void on top of your Drawpile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. NL Deal !D! damage to all enemies thevixenmod:(Sunny: twice). NL Put a Void on top of your Drawpile."
   },
 
 
@@ -237,7 +242,7 @@
   },
   "TheVixenMod:Barrier": {
     "NAME": "Barrier",
-    "DESCRIPTION": "Gain !B! Block X times this turn and next turn. NL Apply !M! Frail to yourself."
+    "DESCRIPTION": "Gain !B! Block X times this turn and next turn. NL Gain !M! Frail."
   },
   "TheVixenMod:PsychoShift": {
     "NAME": "Psycho Shift",
@@ -246,12 +251,12 @@
   },
   "TheVixenMod:PerishSong": {
     "NAME": "Perish Song",
-    "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply 1 thevixenmod:Burn for each thevixenmod:debuffstack on you."
+    "DESCRIPTION": "Apply !M! Vulnerable to yourself and an enemy. NL Apply !DBCD! thevixenmod:Burn, 1 for each thevixenmod:debuffstack on you."
   },
   "TheVixenMod:TrickRoom": {
     "NAME": "Trick Room",
     "DESCRIPTION": "For !M! turns, Vulnerable's effect on you is thevixenmod:inverted. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "For !M! turns, Vulnerable's effect on you is thevixenmod:inverted. NL Apply 1 Vulnerable to yourself. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "For !M! turns, Vulnerable's effect on you is thevixenmod:inverted. NL Gain 1 Vulnerable. NL Exhaust."
   },
   "TheVixenMod:DoubleTeam": {
     "NAME": "Double Team",

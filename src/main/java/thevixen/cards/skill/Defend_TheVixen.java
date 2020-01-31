@@ -1,6 +1,5 @@
 package thevixen.cards.skill;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,7 +30,7 @@ public class Defend_TheVixen extends AbstractVixenCard {
     public Defend_TheVixen() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseBlock = this.block = BLOCK_AMT;
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+        this.tags.add(CardTags.STARTER_DEFEND);
 
         this.cardtrigger = CardTrigger.SUNNY;
     }

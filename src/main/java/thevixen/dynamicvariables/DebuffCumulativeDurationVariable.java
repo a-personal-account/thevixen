@@ -35,7 +35,8 @@ public class DebuffCumulativeDurationVariable extends DynamicVariable {
     {
         int val = -1;
         if(AbstractDungeon.player != null) {
-            val = ReduceDebuffDurationAction.getCumulativeDuration(AbstractDungeon.player);
+            //Variable is only used in Perishsong, so it's an edgecase " + magicnumber".
+            val = ReduceDebuffDurationAction.getCumulativeDuration(AbstractDungeon.player) + card.magicNumber;
         }
         return val;
         // Should generally just be the above.

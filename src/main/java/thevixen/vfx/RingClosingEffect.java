@@ -11,20 +11,29 @@ public class RingClosingEffect extends AbstractGameEffect {
     private Texture img;
     private float x;
     private float y;
+    private float delay;
 
     public RingClosingEffect(Texture img, Color color, float x, float y) {
+        this(img, color, x, y, 0F);
+    }
+    public RingClosingEffect(Texture img, Color color, float x, float y, float delay) {
         this.img = img;
         this.x = x;
         this.y = y;
 
         this.scale = 10F * Settings.scale;
         this.color = color;
+        this.delay = delay;
     }
 
     public void update() {
-        this.scale -= Gdx.graphics.getDeltaTime() * 10 * Settings.scale;
-        if(this.scale < 0) {
-            this.isDone = true;
+        if(delay <= 0F) {
+            this.scale -= Gdx.graphics.getDeltaTime() * 10 * Settings.scale;
+            if (this.scale < 0) {
+                this.isDone = true;
+            }
+        } else {
+            delay -= Gdx.graphics.getDeltaTime();
         }
     }
 

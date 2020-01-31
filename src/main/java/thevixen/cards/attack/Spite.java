@@ -29,21 +29,17 @@ public class Spite extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
-    private static final int COUNT = 1;
-    private static final int UPGRADE_COUNT = 1;
 
     public Spite() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = COUNT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.damage = ReduceDebuffDurationAction.getCumulativeDuration(p);
-        for(int i = 0; i < this.magicNumber; i++) {
+        for(int i = 0; i <= this.timesUpgraded; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(m, p, this.damage));
+        AbstractDungeon.actionManager.addToBottom(new ApplyTempLoseStrengthPowerAction(m, p, this.magicNumber));
     }
 
     @Override
@@ -55,10 +51,18 @@ public class Spite extends AbstractVixenCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_COUNT);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        this.baseDamage = ReduceDebuffDurationAction.getCumulativeDuration(AbstractDungeon.player);
+        this.baseMagicNumber = this.baseDamage;
+        super.calculateCardDamage(mo);
+        this.isDamageModified = this.baseDamage > 0;
+        this.isMagicNumberModified = this.isDamageModified;
     }
 
     static {

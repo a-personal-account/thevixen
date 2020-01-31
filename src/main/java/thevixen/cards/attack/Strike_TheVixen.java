@@ -1,6 +1,5 @@
 package thevixen.cards.attack;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -39,7 +38,7 @@ public class Strike_TheVixen extends AbstractVixenCard {
 
         this.baseMagicNumber = this.magicNumber = BURN;
         this.baseDamage = this.damage = DAMAGE;
-        this.tags.add(BaseModCardTags.BASIC_STRIKE);
+        this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
 
         this.cardtrigger = CardTrigger.SUNNY;
