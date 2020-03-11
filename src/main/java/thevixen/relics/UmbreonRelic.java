@@ -116,24 +116,6 @@ public class UmbreonRelic extends CustomRelic {
     }
 
     @Override
-    public void atTurnStartPostDraw() {
-        if(this.counter == -1) {
-            /* Go through the hand and search for an Umbreon card. Retain it. */
-            Iterator var3 = AbstractDungeon.player.hand.group.iterator();
-
-            AbstractCard mo;
-            while(var3.hasNext()) {
-                mo = (AbstractCard)var3.next();
-
-                if(base.containsKey(mo.cardID)) {
-                    mo.retain = true;
-                    break;
-                }
-            }
-        }
-    }
-
-    @Override
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }

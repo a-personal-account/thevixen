@@ -3,7 +3,6 @@ package thevixen.cards.power;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,12 +31,13 @@ public class Substitute extends AbstractVixenCard {
 
     private static final int COST = 1;
     public static final int PERCENTAGE = 25;
+    public static final int DAMAGE_PERCENTAGE = 18;
 
-    public static final int UPGRADE_PERCENTAGE = -10;
+    public static final int UPGRADE_PERCENTAGE = -8;
 
     public Substitute() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = PERCENTAGE;
+        this.baseMagicNumber = this.magicNumber = DAMAGE_PERCENTAGE;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Substitute extends AbstractVixenCard {
     }
 
     public static int calc(AbstractPlayer p, int percentage) {
-        int val = -1;
+        int val = 0;
         if(p != null) {
             val = p.maxHealth * percentage / 100;
             int threshold = p.currentBlock + p.currentHealth - 1;

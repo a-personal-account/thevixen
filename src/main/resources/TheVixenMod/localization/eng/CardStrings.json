@@ -305,8 +305,8 @@
 
   "TheVixenMod:SynergyBurst": {
     "NAME": "Synergy Burst",
-    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle a thevixenmod:Psycracker into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle an upgraded thevixenmod:Psycracker into your discard pile."
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle a Psycracker into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Shuffle an upgraded Psycracker into your discard pile."
   },
   "TheVixenMod:Moody": {
     "NAME": "Moody",
@@ -323,7 +323,7 @@
   },
   "TheVixenMod:Substitute": {
     "NAME": "Substitute",
-    "DESCRIPTION": "Take !SUB! damage. NL Gain !25%! thevixenmod:Substitute. NL Sunny: Gain 1 Artifact."
+    "DESCRIPTION": "Take !SUB! damage. NL Cannot kill you. NL Gain !25%! thevixenmod:Substitute. NL thevixenmod:Sunny: Gain 1 Artifact."
   },
   "TheVixenMod:Guts": {
     "NAME": "Guts",

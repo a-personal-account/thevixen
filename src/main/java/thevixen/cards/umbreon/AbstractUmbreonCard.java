@@ -19,7 +19,7 @@ public abstract class AbstractUmbreonCard extends AbstractGoldenFrameCard {
             CardTarget target) {
         super(id, name, imagePath, COST, description, TYPE, target);
 
-        this.retain = true;
+        this.selfRetain = true;
         this.exhaust = true;
         this.tags.add(TheVixenCardTags.IgnoreChoiceSpecs);
 

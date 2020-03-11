@@ -44,6 +44,7 @@ public class SynergyBurst extends CustomCard {
     public SynergyBurst() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = STRENGTH;
+        this.cardsToPreview = new Psycracker();
 
         this.tags.add(BaseModCardTags.FORM);
     }
@@ -89,6 +90,7 @@ public class SynergyBurst extends CustomCard {
             this.upgradeMagicNumber(UPGRADE_STRENGTH);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
 

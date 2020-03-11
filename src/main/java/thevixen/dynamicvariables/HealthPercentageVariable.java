@@ -31,14 +31,14 @@ public class HealthPercentageVariable extends DynamicVariable {
     @Override
     public int value(AbstractCard card)
     {
-        return AbstractDungeon.player != null ? AbstractDungeon.player.maxHealth * 25 / 100 : -1;
+        return baseValue(card);
         // What the dynamic variable will be set to on your card. Usually uses some kind of int you store on your card.
     }
 
     @Override
     public int baseValue(AbstractCard card)
     {
-        return AbstractDungeon.player != null ? AbstractDungeon.player.maxHealth * 25 / 100 : -1;
+        return AbstractDungeon.player != null ? AbstractDungeon.player.maxHealth * Substitute.PERCENTAGE / 100 : 0;
         // Should generally just be the above.
     }
 

@@ -70,19 +70,12 @@
     ],
     "DESCRIPTION": "This card exhausts. NL #rSunny: Shuffle a copy of the repeated card into your discard pile."
   },
-  "TheVixenMod:PsycrackerKeyword": {
-    "PROPER_NAME": "Psycracker",
-    "NAMES": [
-      "psycracker"
-    ],
-    "DESCRIPTION": "2 Cost Attack, Purge NL When drawn, draw a card. NL Deal 4 basedamage to a random enemy 8 (12) times. NL Lose #ySynergy #yBurst's effects."
-  },
   "TheVixenMod:TrickRoomKeyword": {
     "PROPER_NAME": "Trick Room",
     "NAMES": [
       "inverted"
     ],
-    "DESCRIPTION": "Power only deteriotates at the end of turn if you were #rattacked while #rVulnerable during said turn. NL Stacks with #bodd #bmushroom."
+    "DESCRIPTION": "Power only deteriotates at the end of turn if you were #rattacked while #rVulnerable during said turn. NL Actual numbers are #b33% less damage taken instead of #r50% more, or #b45% less damage with #yodd #ymushroom."
   },
   "TheVixenMod:NotSunnyKeyword": {
     "PROPER_NAME": "Not Sunny",
@@ -126,13 +119,13 @@
     "NAMES": [
       "igjhzcbvbmvz"
     ],
-    "DESCRIPTION": "You can consider this card the \"Form\" for self-debuffing."
+    "DESCRIPTION": "Just play it and see for yourself already..."
   },
   "TheVixenMod:DoNothingDebuff": {
     "PROPER_NAME": "Do-nothing-Debuff",
     "NAMES": [
       "do-nothing-debuff"
     ],
-    "DESCRIPTION": "Does nothing. NL What exactly did you expect?"
+    "DESCRIPTION": "Does nothing. NL What exactly did you expect? NL Not affected by debuff reducing/removing effects."
   }
 }

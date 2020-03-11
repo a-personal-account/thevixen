@@ -32,6 +32,8 @@ public class Spite extends AbstractVixenCard {
 
     public Spite() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
+        this.baseDamage = this.damage = 0;
+        this.baseMagicNumber = this.magicNumber = 0;
     }
 
     @Override

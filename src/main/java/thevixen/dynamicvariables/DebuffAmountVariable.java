@@ -33,7 +33,7 @@ public class DebuffAmountVariable extends DynamicVariable {
     @Override
     public int baseValue(AbstractCard card)
     {
-        int val = -1;
+        int val = 0;
         if(AbstractDungeon.player != null) {
             val = ReduceDebuffDurationAction.getCommonDebuffCount(AbstractDungeon.player);
         }
