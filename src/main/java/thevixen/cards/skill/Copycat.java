@@ -42,7 +42,7 @@ public class Copycat extends AbstractVixenCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL;
 
-    private static final int COST = -1;
+    private static final int COST = -2;
 
     private AbstractCard card;
     private int randtext;

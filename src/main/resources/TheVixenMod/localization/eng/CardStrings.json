@@ -231,8 +231,8 @@
   },
   "TheVixenMod:Copycat": {
     "NAME": "Copycat",
-    "DESCRIPTION": "Repeat the last card you played. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Repeat the last card you played. It costs 1. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
+    "DESCRIPTION": "Is a copy of the last card played. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Is a copy of the last card played. It costs 1. NL Exhaust. NL thevixenmod:Sunny: NL Shuffle a copy of it into your discard pile.",
     "EXTENDED_DESCRIPTION": [
       "I haven't done anything yet!",
       "taints our whole profession.",

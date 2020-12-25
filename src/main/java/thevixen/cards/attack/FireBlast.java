@@ -33,7 +33,7 @@ public class FireBlast extends AbstractVixenCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 14;
+    private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE = 5;
     private static final int PERCENTAGE = 50;
     private static final int UPGRADE_PERCENTAGE = 70;

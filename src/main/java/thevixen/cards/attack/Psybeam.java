@@ -39,7 +39,7 @@ public class Psybeam extends AbstractConfusionCard {
     private static final int COST = 1;
 
     private static final int CONFUSION = 7;
-    private static final int UPGRADE_CONFUSION = 4;
+    private static final int UPGRADE_CONFUSION = 2;
 
     public Psybeam() {
         super(ID, NAME, TheVixenMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.THE_VIXEN_ORANGE, RARITY, TARGET);
