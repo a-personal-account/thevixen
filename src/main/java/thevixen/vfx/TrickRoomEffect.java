@@ -29,7 +29,7 @@ public class TrickRoomEffect extends AbstractGameEffect {
     ArrayList<ArrayList<Square>> squares;
 
     public TrickRoomEffect(Hitbox hb, Color startingcolor) {
-        this.img = ImageMaster.loadImage(TheVixenMod.getResourcePath("vfx/square.png"));
+        img = ImageMaster.loadImage(TheVixenMod.getResourcePath("vfx/square.png"));
 
         this.color = startingcolor;
         this.color.a = 0.5F;

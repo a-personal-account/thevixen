@@ -1,5 +1,6 @@
 package thevixen.cards.attack;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,6 +14,7 @@ import thevixen.actions.ApplyTempGainStrengthPowerAction;
 import thevixen.cards.AbstractConfusionCard;
 import thevixen.enums.AbstractCardEnum;
 import thevixen.powers.ConfusionPower;
+import thevixen.vfx.ConfuzzledVFX;
 import thevixen.vfx.SwaggerEffect;
 
 public class Swagger extends AbstractConfusionCard {
@@ -49,6 +51,10 @@ public class Swagger extends AbstractConfusionCard {
                 m, p, this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 m, p, new ConfusionPower(m)));
+
+        if(!m.hasPower(ConfusionPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ConfuzzledVFX(m)));
+        }
     }
 
     @Override

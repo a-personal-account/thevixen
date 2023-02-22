@@ -1,6 +1,5 @@
 package thevixen.powers;
 
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ReactivePower;
 import thevixen.TheVixenMod;
+import thevixen.vfx.ConfuzzledVFX;
 
 
 public class ConfusionPower extends AbstractTheVixenPower {
@@ -59,6 +59,7 @@ public class ConfusionPower extends AbstractTheVixenPower {
             return;
         }
         this.owner.damage(new DamageInfo(this.owner, (info.output + 1) / 2, DamageInfo.DamageType.THORNS));
+        AbstractDungeon.effectList.add(new ConfuzzledVFX(this.owner, 0.5F));
     }
 
     @Override
